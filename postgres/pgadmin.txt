@@ -1,0 +1,70 @@
+PGADMIN Installation
+
+manual
+https://www.pgadmin.org/download/pgadmin-4-apt/
+https://handynotes.ru/2020/11/pgadmin4-linux-mint-20-ulyana.html
+with python
+	https://www.tecmint.com/install-postgresql-with-pgadmin4-on-linux-mint/
+
+apt search pgadmin
+	pgadmin3    - graphical administration tool for PostgreSQL                                                                             
+	i A pgadmin3-data   - graphical administration tool for PostgreSQL - documentation                                                             
+	p   pgadmin4  - Installs all required components to run pgAdmin in desktop and web modes. pgAdmin is the most popular and feature rich Op
+	p   pgadmin4-desktop                                    - The desktop user interface for pgAdmin. pgAdmin is the most popular and feature rich Open Source administration and devel
+	p   pgadmin4-server                                     - The core server package for pgAdmin. pgAdmin is the most popular and feature rich Open Source administration and developm
+	p   pgadmin4-web                                        - The web interface for pgAdmin, hosted under Apache HTTPD. pgAdmin is the most popular and feature rich Open Source admini
+	p   phppgadmin   
+
+Add the repository for pgadmin to your local machine.
+	Install the public key for the repository
+		sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+		sudo curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add 
+		sudo curl http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add
+		wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+			ok
+	Create the repository configuration file
+		// $(lsb_release -cs)  //uma // `lsb_release -cs`
+		// linux mint 20.2 uma is based on Ubuntu Focal so use "focal" instead of "uma"
+		// https://linuxmint.com/download_all.php
+		sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+		
+		Error use "focal" instead of "uma"
+		sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+			Err:11 https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/uma pgadmin4 Release
+ 				404  Not Found [IP: 217.196.149.55 443]
+			E: The repository 'https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/uma pgadmin4 Release' does not have a Release file.
+			See apt-secure(8) manpage for repository creation and user configuration details.
+
+		sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+sudo nano /etc/apt/sources.list.d/pgdg.list
+	deb http://apt.postgresql.org/pub/repos/apt/ uma-pgdg main
+	||
+	deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main
+
+sudo nano /etc/apt/sources.list.d/pgadmin4.list
+	deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main
+	|| 
+	deb https://apt.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main
+
+
+sudo apt install pgadmin4
+	//Install pgAdmin (for desktop mode only):
+sudo apt install pgadmin4-desktop
+	//Install pgAdmin (for web mode only):
+sudo apt install pgadmin4-web 
+	You can configure the webserver, if you installed pgadmin for web mode:
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+sudo apt update
+sudo apt-get update && sudo apt-get install pgadmin4
+
+files will be downloded 
+https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal/dists/pgadmin4/main/binary-amd64/pgadmin4-desktop_6.3_amd64.deb
+https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal/dists/pgadmin4/main/binary-amd64/pgadmin4-server_6.3_amd64.deb
+
+check if the database server is accepting incoming connections 
+	sudo pg_isready
+		/var/run/postgresql:5432 - accepting connections
+
+

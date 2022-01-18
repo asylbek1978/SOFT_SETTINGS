@@ -1,0 +1,5 @@
+source
+	https://symfony.com/doc/current/templates.html
+
+{{ render(controller('App\\Controller\\TaskController::new')) }}
+

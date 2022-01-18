@@ -1,0 +1,12 @@
+For example close chrome brouser
+close all processes
+	sudo pkill -9 chrome
+
+list all processes running the Chrome brouser
+	ps aux | grep chrome
+	
+	// list only pids
+	ps aux | grep chrome | awk '{ print $2 }'
+
+kill individual process
+	sudo kill -9 PID

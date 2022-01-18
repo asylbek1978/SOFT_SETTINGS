@@ -1,0 +1,62 @@
+https://git-scm.com/download/win
+
+create folder
+	C:\wamp64\www\gitTest
+
+cmd
+	git --version
+		git version 2.32.0.windows.1
+	cd C:\wamp64\www\gitTest
+	git init
+		Initialized empty Git repository in C:/wamp64/www/gitTest/.git/
+	git add README.md
+		// creates a file
+	git config --global user.name "asylbek1978"
+	git config --global user.email "asilbekov1978@mail.ru"
+	git config --list
+		//lists git configuration
+		diff.astextplain.textconv=astextplain
+		filter.lfs.clean=git-lfs clean -- %f
+		filter.lfs.smudge=git-lfs smudge -- %f
+		filter.lfs.process=git-lfs filter-process
+		filter.lfs.required=true
+		http.sslbackend=openssl
+		http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+		core.autocrlf=true
+		core.fscache=true
+		core.symlinks=false
+		pull.rebase=false
+		credential.helper=manager-core
+		credential.https://dev.azure.com.usehttppath=true
+		init.defaultbranch=master
+		user.name=asylbek1978
+		user.email=asilbekov1978@mail.ru
+		core.repositoryformatversion=0
+		core.filemode=false
+		core.bare=false
+		core.logallrefupdates=true
+		core.symlinks=false
+		core.ignorecase=true
+	git add .
+	git commit -m "first commit"
+		[master (root-commit) f9cec5b] first commit
+		 1 file changed, 1 insertion(+)
+		 create mode 100644 README.md
+	git remote add origin https://github.com/asylbek1978/test.git
+
+github
+…or create a new repository on the command line
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/asylbek1978/test.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/asylbek1978/test.git
+git branch -M main
+git push -u origin main
+
+
+	

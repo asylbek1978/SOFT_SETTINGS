@@ -1,0 +1,111 @@
+https://www.postgresql.org/docs/9.1/information-schema.html
+
+cluster (Server) ->  Catalog (Database) ->  Schema -> Table -> Row -> Value
+Information schema
+
+Server
+	Databases
+		SELECT * from pg_database;
+Database
+	select current_database();
+		ais_sverdlovsk;
+	Schemas
+		SELECT * FROM information_schema.schemata;
+			information_schema
+			public ...
+		SELECT * FROM pg_catalog.pg_namespace;
+	Comment
+		SELECT pg_catalog.shobj_description(d.oid, 'pg_database') AS "Description"
+		FROM   pg_catalog.pg_database d
+		WHERE  datname = 'ais_sverdlovsk';
+
+		select description from pg_shdescription
+		join pg_database on objoid = pg_database.oid
+		where datname = 'ais_sverdlovsk';
+
+		select description from pg_description
+		join pg_class on pg_description.objoid = pg_class.oid
+		join pg_namespace on pg_class.relnamespace = pg_namespace.oid
+		where relname = '<table name>' and nspname='<schema name>'
+
+Get info about all tables
+	select * From pg_tables;
+
+	SELECT n.nspname AS schema_name
+	 , pg_get_userbyid(c.relowner) AS table_owner
+	 , c.relname AS table_name
+	 , CASE WHEN c.relkind = 'v' THEN 'view' ELSE 'table' END 
+	   AS table_type
+	 , d.description AS table_description
+	 FROM pg_class As c
+	 LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+	 LEFT JOIN pg_tablespace t ON t.oid = c.reltablespace
+	 LEFT JOIN pg_description As d 
+	      ON (d.objoid = c.oid AND d.objsubid = 0)
+	 WHERE c.relkind IN('r', 'v') 
+	ORDER BY n.nspname, c.relname ;
+
+
+	
+
+Tablespaces
+	SELECT * FROM  pg_tablespace;
+
+Table 
+	Columns
+		SELECT * FROM information_schema.columns
+		WHERE
+			table_schema = 'public'
+		AND table_name = 'staff';
+	
+	Comment
+		SELECT * FROM pg_description WHERE  objoid = 'public.staff'::regclass;
+		SELECT obj_description('public.staff'::regclass, 'pg_class');
+Schema 
+	select current_schema;
+		public
+	Tables
+		SELECT * FROM information_schema.tables WHERE table_schema = 'public';
+		SELECT * from pg_tables WHERE schemaname = 'public';
+	Columns
+		SELECT * FROM information_schema.columns WHERE table_schema = 'public';
+		SELECT * FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'staff';
+
+	Parameters
+		SELECT * FROM information_schema.parameters;
+		SELECT * FROM information_schema.parameters WHERE specific_schema = 'public';
+	Indexes
+		SELECT * FROM pg_indexes WHERE schemaname = 'public' and tablename = 'staff';
+
+User
+	Current user
+		SELECT user;
+		SELECT current_user;
+			owen
+		SELECT session_user, current_user;
+	list users
+		SELECT * FROM pg_catalog.pg_user;
+		SELECT usename AS role_name,
+		 CASE
+		  WHEN usesuper AND usecreatedb THEN
+		    CAST('superuser, create database' AS pg_catalog.text)
+		  WHEN usesuper THEN
+		    CAST('superuser' AS pg_catalog.text)
+		  WHEN usecreatedb THEN
+		    CAST('create database' AS pg_catalog.text)
+		  ELSE
+		    CAST('' AS pg_catalog.text)
+		 END role_attributes
+		FROM pg_catalog.pg_user
+		ORDER BY role_name desc;
+	roles
+		SELECT * FROM pg_catalog.pg_roles;
+	priveleges	
+		SELECT * FROM information_schema.table_privileges
+         	WHERE grantee = 'ais_sverdlovsk'
+		SELECT * FROM information_schema.role_table_grants;
+		
+		SELECT * FROM information_schema.role_table_grants 
+		WHERE grantee = 'ais_sverdlovsk' AND table_name='staff';
+
+		SELECT * FROM pg_catalog.pg_roles;

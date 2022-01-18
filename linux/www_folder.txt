@@ -1,0 +1,25 @@
+www folder is located at
+	/var/www
+
+cd ../../var/www/
+ls -a
+
+
+installed soft/libraries are located at folder
+	? /var/lib/php
+	? /etc/php
+
+check versions of installed 
+	php -v
+		PHP 7.3.18-1+ubuntu16.04.1+deb.sury.org+1 (cli) (built: May 14 2020 10:34:21) ( NTS )
+		Copyright (c) 1997-2018 The PHP Group
+		Zend Engine v3.3.18, Copyright (c) 1998-2018 Zend Technologies
+		    with Zend OPcache v7.3.18-1+ubuntu16.04.1+deb.sury.org+1, Copyright (c) 1999-2018, by Zend Technologies
+
+	// for RHEL 6.2	    
+	httpd -v
+	//for ubuntu
+	apache2 -v
+		Server version: Apache/2.4.18 (Ubuntu)
+		Server built:   2018-06-07T19:43:03
+	    

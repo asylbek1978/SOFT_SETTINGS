@@ -1,0 +1,73 @@
+
+SSH
+
+_______________________________________________________________________________
+
+
+installation of both Client and Server
+	sudo apt install ssh
+		access via putty, sftp is available now
+		ssh-client
+	how to check ssh port is open in ubuntu
+		https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+
+installation of Client
+	OpenSSH client
+		sudo apt-get install openssh-client
+
+installation of Server
+	OpenSSH server
+		sudo apt-get install openssh-server ii.
+which ssh
+	/usr/bin/ssh
+
+_______________________________________________________________________________
+
+
+ssh
+	usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+Checking status
+	sudo service ssh status
+		// response
+		ssh.service - OpenBSD Secure Shell server
+	    Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+	    Active: active (running) since Thu 2021-12-16 11:11:16 +06; 4 days ago
+
+_______________________________________________________________________________
+
+Connection to local ssh server
+	ssh localhost
+
+Connection to remote PC
+	ssh a-abduvapov@10.8.111.5
+	ssh 10.8.111.5  -p <port>
+	ssh 10.8.111.5  -p 22
+	// to change this default, enter a port number between 1024 and 32,767.
+	? -u a-abduvapov
+
+Exit an SSH connection
+	exit
+	logout
+	Ctrl-d
+_______________________________________________________________________________
+
+Editing configuration files
+Allow ip adresses
+	sudo nano /etc/hosts.allow 
+	sudo nano /etc/hosts.deny
+
+change default port
+	//Edit the SSH daemon configuration file, for example, you can change the default port for SSH connections.:
+	sudo nano /etc/ssh/sshd_config
+_______________________________________________________________________________
+
+
+?
+ssh root@remote-server-com /sbin/reboot	

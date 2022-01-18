@@ -1,0 +1,31 @@
+Remoove file(s)
+	only one file
+		unlink filename
+	multiple files
+		rm filename
+		rm filename1 filename2 filename3
+	remove all .pdf files in the current directory
+		rm *.pdf
+
+	to confirm each file before deleting it
+		rm -i filename(s)
+	force option to the rm command	
+		rm -f filename(s)
+	Combine options - force and verbose mode
+		rm -fv filename(s)
+
+________________________________________________________
+
+Remove Directories (Folders)
+	remoove directory
+		rm -d dirname
+		rmdir dirname
+	recursive
+		rm -r dirname
+	recursive and force options	
+		rm -rf dirname	
+
+	To remove multiple directories 
+		rm -r dirname1 dirname2 dirname3
+
+

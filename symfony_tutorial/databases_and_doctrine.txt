@@ -1,0 +1,143 @@
+
+Installing Doctrine
+cmd
+	cd C:\wamp64\www\symfony_last
+	composer require symfony/orm-pack
+ 	composer require --dev symfony/maker-bundle
+
+edit .env file
+	DATABASE_URL="postgresql://ais_test:zpjZqj5DtFf@127.0.0.1:5432/dbAsylbek?serverVersion=13&charset=utf8"
+
+	examples
+	# customize this line!
+	DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
+
+	# to use mariadb:
+	DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.5.8"
+
+	# to use sqlite:
+	# DATABASE_URL="sqlite:///%kernel.project_dir%/var/app.db"
+
+	# to use postgresql:
+	# DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=11&charset=utf8"
+
+	# to use oracle:
+	# DATABASE_URL="oci8://db_user:db_password@127.0.0.1:1521/db_name"
+_____________________________________________________________________________
+Doctrine commands. A full list of commands.
+cmd
+	php bin/console list doctrine
+
+see if the current environment is configured efficiently for production. This should always be run in the prod environment
+	php bin/console doctrine:ensure-production-settings
+		[ERROR] Proxy Classes are always regenerating.
+	php bin/console doctrine:ensure-production-settings --env=prod
+		[OK] Environment is correctly configured for production.
+
+creating a database which parameters are given in .env file.
+	// database 'dbAsylbek' with existing dbase_user in database
+cmd
+	php bin/console doctrine:database:create
+		Created database "dbAsylbek" for connection named default
+
+Creating an Entity Class
+	//3.4 	php bin/console doctrine:generate:entity
+	//3.4	php bin/console doctrine:schema:update --force
+	php bin/console make:entity
+		product //new entity/table with name "product"
+			created: src/Entity/Product.php
+			created: src/Repository/ProductRepository.php
+
+			Entity generated! Now let's add some fields!
+			You can always add more fields later manually or by re-running this command.
+
+	//after editing parameters a new file named "Product.php" is created at folder "src\Entity\Product.php"
+Adding more Fields
+	php bin/console make:entity
+
+Getting all mapped entities
+//doctrine gets all entities from "src\Entity\" folder
+cmd
+	php bin/console doctrine:mapping:info
+		Found 1 mapped entities:
+		[OK]   App\Entity\Product
+_______________________
+importing (creating) entities from a database
+//without get and set functions
+https://symfony.com/doc/3.3/doctrine/reverse_engineering.html
+	//help
+	php bin/console help doctrine:mapping:import
+	// create entities from all tables in a database
+	php bin/console doctrine:mapping:import App\Entity annotation --path=src/Entity
+	|| in certain bundle
+	php bin/console doctrine:mapping:import DemoBundle\Entity annotation --path=src/DemoBundle/Entity
+	
+	//do not use certain entity name "App\Entity\RefArdCancelReason"
+	//all entities will be created with namespace App\Entity\RefArdCancelReason
+	php bin/console doctrine:mapping:import App\Entity\RefArdCancelReason annotation --path=src/Entity
+	
+
+	php bin/console doctrine:mapping:import
+______________________
+Regenerate Entity (automatic setting getter and setters)
+	// regenerate from database all tables
+	php bin/console make:entity --regenerate --overwrite
+		This command will generate any missing methods (e.g. getters & setters) for a class or all classes in a namespace.
+ 		To overwrite any existing methods, re-run this command with the --overwrite flag
+ 		Enter a class or namespace to regenerate [App\Entity]:
+	 	
+	 	>App\Entity
+	 	//will overwrite all entities in namespace "App\Entity"
+	 		no change: src/Entity/Product.php
+	  		Success!
+	  	>App\Entity\Product
+	  	//will overwrite only entity "Product" in namespace "App\Entity"
+	 		no change: src/Entity/Product.php
+	  		Success!
+
+  	// regenerate from database only one table 
+  	error
+  	php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+	
+____________________
+Migrations: Creating the Database Tables/Schema
+	php bin/console make:migration
+	php bin/console doctrine:migrations:migrate
+_____________________
+
+Persisting Objects to the Database.
+Creating a new one controller
+	php bin/console make:controller ProductController
+		created: src/Controller/ProductController.php
+ 		created: templates/product/index.html.twig
+_____________________
+executing query in cmd
+	php bin/console doctrine:query:sql "SELECT * FROM product"
+
+_____________________
+
+Automatically Fetching Objects (ParamConverter)
+https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
+	composer require sensio/framework-extra-bundle	
+
+___________________________________________________
+Doctrine Query Language
+https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/dql-doctrine-query-language.html	
+
+Validation Constraints Reference
+https://symfony.com/doc/current/reference/constraints.html
+https://api-platform.com/docs/core/validation/
+__________________________________________________
+
+See "Injecting Services/Config"  into a Service for how to inject the repository into any service.
+https://symfony.com/doc/current/service_container.html#services-constructor-injection
+
+________________________________________________
+
+Doctrine config reference.
+https://symfony.com/doc/current/reference/configuration/doctrine.html
+
+________________________________________________
+
+How to Generate Entities from an Existing Database
+https://symfony.com/doc/current/doctrine/reverse_engineering.html

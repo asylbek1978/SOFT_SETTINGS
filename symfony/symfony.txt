@@ -1,0 +1,126 @@
+installer download
+	https://symfony.com/download
+	https://get.symfony.com/cli/setup.exe
+
+manuals books
+https://symfony.com/doc/2.3/book/doctrine.html
+https://symfony.com/doc/2.3/cookbook/index.html
+
+video tutorials
+https://symfonycasts.com/screencast/symfony3/start-project
+https://www.youtube.com/results?search_query=symfony+3.4
+
+installed C:\Program Files\Symfony
+cmd
+	symfony -V
+		Symfony CLI version v4.25.4 (2021-06-18T15:09:49+0000 - stable)
+	symfony check:requirements
+___________________________________________________
+creating projects
+cmd
+	cd C:\wamp64\www\
+	symfony new symfony_demo --demo
+	symfony new symfony_last
+	symfony new symfony_last_full --full
+	
+	symfony new symfony34 --version=3.4
+	symfony new --full symfony34_full --version=3.4
+	errors
+		symfony new symfony301 --version=3.2
+
+get projects symfony version
+	cd C:\wamp64\www\symfony34>
+	symfony console --version
+		Symfony 3.4.49 (kernel: src, env: dev, debug: true)	
+
+creating project with composer
+cmd
+	cd C:\wamp64\www\
+	php C:\SOFT\composer/composer.phar create-project symfony/website-skeleton symfony_composer
+___________________________________________________
+starting symfony web server
+cmd
+	cd C:\wamp64\www\symfony_last
+ 	symfony server:start
+ 	//	http://127.0.0.1:8000
+ 	//	http://localhost:8000/
+stop web server
+cmd
+	Ctrl+C
+__________________________________________________
+cmd
+	symfony check:security
+
+
+To use annotations directly in controller
+cmd
+	cd C:\wamp64\www\symfony_last
+	php C:\SOFT\composer/composer.phar require annotations
+												doctrine/annotations
+to use debugger
+	php C:\SOFT\composer/composer.phar require --dev symfony/profiler-pack
+
+to use twig
+cmd
+	cd C:\wamp64\www\symfony_last
+	php C:\SOFT\composer/composer.phar require twig
+
+
+to use expression-language
+cmd
+	cd C:\wamp64\www\symfony_last
+	php C:\SOFT\composer/composer.phar require symfony/expression-language
+
+validatation
+cmd	
+	php C:\SOFT\composer/composer.phar require symfony/validator doctrine/annotations
+
+get lists of all routes
+	php bin/console debug:router
+information about route
+	php bin/console debug:router app_lucky_number
+check on matching some route 
+	php bin/console router:match /lucky/number	
+	php bin/console router:match /lucky/number/8	
+_______________________________________________
+Installing Doctrine
+	php C:\SOFT\composer/composer.phar require symfony/orm-pack
+ 	php C:\SOFT\composer/composer.phar require --dev symfony/maker-bundle
+
+edit .env file
+	DATABASE_URL="postgresql://ais_test:zpjZqj5DtFf@127.0.0.1:5432/dbAsylbek?serverVersion=13&charset=utf8"
+
+creating a database 'dbAsylbek'	with existing dbase_user in database
+	php bin/console doctrine:database:create
+		Created database "dbAsylbek" for connection named default
+
+Creating an Entity Class
+	php bin/console make:entity
+a new file is created at src\Entity\Product.php
+
+Regenerate Entity (automatic setting getter and setters)
+	php bin/console make:entity --regenerate
+
+Migrations: Creating the Database Tables/Schema
+	php bin/console make:migration
+	php bin/console doctrine:migrations:migrate
+
+
+Persisting Objects to the Database
+	php bin/console make:controller ProductController
+		created: src/Controller/ProductController.php
+ 		created: templates/product/index.html.twig
+
+executing query in cmd
+	php bin/console doctrine:query:sql "SELECT * FROM product"
+______________________________________________
+for registered users	
+Please log in using your SymfonyConnect account
+or create an account at https://symfony.com/connect/login	
+	symfony project:info
+	symfony project:delete
+		
+_____________________________________________
+
+
+	

@@ -1,0 +1,68 @@
+Metasploit
+https://www.metasploit.com/
+https://ru.wikipedia.org/wiki/Metasploit
+
+Install
+    apt search metasploit
+    apt install metasplot-framework
+    
+    ||
+    curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+    chmod 755 msfinstall && \
+    ./msfinstall
+
+Manual Install packages for Debian/Ubuntu packages are available at https://apt.metasploit.com
+
+________________________________________________________________
+
+msfconsole
+    /opt/metasploit-framework/bin/ 
+    msfconsole
+              =[ metasploit v6.1.21-dev-                         ]
+        + -- --=[ 2187 exploits - 1160 auxiliary - 399 post       ]
+        + -- --=[ 596 payloads - 45 encoders - 10 nops            ]
+        + -- --=[ 9 evasion                                       ]
+
+        Metasploit tip: View advanced module options with 
+        advanced
+
+        msf6 > 
+    msf6 >advanced
+        [-] No module active
+    
+    // updating 
+    msf6 >msfupdate
+        Adding metasploit-framework to your repository list..Warning: apt-key output should not be parsed (stdout is not a terminal)
+        OK
+        Updating package cache..OK
+        Checking for and installing update..
+        Reading package lists...
+        Building dependency tree...
+        Reading state information...
+        The following packages will be upgraded:
+          metasploit-framework
+        1 upgraded, 0 newly installed, 0 to remove and 268 not upgraded.
+        Need to get 265 MB of archives.
+        After this operation, 266 kB of additional disk space will be used.
+        Get:1 http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid/main amd64 metasploit-framework amd64 6.1.21+20211222112602~1rapid7-1 [265 MB]
+_______________________________________________________________
+
+Modules
+    msf6 > 
+        // ssh module
+        use scanner/ssh/ssh_login
+        run ssh://asylbek:12345@localhost
+
+        //http modules
+        use auxiliary/scanner/http/title
+        run http://www.keu.kg
+            [+] [176.126.165.133:80] [C:200] [R:] [S:nginx/1.18.0] КЭУ им. М.РЫСКУЛБЕКОВА
+            [*] Scanned 1 of 1 hosts (100% complete)
+            [*] Auxiliary module execution completed
+
+        use auxiliary/admin/smb/download_file
+        run smb://a:p4$$w0rd@192.168.123.13/my_share/helloworld.txt
+
+______________________________________________________________
+
+https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit#getting-started

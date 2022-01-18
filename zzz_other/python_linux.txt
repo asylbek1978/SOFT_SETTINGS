@@ -1,0 +1,70 @@
+https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/
+
+
+install
+	apt install python3
+	apt install python3.9
+
+	python3 --version
+		Python 3.8.5
+	which python3
+		/usr/bin/python3
+	python3
+		Python 3.8.5 (default, May 27 2021, 13:30:53) 
+		[GCC 9.3.0] on linux
+		Type "help", "copyright", "credits" or "license" for more information.
+		>>>print("Hello, World!")
+		Hello, World!
+		>>>
+
+____________________________________________________________________________
+
+https://linuxhint.com/install-python-3-9-linux-mint/
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.9
+python3.9 --version
+
+Mooving files
+https://opensource.com/article/19/8/moving-files-linux-depth
+touch Python-3.9.1.tgz
+mv Python-3.9.1.tgz ~/Downloads
+
+___________________________________________________________________
+
+ne poluchilos
+https://www.youtube.com/watch?v=mBKU56uMQX4
+How to Configure Apache2 to use Python as CGI scripts
+
+Enable CGI mode
+	a2enmod cgi
+		Enabling module cgi.
+		To activate the new configuration, you need to run:
+		  systemctl restart apache2
+
+Restart apache2 service
+	systemctl restart apache2
+
+create a new file
+	/etc/apache2/conf-available/cgi-enabled.conf
+
+
+# 
+# processes .cgi and .py as CGI scripts
+<Directory "/var/www/html/python3">
+	Options +ExecCGI
+	AddHandler cgi-script .cgi .py
+</Directory>
+
+	
+	a2enconf cgi-enabled
+		Enabling conf cgi-enabled.
+		To activate the new configuration, you need to run:
+		  systemctl reload apache2
+	apt install gedit
+	chmod 705 /var/www/html/python3/index.py
+
+try
+https://www.youtube.com/watch?v=q__Nn0RRBvE	
+________________________________________________________________

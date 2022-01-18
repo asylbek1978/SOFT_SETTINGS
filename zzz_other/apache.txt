@@ -1,0 +1,6 @@
+which apache2
+	/usr/sbin/apache2
+apache2 --version
+	error
+
+subl /etc/apache2/apache2.conf

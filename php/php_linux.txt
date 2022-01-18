@@ -1,0 +1,35 @@
+php
+
+Installation
+	sudo apt-get install php
+		? sudo apt-get install php5 libapache2-mod-php5
+
+Version
+	php --version
+	php -v
+
+apt list --installed | grep php
+
+which php
+	/usr/bin/php
+find location of php.ini
+	locate php.ini
+		/etc/php/7.4/apache2/php.ini
+		/etc/php/7.4/cli/php.ini
+		/usr/lib/php/7.4/php.ini-development
+		/usr/lib/php/7.4/php.ini-production
+		/usr/lib/php/7.4/php.ini-production.cli
+
+/etc/php/7.4/apache2/php.ini
+	//set extensions
+		extension=pdo_mysql
+		...
+	//display errors
+		display_errors = On
+	
+	systemctl restart apache2
+
+Enabling Postgresql
+	//load
+	sudo apt-get install php7.4-pgsql
+	sudo apt-get install php7.4-pdo-pgsql

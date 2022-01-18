@@ -1,0 +1,46 @@
+https://symfony.com/bundles/DoctrineBundle/current/index.html
+
+Installation
+	cd C:\wamp64\www\symfony_last
+	composer require doctrine/doctrine-bundle
+
+Enable the Bundle
+	<?php
+	// config/bundles.php
+
+	return [
+	    // ...
+	    Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+	    // ...
+	];
+	?>
+
+	in an older Symfony version. In this case, you should have an app/AppKernel.php file instead.
+	<?php
+	// app/AppKernel.php
+
+	class AppKernel extends Kernel
+	{
+	    public function registerBundles()
+	    {
+	        $bundles = [
+	            // ...
+	            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+	        ];
+	        // ...
+	    }
+	    // ...
+	}
+
+Entity Listeners
+	https://symfony.com/bundles/DoctrineBundle/current/entity-listeners.html
+	https://symfony.com/doc/current/doctrine/events.html#doctrine-entity-listeners
+	config/services.yaml 
+
+Custom ID Generators
+	https://symfony.com/bundles/DoctrineBundle/current/custom-id-generators.html
+
+Configuration
+	// configure doctrine to multiple databases etc.
+	https://symfony.com/bundles/DoctrineBundle/current/configuration.html
+	config\packages\doctrine.yaml

@@ -1,0 +1,66 @@
+SHortcuts linux
+	open new terminal
+		CTRL + ALT + T
+
+Install Apache
+	sudo apt-get install apache2
+start apache
+	sudo /etc/init.d/apache2 start
+restart apache
+	sudo /etc/init.d/apache2 restart
+
+locate php.ini
+
+apt search mysql
+	mysql-server
+
+
+mysql
+	apt install  mysql-server
+
+postgresql
+	apt install  postgresql
+
+pgadmin
+	apt install pgadmin3
+File managers
+	sudo apt install doublecmd-qt
+		cd /home/asylbek/Downloads/XTREME\ DOWNLOAD\ MANAGER/xdm-setup-7.2.11
+		./install.sh
+	err sudo apt install gnome-commander
+Sublime text
+	apt install  sublime-text
+
+Youtube
+https://itsfoss.com/download-youtube-linux/
+	sudo apt install youtube-dl
+
+SSH
+	sudo apt install ssh
+	
+Filezilla
+	apt install filezilla
+
+mkdir hello
+rmdir hello
+Create file
+linux create file with text
+	https://stackoverflow.com/questions/9381463/how-to-create-a-file-in-linux-from-terminal-window
+	touch index.php
+
+Permissions
+linux give permission to folder for user
+https://www.pluralsight.com/blog/it-ops/linux-file-permissions
+	to give read, write, and execute to everyone.
+	chmod ugo+rwx /var/www/html/
+
+IP settings
+	ifconfig -a
+
+Reboot system
+	/sbin/reboot
+	/sbin/shutdown -r now
+	sudo reboot
+
+which curl
+/usr/bin/curl

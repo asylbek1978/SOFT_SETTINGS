@@ -1,0 +1,46 @@
+1 	Create a new repository with public options
+		https://github.com/asylbek1978/SOFT_SETTINGS
+
+2 	Clone a repository
+		cd /home/asylbek/Desktop/Settings
+		//git clone git@10.2.10.85:~/aiss.git
+		
+		// private
+		git clone https://github.com/asylbek1978/SOFT_SETTINGS.git
+		git clone git@github.com:asylbek1978/SOFT_SETTINGS.git
+		
+		//public repository
+		git clone https://github.com/asylbek1978/hello-world.git
+			Cloning into 'hello-world'...
+			remote: Enumerating objects: 3, done.
+			remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
+			Unpacking objects: 100% (3/3), 230 bytes | 230.00 KiB/s, done.			
+		git clone git@github.com:asylbek1978/hello-world.git
+			Cloning into 'hello-world'...
+			git@github.com: Permission denied (publickey).
+			fatal: Could not read from remote repository.
+
+			Please make sure you have the correct access rights
+			and the repository exists.
+	open ssh public keys for cloning from ssh
+		You don't have any public SSH keys in your GitHub account. You can add a new public key, or try cloning this repository via HTTPS.
+			https://github.com/settings/ssh/new	
+		More information
+			https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+			
+3 	Generating a new token
+	https://github.com/settings/profile -> Developer settings -> https://github.com/settings/apps -> Personal access tokens (https://github.com/settings/tokens) -> Generate a new token (https://github.com/settings/tokens/new)
+		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
+		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
+
+4	Change repository visibility (public or private)
+	https://github.com/asylbek1978/SOFT_SETTINGS/settings
+	Danger Zone -> Btn Change visibility
+
+5 	Delete local github repository
+	// folder will not be deleted
+	//example rm -rf <repo_folder>/.git
+	rm -rf hello-world/.git
+
+
+

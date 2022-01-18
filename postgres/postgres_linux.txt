@@ -1,0 +1,55 @@
+_________________________________________________
+
+LINUX
+
+Install
+    apt install  postgresql
+
+which psql
+    /usr/bin/psql
+
+locate psql
+    /usr/bin/psql
+    /usr/lib/postgresql/12/bin/psql
+
+_________________________________________________
+
+Configuration files are located
+    /etc/postgresql/12/main/pg_hba.conf
+    /etc/postgresql/12/main/postgresql.conf
+    /etc/postgresql/12/main/pg_ctl.conf
+    /etc/postgresql/12/main/environment
+    /etc/postgresql/12/main/pg_ident.conf
+    /etc/postgresql/12/main/start.conf
+
+sudo nano /etc/postgresql/12/main/pg_hba.conf
+
+sudo -u postgres psql -c 'SHOW config_file'
+    /etc/postgresql/12/main/postgresql.conf
+_________________________________________________
+
+//restart service postgres
+    sudo service postgresql restart
+    /etc/init.d/postgresql restart
+
+
+systemctl status postgresql
+systemctl start postgresql.service
+systemctl stop postgresql.service
+systemctl restart postgresql.service
+systemctl reload postgresql
+
+_________________________________________________
+
+Usage
+
+psql --help
+
+login
+    sudo -u postgres psql
+    psql -h localhost -d ais_test -U  ais_test -p 5432 -W
+Quit psql
+    postgres=# \q
+change password of a user
+    ALTER USER postgres PASSWORD 'myPassword';
+    ALTER ROLE

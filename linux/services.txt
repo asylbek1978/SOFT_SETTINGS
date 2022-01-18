@@ -1,0 +1,119 @@
+list of all services
+	service --status-all
+	service --status-all | more
+	service --status-all | less
+		 [ + ]  apache-htcacheclean
+		 [ + ]  apache2
+		 [ + ]  console-setup
+		 [ + ]  cron
+		 [ + ]  mysql
+		 [ + ]  networking
+		 [ - ]  nginx
+		 [ + ]  ondemand
+		 [ + ]  php7.0-fpm
+		 [ + ]  ssh
+		 [ - ]  sysstat
+		 [ + ]  zabbix-agent
+		... ... 
+
+Usage: /etc/init.d/mysql start|stop|restart|reload|force-reload|status
+	service apache2 status
+		● apache2.service - LSB: Apache2 web server
+		   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+		  Drop-In: /lib/systemd/system/apache2.service.d
+		           └─apache2-systemd.conf
+		   Active: active (running) since Вт 2021-05-25 14:47:04 +06; 1 months 19 days a
+		     Docs: man:systemd-sysv-generator(8)
+		  Process: 6677 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS
+		  Process: 15032 ExecReload=/etc/init.d/apache2 reload (code=exited, status=0/SU
+		  Process: 6717 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCE
+		    Tasks: 10
+		   Memory: 145.5M
+		      CPU: 6h 35min 58.687s
+		   CGroup: /system.slice/apache2.service
+		           ├─ 6733 /usr/sbin/apache2 -k start
+		           ├─15066 /usr/sbin/apache2 -k start
+		           ├─15067 /usr/sbin/apache2 -k start
+		           ├─15068 /usr/sbin/apache2 -k start
+		           ├─15069 /usr/sbin/apache2 -k start
+		           ├─15070 /usr/sbin/apache2 -k start
+		           ├─15774 /usr/sbin/apache2 -k start
+		           ├─15775 /usr/sbin/apache2 -k start
+		           ├─15776 /usr/sbin/apache2 -k start
+		           └─15777 /usr/sbin/apache2 -k start
+
+		июл 12 06:25:02 TEST-AIS-APP apache2[30359]:  *
+		июл 12 06:25:02 TEST-AIS-APP systemd[1]: Reloaded LSB: Apache2 web server.
+		июл 13 06:25:02 TEST-AIS-APP systemd[1]: Reloading LSB: Apache2 web server.
+		июл 13 06:25:03 TEST-AIS-APP apache2[6379]:  * Reloading Apache httpd web server
+		июл 13 06:25:03 TEST-AIS-APP apache2[6379]:  *
+		июл 13 06:25:03 TEST-AIS-APP systemd[1]: Reloaded LSB: Apache2 web server.
+		июл 14 06:25:02 TEST-AIS-APP systemd[1]: Reloading LSB: Apache2 web server.
+		июл 14 06:25:02 TEST-AIS-APP apache2[15032]:  * Reloading Apache httpd web serve
+		июл 14 06:25:03 TEST-AIS-APP apache2[15032]:  *
+		июл 14 06:25:03 TEST-AIS-APP systemd[1]: Reloaded LSB: Apache2 web server.	
+	
+	service mysql status
+		● mysql.service - MySQL Community Server
+		   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: en
+		   Active: active (running) since Пн 2021-03-29 15:14:09 +06; 3 months 15 days a
+		  Process: 1300 ExecStartPost=/usr/share/mysql/mysql-systemd-start post (code=ex
+		  Process: 1241 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exit
+		 Main PID: 1299 (mysqld)
+		    Tasks: 29
+		   Memory: 8.5M
+		      CPU: 2h 5min 58.093s
+		   CGroup: /system.slice/mysql.service
+		           └─1299 /usr/sbin/mysqld
+
+	service php7.0-fpm status	           
+		● php7.0-fpm.service - The PHP 7.0 FastCGI Process Manager
+		   Loaded: loaded (/lib/systemd/system/php7.0-fpm.service; enabled; vendor prese
+		   Active: active (running) since Пн 2021-03-29 15:14:09 +06; 3 months 15 days a
+		     Docs: man:php-fpm7.0(8)
+		  Process: 1383 ExecStartPost=/usr/lib/php/php-fpm-socket-helper install /run/ph
+		 Main PID: 1246 (php-fpm7.0)
+		   Status: "Processes active: 0, idle: 2, Requests: 0, slow: 0, Traffic: 0req/se
+		    Tasks: 3
+		   Memory: 484.0K
+		      CPU: 9min 43.935s
+		   CGroup: /system.slice/php7.0-fpm.service
+		           ├─1246 php-fpm: master process (/etc/php/7.0/fpm/php-fpm.conf)
+		           ├─1381 php-fpm: pool www
+		           └─1382 php-fpm: pool www
+
+	service cron  status
+		● cron.service - Regular background program processing daemon
+		   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+		   Active: active (running) since Пн 2021-03-29 14:49:12 +06; 3 months 15 days ago
+		     Docs: man:cron(8)
+		 Main PID: 1150 (cron)
+		    Tasks: 1
+		   Memory: 1.0G
+		      CPU: 7h 34min 51.204s
+		   CGroup: /system.slice/cron.service
+		           └─1150 /usr/sbin/cron -f
+
+		июл 14 13:17:01 TEST-AIS-APP CRON[19760]: pam_unix(cron:session): session closed for user root
+		июл 14 13:25:01 TEST-AIS-APP CRON[19776]: pam_unix(cron:session): session opened for user root by (uid=0)
+		июл 14 13:25:01 TEST-AIS-APP CRON[19777]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+		июл 14 13:25:01 TEST-AIS-APP CRON[19776]: pam_unix(cron:session): session closed for user root
+		июл 14 13:35:01 TEST-AIS-APP CRON[19778]: pam_unix(cron:session): session opened for user root by (uid=0)
+		июл 14 13:35:01 TEST-AIS-APP CRON[19779]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+		июл 14 13:39:01 TEST-AIS-APP CRON[19780]: pam_unix(cron:session): session opened for user root by (uid=0)
+		июл 14 13:39:01 TEST-AIS-APP CRON[19781]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/syste
+		июл 14 13:45:01 TEST-AIS-APP CRON[19927]: pam_unix(cron:session): session opened for user root by (uid=0)
+		июл 14 13:45:01 TEST-AIS-APP CRON[19928]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+
+
+	systemctl
+	systemctl list-units --type service	
+	systemctl | grep running 
+	systemctl list-unit-files --state=enabled
+	systemctl | grep apache2
+ 		apache2.service 
+ 		loaded active running   LSB: Apache2 web server		
+
+ 	systemctl status apache2
+ 		
+

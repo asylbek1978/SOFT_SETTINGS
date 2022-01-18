@@ -1,0 +1,10 @@
+Use putty or WinSCP
+Putty
+	https://www.putty.org/
+	https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+	https://putty.org.ru/download.html
+
+WinSCP
+	https://winscp.net/eng/download.php
+	https://sourceforge.net/projects/winscp/files/WinSCP/5.19/WinSCP-5.19-Setup.exe/download
+

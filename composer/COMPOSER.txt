@@ -1,0 +1,47 @@
+
+Composer
+	https://getcomposer.org/
+download installer
+// The installer - which requires that you have PHP already installed - will download Composer for you and set up your PATH environment variable so you can simply call composer from any directory.
+	https://getcomposer.org/download/
+		https://getcomposer.org/Composer-Setup.exe
+		Composer-Setup.exe		
+installation 
+	file				Composer-Setup.exe
+	folder				C:\Users\User\AppData\Roaming\Composer\
+	PATH environment 	C:\Users\User\AppData\Roaming\Composer\vendor\bin
+						C:\ProgramData\ComposerSetup\bin
+
+cmd
+	composer -V
+		Composer version 2.1.3 2021-06-09 16:31:20
+
+2nd way downloading composer.phar file, which can be used only with php.
+download
+	https://getcomposer.org/installer
+		installer
+	rename file as installer
+		composer-setup.php
+	||
+	cd C:\SOFT\php\php7.3.21_64
+	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+	
+	php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+		
+installation
+cmd
+	php composer-setup.php --install-dir=C:\SOFT\composer
+		All settings correct for using Composer
+		Downloading...
+
+		Composer (version 2.1.3) successfully installed to: C:\SOFT\composer\composer.phar
+		Use it: php C:\SOFT\composer/composer.phar
+	php C:\SOFT\composer/composer.phar -V
+		Composer version 2.1.3 2021-06-09 16:31:20
+	||
+		cd C:\SOFT\composer/
+		php composer.phar -V
+			Composer version 2.1.3 2021-06-09 16:31:20
+
+	cd C:\wamp64\www\
+	php C:\SOFT\composer/composer.phar create-project symfony/website-skeleton my_project_name

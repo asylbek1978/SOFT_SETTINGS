@@ -1,0 +1,33 @@
+source
+	https://symfony.com/doc/3.4/cache.html
+
+cmd
+	cd /var/www/ais.at.kg
+	php bin/console cache:clear
+	// on default clears dev environment with debug true
+		// Clearing the cache for the dev environment with debug true
+		 [OK] Cache for the "dev" environment (debug=true) was successfully cleared.
+
+		help
+		cache:clear [--no-warmup] [--no-optional-warmers] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--n   o-interaction] [-e|--env ENV] [--no-debug] [--] <command>
+
+	php bin/console cache:clear -e prod	
+		PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/ais.at.kg/vendor/symfony/monolog-bundle                             /DependencyInjection/Configuration.php on line 628
+ 		[OK] Cache for the "prod" environment (debug=false) was successfully cleared.
+
+ 	php bin/console cache:clear -e prod 
+ 	php bin/console cache:clear -e prod --no-debug
+
+
+	cache:clear                             Clears the cache
+	cache:pool:clear                        Clears cache pools
+	cache:warmup                            Warms up an empty cache
+	doctrine:cache:clear-collection-region  Clear a second-level cache collection region.
+	doctrine:cache:clear-entity-region      Clear a second-level cache entity region.
+	doctrine:cache:clear-metadata           Clears all metadata cache for an entity manager
+	doctrine:cache:clear-query              Clears all query cache for an entity manager
+	doctrine:cache:clear-query-region       Clear a second-level cache query region.
+	doctrine:cache:clear-result             Clears result cache for an entity manager
+
+	exec("php /my/project/app/console cache:clear --env=prod");
+

@@ -1,0 +1,6 @@
+PPA repository
+
+
+link
+	ppa linux mint
+		https://info-comp.ru/ppa-repository-connections-in-linux-mint

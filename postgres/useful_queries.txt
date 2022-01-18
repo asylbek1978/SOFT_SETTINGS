@@ -1,0 +1,129 @@
+pgsql
+start psql
+cmd
+	"C:\Program Files\PostgreSQL\10\scripts\runpsql.bat"
+		Server [localhost]:
+	||
+	
+	cd "C:\Program Files\PostgreSQL\10\bin"
+	psql -h localhost -d ais_test -U  ais_test -W
+		Пароль пользователя ais_test:
+		psql (10.17)
+		ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+		                страницы Windows (1251).
+		                8-битовые (русские) символы могут отображаться некорректно.
+		                Подробнее об этом смотрите документацию psql, раздел
+		                "Notes for Windows users".
+		Введите "help", чтобы получить справку.
+
+		ais_test=#
+
+Switch connection to a new database
+	\c "dbname" "username"
+list available databases
+	\l
+list available tables
+	\dt
+Describe a table
+	\d "table_name"	
+To list all schemas of the currently connected database
+	\dn	
+		    Список схем
+		  Имя   | Владелец
+		--------+----------
+		 public | postgres
+List available functions
+	\df
+				                    Список функций
+		 Схема | Имя | Тип данных результата | Типы данных аргументов | Тип
+		-------+-----+-----------------------+------------------------+-----
+		(0 строк)
+To list available views in the current database
+	\dv
+		Отношения не найдены.
+
+To list all users and their assign roles,
+	\du
+				                                    Список ролей
+		  Имя роли   |                                Атрибуты                                 | Член ролей
+		-------------+-------------------------------------------------------------------------+------------
+		 ais_central | Суперпользователь, Создаёт роли, Создаёт БД                             | {}
+		 ais_test    | Суперпользователь, Создаёт роли, Создаёт БД                             | {}
+		 postgres    | Суперпользователь, Создаёт роли, Создаёт БД, Репликация, Пропускать RLS | {}
+Get version
+	SELECT version();
+Show commands history
+	\s
+		в данной среде история не поддерживается
+
+save the command history to a file
+	\s "filename"
+
+Execute psql commands from a file
+	\i "filename"
+
+Get help on psql commands
+	\?
+To get help on specific PostgreSQL statement
+	\h ALTER TABLE	
+Turn on query execution time
+	\timing
+		Timing is on.
+	select count(*) from film;
+		1000
+	Time: 1.495 ms
+	\timing
+		Timing is off.
+
+Edit command in your own editor
+	\e
+		will be opened editor and after saving and closing a file psql will execute commands in it
+		\l
+
+	\ef "function name"
+		will execute function name given in an editor
+	
+
+\dl
+	     Большие объекты
+	 ID | Владелец | Описание
+	----+----------+----------
+	(0 строк)	
+
+
+
+
+
+
+clean screen
+	\! cls
+quit
+	\q		
+login
+	psql -d "database" -U  "user" -W
+	psql -d ais_test -U  ais_test -W
+change encoding to cyrillic
+	psql \! chcp 1251
+	set client_encoding='win1251';
+
+	set client_encoding='WIN866'; 
+	set client_encoding='UTF8';
+
+list database all schemas
+	\dn
+		public
+
+get info about table columns
+	SELECT 
+	   table_name, 
+	   column_name, 
+	   data_type 
+	FROM 
+	   information_schema.columns
+	WHERE 
+	   table_name = 'city';
+
+
+Linux
+sudo -i -u postgres
+sudo systemctl status postgresql

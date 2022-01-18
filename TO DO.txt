@@ -1,0 +1,44 @@
+To do
+urgent
+	javascript + ajax 
+	jquery + ajax
+
+	entity
+		join, left join, sortby order by
+make site postgres admin
+	error could not import entities
+	postgres_admin 
+		developerBundle or admin bundle?
+		connection to database
+		select all databases
+		select table show columns
+
+not urgent 
+	Home
+		make your own Tableclass
+	
+	links about symfony make
+	https://symfony.com/doc/current/reference/index.html
+	make project news with database
+		show edit update 
+		forms	
+creating forms
+	in controller
+	in class
+
+with builder 
+	repository
+	controller
+select where parameters and ... orderby 
+
+
+
+serializer
+https://symfony.com/doc/current/serializer.html
+https://symfony.com/doc/current/components/serializer.html
+hidden
+https://symfony.com/doc/current/reference/forms/types/hidden.html
+foreignkey
+https://symfony.com/doc/current/doctrine/associations.html
+skachat manual na zavtra 5.3
+set prod 

@@ -1,0 +1,9 @@
+starting symfony web server
+cmd
+	cd C:\wamp64\www\symfony_last
+ 	symfony server:start
+ 	//	http://127.0.0.1:8000
+ 	//	http://localhost:8000/
+stop web server
+cmd
+	Ctrl+C

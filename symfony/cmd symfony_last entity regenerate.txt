@@ -1,0 +1,180 @@
+C:\WINDOWS\system32>cd C:\wamp64\www\symfony_last
+
+C:\wamp64\www\symfony_last>php bin/console doctrine:mapping:info
+
+ Found 4 mapped entities:
+
+ [OK]   App\Entity\News
+ [OK]   App\Entity\Product
+ [OK]   App\Entity\Task
+ [OK]   App\Entity\TypeLanguages
+
+C:\wamp64\www\symfony_last>php bin/console doctrine:mapping:import App\Entity annotation --path=src/Entity
+Importing mapping information from "default" entity manager
+  > writing src/Entity/DoctrineMigrationVersions.php
+  > writing src/Entity/Product.php
+  > writing src/Entity/Task.php
+  > writing src/Entity/News.php
+  > writing src/Entity/RefArdCancelReason.php
+  > writing src/Entity/TypeLanguages.php
+
+C:\wamp64\www\symfony_last>php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+
+ updated: src/Entity/RefArdCancelReason.php
+
+
+  Success!
+
+
+
+C:\wamp64\www\symfony_last>php bin/console doctrine:mapping:import App\Entity\RefArdCancelReason annotation --path=src/Entity
+Importing mapping information from "default" entity manager
+  > writing src/Entity/DoctrineMigrationVersions.php
+  > writing src/Entity/Product.php
+  > writing src/Entity/Task.php
+  > writing src/Entity/News.php
+  > writing src/Entity/RefArdCancelReason.php
+  > writing src/Entity/TypeLanguages.php
+
+C:\wamp64\www\symfony_last>php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+
+Fatal error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already in use in C:\wamp64\www\symfony_last\src\Entity\RefArdCancelReason.php on line 13
+
+In RefArdCancelReason.php line 13:
+
+  Compile Error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already i
+  n use
+
+
+make:entity [-a|--api-resource] [-b|--broadcast] [--regenerate] [--overwrite] [--] [<name>]
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+
+Fatal error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already in use in C:\wamp64\www\symfony_last\src\Entity\RefArdCancelReason.php on line 13
+
+In RefArdCancelReason.php line 13:
+
+  Compile Error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already i
+  n use
+
+
+make:entity [-a|--api-resource] [-b|--broadcast] [--regenerate] [--overwrite] [--] [<name>]
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+
+ updated: src/Entity/DoctrineMigrationVersions.php
+ updated: src/Entity/News.php
+ updated: src/Entity/Product.php
+ updated: src/Entity/Task.php
+ updated: src/Entity/TypeLanguages.php
+
+
+  Success!
+
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity --regenerate --overwrite
+
+ This command will generate any missing methods (e.g. getters & setters) for a class or all classes in a namespace.
+
+ To overwrite any existing methods, re-run this command with the --overwrite flag
+
+ Enter a class or namespace to regenerate [App\Entity]:
+ > App\Entity\RefArdCancelReason
+
+ no change: src/Entity/DoctrineMigrationVersions.php
+ no change: src/Entity/News.php
+ no change: src/Entity/Product.php
+ no change: src/Entity/Task.php
+ no change: src/Entity/TypeLanguages.php
+
+
+  Success!
+
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity --regenerate --overwrite
+
+ This command will generate any missing methods (e.g. getters & setters) for a class or all classes in a namespace.
+
+ To overwrite any existing methods, re-run this command with the --overwrite flag
+
+ Enter a class or namespace to regenerate [App\Entity]:
+ > App\Entity
+
+ no change: src/Entity/DoctrineMigrationVersions.php
+ no change: src/Entity/News.php
+ no change: src/Entity/Product.php
+ no change: src/Entity/Task.php
+ no change: src/Entity/TypeLanguages.php
+
+
+  Success!
+
+
+
+C:\wamp64\www\symfony_last>php bin/console doctrine:mapping:import App\Entity\RefArdCancelReason annotation --path=src/Entity
+Importing mapping information from "default" entity manager
+  > writing src/Entity/DoctrineMigrationVersions.php
+  > writing src/Entity/Product.php
+  > writing src/Entity/Task.php
+  > writing src/Entity/News.php
+  > writing src/Entity/RefArdCancelReason.php
+  > writing src/Entity/TypeLanguages.php
+
+C:\wamp64\www\symfony_last>php bin/console make:entity App\Entity\RefArdCancelReason  --regenerate --overwrite
+
+Fatal error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already in use in C:\wamp64\www\symfony_last\src\Entity\RefArdCancelReason.php on line 13
+
+In RefArdCancelReason.php line 13:
+
+  Compile Error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already i
+  n use
+
+
+make:entity [-a|--api-resource] [-b|--broadcast] [--regenerate] [--overwrite] [--] [<name>]
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity --regenerate --overwrite
+
+ This command will generate any missing methods (e.g. getters & setters) for a class or all classes in a namespace.
+
+ To overwrite any existing methods, re-run this command with the --overwrite flag
+
+ Enter a class or namespace to regenerate [App\Entity]:
+ > App\Entity
+
+ updated: src/Entity/DoctrineMigrationVersions.php
+ updated: src/Entity/News.php
+ updated: src/Entity/Product.php
+ updated: src/Entity/RefArdCancelReason.php
+ updated: src/Entity/Task.php
+ updated: src/Entity/TypeLanguages.php
+
+
+  Success!
+
+
+
+C:\wamp64\www\symfony_last>php bin/console make:entity --regenerate --overwrite
+
+ This command will generate any missing methods (e.g. getters & setters) for a class or all classes in a namespace.
+
+ To overwrite any existing methods, re-run this command with the --overwrite flag
+
+ Enter a class or namespace to regenerate [App\Entity]:
+ > App\Entity\RefArdCancelReason
+
+
+Fatal error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already in use in C:\wamp64\www\symfony_last\src\Entity\RefArdCancelReason.php on line 13
+
+In RefArdCancelReason.php line 13:
+
+  Compile Error: Cannot declare class App\Entity\RefArdCancelReason\RefArdCancelReason, because the name is already i
+  n use
+
+
+make:entity [-a|--api-resource] [-b|--broadcast] [--regenerate] [--overwrite] [--] [<name>]
+

@@ -1,0 +1,27 @@
+https://symfony.com/bundles/SymfonyMakerBundle/current/index.html
+
+Installation
+	cd C:\wamp64\www\symfony_last
+	composer require --dev symfony/maker-bundle
+
+List all maker functions
+	php bin/console list make
+
+Make Controller
+	help
+		php bin/console make:controller --help
+	php bin/console make:controller
+		Choose a name for your controller class (e.g. OrangePopsicleController):
+		> FortuneController
+
+		created: src/Controller/FortuneController.php
+		created: templates/fortune/index.html.twig
+		Success!
+
+Make Entity
+	help
+		php bin/console make:entity --help
+
+Make Form
+	help
+		php bin/console make:form --help

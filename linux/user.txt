@@ -1,0 +1,52 @@
+test server
+http://10.8.111.3/ru/case
+10.8.111.3
+Login as: a-abduvapov
+Password: snH47@74hw9173
+	
+
+switch user to root
+	sudo -i
+	sudo su -
+		// requires password for current user
+
+switch user to a-abduvapov
+	su a-abduvapov
+_______________________________________________________________________________
+execute commands as another user
+	sudo -u www-data sh
+	sudo su www-data -s /bin/sh
+	su www-data -s /bin/sh
+		//$ make commands
+		//Exit the session with [ctrl]+[d] or exit
+	sudo -u www-data ls  //execute command "ls" as "www-data" user
+______________
+As root you can edit "/etc/passwd". Change the shell for "www-data" from "/usr/sbin/nologin" to "/bin/bash" or whatever you prefer:
+
+www-data:x:33:33:www-data:/var/www:/bin/bash
+Don't forget to give www-data a password with
+$ passwd www-data
+After that you can login with www-data as a normal user.
+_______________________________________________________________________________
+
+logout
+	exit
+
+change direction
+	cd /
+	cd ../../var/www/ais.at.kg
+
+list all files in directory
+	ls -a
+	ls -a
+
+clear ais.at.kg cache
+	sudo su -
+	snH47@74hw9173
+	cd /var/www/ais.at.kg/var/cache/general
+	rm -r prod
+	rm -r dev
+
+update database symfony schema
+	cd /var/www/ais.at.kg
+	php bin/console doctrine:schema:update --force

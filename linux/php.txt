@@ -1,0 +1,2 @@
+run php in shell
+	php -a

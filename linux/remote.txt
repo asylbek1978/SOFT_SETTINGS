@@ -1,0 +1,9 @@
+google
+	ubuntu remote desktop from windows
+
+
+https://linuxconfig.org/ubuntu-20-04-remote-desktop-access-from-windows-10
+
+https://ubuntu.com/tutorials/access-remote-desktop#1-overview
+
+https://www.makeuseof.com/tag/how-to-establish-simple-remote-desktop-access-between-ubuntu-and-windows/

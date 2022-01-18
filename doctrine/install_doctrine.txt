@@ -1,0 +1,82 @@
+site
+	https://www.doctrine-project.org/
+mkdir
+	localhost/doctrine2-tutorial/
+		config
+			xml
+			yaml			
+		src
+	bootstrap.php
+	cli-config.php
+create file
+	composer.file
+cmd
+	cd C:\wamp64\www\doctrine24
+	composer install
+		"vendor" folder will be created
+	
+	//
+	php vendor/bin/doctrine orm:schema-tool:create
+		[OK] No Metadata Classes to process.
+
+		1	Fatal error: Uncaught RuntimeException: Setup tool cannot configure caches without doctrine/cache 1.11 or symfony/cache. Please add an explicit dependency to either library. in
+		composer.json
+			add line
+			"symfony/cache": "^5.3"
+			after run
+			$ composer update
+
+	
+	при изменении метаданных своих объектов в процессе разработки вам потребуется 
+	обновить схему базы данных, чтобы она оставалась синхронизированной с метаданными. 
+	воссоздать базу данных
+	vendor/bin/doctrine orm:schema-tool:drop --force
+	vendor/bin/doctrine orm:schema-tool:create
+	vendor/bin/doctrine orm:schema-tool:update --force
+
+create file
+	src/Product.php	
+	
+	php vendor/bin/doctrine orm:schema-tool:update --force --dump-sql
+		//if 'driver' => 'pdo_sqlite'
+
+			The following SQL statements will be executed:
+			     CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL);
+			 Updating database schema...
+			     1 query was executed
+			 [OK] Database schema updated successfully!
+		//if 'driver'   => 'pdo_mysql',
+			 The following SQL statements will be executed:
+		     CREATE TABLE bugs (id INT AUTO_INCREMENT NOT NULL, description VARCHAR(255) NOT NULL, created DATETIME NOT NULL, status VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
+		     CREATE TABLE products (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
+		     CREATE TABLE users (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
+
+		 	Updating database schema...
+		    3 queries were executed
+		 	[OK] Database schema updated successfully!
+	
+	php create_product.php ORM
+	php create_product.php DBAL
+	php create_product.php Eggs
+	php create_product.php Butter	
+	php create_product.php Milk
+	php create_product.php Honey
+		Created Product with ID 1
+
+	php list_products.php
+		-ORM
+		-DBAL
+		-Eggs
+		-Butter
+		-Milk
+		-Honey
+
+	php show_product.php 4
+		Butter
+
+	php update_product.php 2 DBALS
+		DBALS
+
+
+
+errors

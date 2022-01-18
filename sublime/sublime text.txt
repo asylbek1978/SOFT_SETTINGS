@@ -1,0 +1,62 @@
+Install
+	apt install  sublime-text
+	// sublime will be installed to folder
+		/opt/sublime_text/
+	// executable file
+		/opt/sublime_text/sublime_text
+	//a "subl" symlink will automatically be installed into the /usr/bin/ directory.
+	// If installing from a tarball(archieve), the sublime_text executable should be symlinked to "subl", with a command such as:
+	// sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
+
+which subl
+	/usr/local/bin/subl
+
+	ls -l /usr/bin/subl
+		-rwxr-xr-x 1 root root 67 Oct 26 09:40 /usr/bin/subl
+	ls -l /usr/local/bin/subl
+		lrwxrwxrwx 1 root root 30 Dec 16 10:55 /usr/local/bin/subl -> /opt/sublime_text/sublime_text
+
+locate subl
+	/home/asylbek/.config/sublime-text
+	/opt/sublime_text
+	/usr/bin/subl
+	/usr/local/bin/subl
+	/usr/share/applications/sublime_text.desktop
+	/var/lib/dpkg/info/sublime-text.list
+	/var/lib/dpkg/info/sublime-text.md5sums
+
+
+
+Usage
+	subl
+	subl --help
+		...
+	subl -v
+	subl --version
+		Sublime Text build 4121
+
+	
+	//open a file
+		subl /var/www/html/postgreSQL/index.php
+	//open file in a new window
+		subl -n /var/www/html/index.html
+	//open file in a new window with folder
+		subl -n -a /var/www/html/postgreSQL/
+
+	cd  /var/www/html/
+	nano hello/index.php
+	nano /var/www/html/hello/index.php
+
+
+CONFIGURING AS EDITOR
+	To use Sublime Text as the editor for many commands that prompt for input, set your EDITOR environment variable:
+
+	export EDITOR='subl -w'
+	Specifying -w will cause the subl command to not exit until the file is closed.	
+
+
+	
+"/usr/bin/subl" is shell script which is running "/opt/sublime_text/sublime_text"
+
+Create a symbolic links 
+	sudo ln -s /opt/sublime_text/sublime_text /usr/bin/subl

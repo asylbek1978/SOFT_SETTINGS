@@ -1,0 +1,53 @@
+get ip address
+which ifconfig
+/usr/sbin/ifconfig
+
+restart connections
+sudo service network-manager restart
+
+ifconfig -a
+	eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.2.10.96  netmask 255.255.255.192  broadcast 10.2.10.127
+        inet6 fe80::fecf:d9d8:a057:50ab  prefixlen 64  scopeid 0x20<link>
+        ether b4:2e:99:81:e0:43  txqueuelen 1000  (Ethernet)
+        RX packets 346975  bytes 380232628 (380.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 220867  bytes 30878003 (30.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 16  memory 0xa3200000-a3220000  
+
+	lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 891616  bytes 267616164 (267.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 891616  bytes 267616164 (267.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+ip addr
+ip a
+	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+	    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+	    inet 127.0.0.1/8 scope host lo
+	       valid_lft forever preferred_lft forever
+	    inet6 ::1/128 scope host 
+	       valid_lft forever preferred_lft forever
+	2: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+	    link/ether b4:2e:99:81:e0:43 brd ff:ff:ff:ff:ff:ff
+	    inet 10.2.10.96/26 brd 10.2.10.127 scope global dynamic noprefixroute eno1
+	       valid_lft 597461sec preferred_lft 597461sec
+	    inet6 fe80::fecf:d9d8:a057:50ab/64 scope link noprefixroute 
+	       valid_lft forever preferred_lft forever
+
+nmcli device status
+	DEVICE  TYPE      STATE      CONNECTION         
+	eno1    ethernet  connected  Wired connection 1 
+	lo      loopback  unmanaged  --  
+
+nmcli connection show
+	NAME                UUID                                  TYPE      DEVICE 
+	Wired connection 1  155dac80-72f9-3106-9d59-0b893128e03c  ethernet  eno1
+
+change ipaddress
+ifconfig <interface_name> <ip_address> netmask <netmask_address>
+ifconfig eno1 10.2.10.96 netmask 255.255.255.192

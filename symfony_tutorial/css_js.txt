@@ -1,0 +1,17 @@
+https://symfony.com/doc/current/frontend.html
+
+Webpack Encore. API for bundling JavaScript modules, pre-processing CSS & JS and compiling and minifying assets. 
+	https://www.npmjs.com/package/@symfony/webpack-encore
+
+in base or any twig file
+C:\wamp64\www\ais.at.kg\app\Resources\views\base.html.twig
+	<link href='style/consult.css' rel='stylesheet'>
+	<script src="js/google_analytics.js"></script>
+
+
+
+Useful links
+	https://requirejs.org/
+	RequireJS
+	https://coderlessons.com/tutorials/veb-razrabotka/vyuchit-requirejs/requirejs-kratkoe-rukovodstvo
+	https://github.com/requirejs/requirejs

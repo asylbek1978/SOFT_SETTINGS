@@ -1,0 +1,37 @@
+Linux soft installing
+	sudo apt-get install sublime-text
+
+
+installing manually
+//upload file "sublime-text_build-3211_amd64.deb" to folder "/home/a-abduvapov/"
+	cd /home/a-abduvapov/
+	sudo dpkg -i sublime-text_build-3211_amd64.deb
+		Выбор ранее не выбранного пакета sublime-text.
+		(Чтение базы данных … на данный момент установлен 86281 файл и каталог.)
+		Подготовка к распаковке sublime-text_build-3211_amd64.deb …
+		Распаковывается sublime-text (3211) …
+		Настраивается пакет sublime-text (3211) …
+		Обрабатываются триггеры для mime-support (3.59ubuntu1) …
+		Обрабатываются триггеры для hicolor-icon-theme (0.15-0ubuntu1) …
+
+	sudo apt-get install sublime-text
+		Чтение списков пакетов… Готово
+		Построение дерева зависимостей
+		Чтение информации о состоянии… Готово
+		Уже установлен пакет sublime-text самой новой версии (3211).
+		Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 399 пакетов не обновлено.		
+
+running sublime text3
+	subl --version
+	subl -v
+		Sublime Text Build 3211
+	subl --help
+	subl -h
+
+	cd /var/www/ais.at.kg/app/config/
+
+	subl -n config.yml
+	subl config.yml
+
+Uninstalling  a .deb file
+	sudo apt-get remove sublime-text

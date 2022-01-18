@@ -1,0 +1,145 @@
+C:\wamp64\www>cd ais.at.kg
+
+C:\wamp64\www\ais.at.kg>php bin/console make:entity ReferenceBundle\Entity\RefArdCancelReason  --regenerate --overwrite
+
+Warning: require(C:\wamp64\www\ais.at.kg\app/../vendor/autoload.php): failed to open stream: No such file or directory in C:\wamp64\www\ais.at.kg\app\autoload.php on line 9
+
+Fatal error: require(): Failed opening required 'C:\wamp64\www\ais.at.kg\app/../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\wamp64\www\ais.at.kg\app\autoload.php on line 9
+
+C:\wamp64\www\ais.at.kg>php bin/console make:entity ReferenceBundle\Entity\RefArdCancelReason  --regenerate --overwrite
+
+
+  There are no commands defined in the "make" namespace.
+
+
+
+C:\wamp64\www\ais.at.kg>php bin/console doctrine:mapping:import App\Entity annotation --path=src/Entity
+10:55:34 ERROR     [console] Error thrown while running command "doctrine:mapping:import "App\Entity" annotation --path="src/Entity"". Message: "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once" ["error" => Doctrine\ORM\Mapping\MappingException { …},"command" => "doctrine:mapping:import "App\Entity" annotation --path="src/Entity"","message" => "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once"] []
+
+In MappingException.php line 381:
+
+  Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once
+
+
+doctrine:mapping:import [--em [EM]] [--shard SHARD] [--filter FILTER] [--force] [--path PATH] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> <name> [<mapping-type>]
+
+
+C:\wamp64\www\ais.at.kg>php bin/console doctrine:mapping:import DemoBundle\Entity annotation --path=src/DemoBundle/Entity
+11:00:44 ERROR     [console] Error thrown while running command "doctrine:mapping:import "DemoBundle\Entity" annotation --path="src/DemoBundle/Entity"". Message: "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once" ["error" => Doctrine\ORM\Mapping\MappingException { …},"command" => "doctrine:mapping:import "DemoBundle\Entity" annotation --path="src/DemoBundle/Entity"","message" => "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once"] []
+
+In MappingException.php line 381:
+
+  Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once
+
+
+doctrine:mapping:import [--em [EM]] [--shard SHARD] [--filter FILTER] [--force] [--path PATH] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> <name> [<mapping-type>]
+
+
+C:\wamp64\www\ais.at.kg>php bin/console doctrine:mapping:import DemoBundle\Entity annotation --path=src/DemoBundle/Entity
+11:08:03 ERROR     [console] Error thrown while running command "doctrine:mapping:import "DemoBundle\Entity" annotation --path="src/DemoBundle/Entity"". Message: "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once" ["error" => Doctrine\ORM\Mapping\MappingException { …},"command" => "doctrine:mapping:import "DemoBundle\Entity" annotation --path="src/DemoBundle/Entity"","message" => "Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once"] []
+
+In MappingException.php line 381:
+
+  Property "idProductionType" in "AdminProcessConstructor" was already declared, but it must be declared only once
+
+
+doctrine:mapping:import [--em [EM]] [--shard SHARD] [--filter FILTER] [--force] [--path PATH] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> <name> [<mapping-type>]
+
+
+C:\wamp64\www\ais.at.kg>php bin/console make:entity
+
+
+  There are no commands defined in the "make" namespace.
+
+
+
+C:\wamp64\www\ais.at.kg>php bin/console list make
+Symfony 3.4.4 (kernel: app, env: dev, debug: true)
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help            Display this help message
+  -q, --quiet           Do not output any message
+  -V, --version         Display this application version
+      --ansi            Force ANSI output
+      --no-ansi         Disable ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+  -e, --env=ENV         The Environment name. [default: "dev"]
+      --no-debug        Switches off debug mode.
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+11:27:23 ERROR     [console] Error thrown while running command "list make". Message: "There are no commands defined in the "make" namespace." ["error" => Symfony\Component\Console\Exception\CommandNotFoundException { …},"command" => "list make","message" => "There are no commands defined in the "make" namespace."] []
+
+
+  There are no commands defined in the "make" namespace.
+
+
+list [--raw] [--format FORMAT] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<namespace>]
+
+
+C:\wamp64\www\ais.at.kg>php bin/console doctrine:generate:entity
+
+
+  Welcome to the Doctrine2 entity generator
+
+
+
+This command helps you generate Doctrine2 entities.
+
+First, you need to give the entity name you want to generate.
+You must use the shortcut notation like AcmeBlogBundle:Post.
+
+The Entity shortcut name: ArdCancelReason
+ The entity name isn't valid ("ArdCancelReason" given, expecting something like AcmeBlogBundle:Blog/Post)
+The Entity shortcut name: ReferenceBundle:ArdCancelReason
+Entity "ReferenceBundle:ArdCancelReason" already exists.
+The Entity shortcut name: ReferenceBundle:ArdCancelReason
+
+Determine the format to use for the mapping information.
+
+Configuration format (yml, xml, php, or annotation) [annotation]: annotation
+
+Instead of starting with a blank entity, you can add some fields now.
+Note that the primary key will be added automatically (named id).
+
+Available types: array, bigint, binary, blob, boolean, date,
+date_immutable, dateinterval, datetime, datetime_immutable,
+datetimetz, datetimetz_immutable, decimal, float, guid, integer,
+json, json_array, object, simple_array, smallint, string, text, time,
+time_immutable.
+
+New field name (press <return> to stop adding fields): name_ru
+Field type [string]: string
+Field length [255]: 255
+Is nullable [false]: false
+Unique [false]: false
+
+New field name (press <return> to stop adding fields): name_kg
+Field type [string]: string
+Field length [255]: 255
+Is nullable [false]: false
+Unique [false]: false
+
+New field name (press <return> to stop adding fields): status
+Field type [string]: integer
+Is nullable [false]: true
+Unique [false]: false
+
+New field name (press <return> to stop adding fields):
+
+
+  Entity generation
+
+
+  created .\src\ReferenceBundle/Entity/ArdCancelReason.php
+> Generating entity class C:\wamp64\www\ais.at.kg\src\ReferenceBundle\Entity\ArdCancelReason.php: OK!
+> Generating repository class C:\wamp64\www\ais.at.kg\src\ReferenceBundle\Repository\ArdCancelReasonRepository.php: OK!
+
+
+  Everything is OK! Now get to work :).
+
+
+
+C:\wamp64\www\ais.at.kg>

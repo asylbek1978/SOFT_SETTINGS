@@ -1,0 +1,13 @@
+installer download
+	https://symfony.com/download
+	https://get.symfony.com/cli/setup.exe
+
+manuals books
+https://symfony.com/doc/2.3/book/doctrine.html
+https://symfony.com/doc/2.3/cookbook/index.html
+
+installed C:\Program Files\Symfony
+cmd
+	symfony -V
+		Symfony CLI version v4.25.4 (2021-06-18T15:09:49+0000 - stable)
+	symfony check:requirements

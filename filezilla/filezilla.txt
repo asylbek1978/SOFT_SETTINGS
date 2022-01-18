@@ -1,0 +1,42 @@
+filezilla
+
+install
+	apt install filezilla
+
+
+which filezilla
+	/usr/bin/filezilla
+
+status
+	sudo service filezilla status	
+		Unit filezilla.service could not be found.
+______________________________________________________________________________
+
+Configuration
+
+locate filezilla.xml
+	/home/asylbek/.config/filezilla/filezilla.xml
+sudo nano /home/asylbek/.config/filezilla/sitemanager.xml
+
+______________________________________________________________________________
+
+Usage
+
+filezilla
+filezilla -s // Start with opened Site Manager
+filezilla -c "0/KEU HOSTER" // Start with opened Site Manager
+filezilla -h
+filezilla -v
+
+
+filezilla -h
+Reading locale option from /home/asylbek/.config/filezilla/filezilla.xml
+Usage: filezilla [-h] [-s] [-c <str>] [-a <str>] [-l <str>] [--verbose] [-v] [--debug-startup] [<FTP URL>]
+  -h, --help           	Shows this help dialog
+  -s, --site-manager   	Start with opened Site Manager
+  -c, --site=<str>     	Connect to specified Site Manager site
+  -a, --local=<str>    	Starts the local site in the given path
+  -l, --logontype=<str>	Logontype, can only be used together with FTP URL. Argument has to be either 'ask' or 'interactive'
+  --verbose            	Verbose log messages from wxWidgets
+  -v, --version        	Print version information to stdout and exit
+  --debug-startup      	Print diagnostic information related to startup of FileZilla

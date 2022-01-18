@@ -1,0 +1,91 @@
+https://www.postgresqltutorial.com/
+
+postgres
+
+port 5432
+
+user		postgres
+password	12345
+___________________________________________
+open access to remote ip address
+	C:\Program Files\PostgreSQL\10\data\pg_hba.conf
+	add line
+		host    all             all             10.2.10.100/32            md5
+on default accessible from
+	localhost
+	127.0.0.1
+___________________________________________
+
+pgadmin 4
+master password		123
+
+servers
+	PostgreSQL 10
+file -> preferences -> Paths -> Binary paths
+	set everywhere	
+		C:\Program Files\PostgreSQL\10\bin
+	instead of 
+		$DIR/../runtime
+_________________________________________
+
+google
+	youtube pgadmin4 backup restore database
+PostgreSQL backup and restore database with Pgadmin4
+	https://www.youtube.com/watch?v=S108Rh6XxPs
+
+
+
+general:
+                driver:   pdo_pgsql
+                host:     10.8.111.5
+                port:     5432
+                dbname:   ais_central
+                user:     ais_central
+                password: jeDTWBDQf2V
+                charset:  UTF8
+            test:
+                driver:   pdo_pgsql
+                host:     10.8.111.5
+                port:     5432
+                dbname:   ais_test
+                user:     ais_test
+                password: zpjZqj5DtFf
+                charset:  UTF8
+
+http://10.8.111.3/app_dev.php/ru/admin/menu_news/pgsql_query
+adminka uses
+Array Array
+(
+    [0] => Array
+        (
+            [dbase] => ais_central
+            [usr] => ais_central
+            [host] => 10.8.111.5
+            [port] => 5432
+        )
+
+)
+
+
+
+SELECT boot_val,reset_val
+FROM pg_settings
+WHERE name='listen_addresses';
+    localhost
+
+__________________________________________________
+user host port
+SELECT CURRENT_USER usr
+      ,inet_server_addr() host 
+      ,inet_server_port() port 
+
+
+-- use inet_client_addr() to get address of the remote connection
+-- use inet_client_port() to get port of the remote connection
+SELECT CURRENT_USER usr
+      ,inet_client_addr() host
+      ,inet_client_port() port
+
+SHOW config_file;
+SHOW hba_file;
+select * from pg_settings where name='config_file'

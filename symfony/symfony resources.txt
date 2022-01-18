@@ -1,0 +1,18 @@
+https://sensiolabs.com/
+Guide how to provide the best solutions for my php & Symfony projects and teams
+	http://images.by.sensiolabs.com/Web/SensioLabs1/%7Bc96d269d-ed84-41b1-8e34-e30ee07e3cc7%7D_sl_guide_EN_janvier.pdf
+
+
+https://twig.symfony.com/
+
+https://symfonycasts.com/
+https://coursehunter.net/source/symfonycasts
+	https://symfonycasts.com/screencast/symfony-bundle
+	https://symfonycasts.com/screencast/symfony
+
+connect.symfony.com
+Asylbek Abduvapov
+asilbekov1978@mail.ru
+asylbek
+трудносломатьсимфони
+nhelyjckjvfnmcbvajyb
