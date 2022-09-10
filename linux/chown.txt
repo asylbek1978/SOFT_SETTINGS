@@ -1,8 +1,9 @@
 change an owner of a folder or of a file
-	sudo chown username:group directory
+	sudo chown "username:group" "directory"
 	// sudo chown a-abduvapov:a-abduvapov ais.at.kg
-	// change recursively
+	// sudo chown a-abduvapov:a-abduvapov /var/www/asil.ais.at.kg/web
 	sudo chown -R a-abduvapov:a-abduvapov ais.at.kg
+	sudo chown -R a-abduvapov:a-abduvapov /var/www/asil.ais.at.kg/web
 	sudo chown -R www-data:www-data ais.at.kg
 	//stomper user
 		src, vendor

@@ -1,0 +1,161 @@
+Install Supporting Software
+The software-properties-common package gives you better control over your package manager by letting you add PPA (Personal Package Archive) repositories. Install the supporting software with the command:
+	sudo apt install software-properties-common
+
+
+List of all repositories in system
+Ubuntu Debian
+
+	grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*
+	
+	nano /etc/apt/sources.list
+	ls /etc/apt/sources.list.d/
+		deadsnakes-ppa-focal.list  docker.list  google-chrome.list  metasploit-framework.list  nginx.list nginx-stable-focal.list official-package-repositories.list  opera-stable.list  pgadmin4.list  pgdg.list  pgdg.list.save  symfony-cli.list  teamviewer.list
+
+	//Adding a new one list
+		nano /etc/apt/sources.list.d/nginx.list
+			deb https://nginx.org/packages/ubuntu/ focal nginx
+			deb-src https://nginx.org/packages/ubuntu/ focal nginx
+
+	//Adding a repository
+		sudo apt-add-repository ppa:deadsnakes/ppa
+		sudo apt-add-repository 'http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main'
+		sudo apt-add-repository 'https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main'
+		sudo apt-add-repository '[trusted=yes] https://repo.symfony.com/apt/ /'
+		sudo apt-add-repository ppa:deadsnakes/ppa
+		sudo apt-add-repository '[arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main'
+		sudo apt-add-repository '[arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu uma stable'
+		sudo apt-add-repository 'https://deb.opera.com/opera-stable/ stable non-free'
+		sudo apt-add-repository 'https://linux.teamviewer.com/deb stable main'
+		sudo apt-add-repository 'http://packages.linuxmint.com uma main upstream import backport'
+		sudo apt-add-repository 'http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse'
+		sudo apt-add-repository 'http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse'
+		sudo apt-add-repository 'http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse'
+		sudo apt-add-repository 'http://security.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse'
+		sudo apt-add-repository 'http://archive.canonical.com/ubuntu/ focal partner'
+		sudo apt-add-repository 'http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid main'
+		
+
+	//Viewing a repository list
+		nano /etc/apt/sources.list.d/deadsnakes-ppa-focal.list
+			deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main
+			# deb-src http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main
+		nano /etc/apt/sources.list.d/docker.list
+			deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   uma stable
+		nano /etc/apt/sources.list.d/google-chrome.list  
+			### THIS FILE IS AUTOMATICALLY CONFIGURED ###
+			# You may comment out this entry, but any other modifications may be lost.
+			deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+
+		nano /etc/apt/sources.list.d/metasploit-framework.list  
+		nano /etc/apt/sources.list.d/nginx.list
+			deb https://nginx.org/packages/ubuntu/ focal nginx
+			deb-src https://nginx.org/packages/ubuntu/ focal nginx
+		nano /etc/apt/sources.list.d/nginx-stable-focal.list  
+			deb http://ppa.launchpad.net/nginx/stable/ubuntu focal main
+			# deb-src http://ppa.launchpad.net/nginx/stable/ubuntu focal main
+		nano /etc/apt/sources.list.d/official-package-repositories.list  
+		nano /etc/apt/sources.list.d/opera-stable.list  
+		nano /etc/apt/sources.list.d/pgadmin4.list
+			deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main
+		nano /etc/apt/sources.list.d/pgdg.list
+			deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main  
+		nano /etc/apt/sources.list.d/pgdg.list.save
+			http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main
+			wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+ 
+		nano /etc/apt/sources.list.d/symfony-cli.list 
+			deb [trusted=yes] https://repo.symfony.com/apt/ /
+		nano /etc/apt/sources.list.d/teamviewer.list
+			deb https://linux.teamviewer.com/deb stable main
+	// List all
+		https://askubuntu.com/questions/148932/how-can-i-get-a-list-of-all-repositories-and-ppas-from-the-command-line-into-an
+
+		grep -r --include '*.list' '^deb ' /etc/apt/ | sed -re 's/^\/etc\/apt\/sources\.list((\.d\/)?|(:)?)//' -e 's/(.*\.list):/\[\1\] /' -e 's/deb http:\/\/ppa.launchpad.net\/(.*?)\/ubuntu .*/ppa:\1/'
+			[pgdg.list] deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main
+			[pgadmin4.list] deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main
+			[symfony-cli.list] deb [trusted=yes] https://repo.symfony.com/apt/ /
+			[deadsnakes-ppa-focal.list] ppa:deadsnakes/ppa
+			[google-chrome.list] deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+			[docker.list] deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   uma stable
+			[opera-stable.list] deb https://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)
+			[teamviewer.list] deb https://linux.teamviewer.com/deb stable main
+			[official-package-repositories.list] deb http://packages.linuxmint.com uma main upstream import backport #id:linuxmint_main
+			[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
+			[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+			[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
+			[official-package-repositories.list] deb http://security.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+			[official-package-repositories.list] deb http://archive.canonical.com/ubuntu/ focal partner
+			[metasploit-framework.list] deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid main
+		grep -r --include '*.list' '^deb ' /etc/apt/sources.list*
+		grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/
+			/etc/apt/sources.list.d/pgdg.list:deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main
+			/etc/apt/sources.list.d/pgadmin4.list:deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4 main
+			/etc/apt/sources.list.d/symfony-cli.list:deb [trusted=yes] https://repo.symfony.com/apt/ /
+			/etc/apt/sources.list.d/deadsnakes-ppa-focal.list:deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main
+			/etc/apt/sources.list.d/google-chrome.list:deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+			/etc/apt/sources.list.d/docker.list:deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   uma stable
+			/etc/apt/sources.list.d/opera-stable.list:deb https://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)
+			/etc/apt/sources.list.d/teamviewer.list:deb https://linux.teamviewer.com/deb stable main
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://packages.linuxmint.com uma main upstream import backport #id:linuxmint_main
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://security.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+			/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.canonical.com/ubuntu/ focal partner
+			/etc/apt/sources.list.d/metasploit-framework.list:deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid main
+		pt-cache policy | grep http | awk '{print $2" "$3}' | sort -u
+			http://apt.postgresql.org/pub/repos/apt focal-pgdg/main
+			http://archive.canonical.com/ubuntu focal/partner
+			http://archive.ubuntu.com/ubuntu focal-backports/main
+			http://archive.ubuntu.com/ubuntu focal-backports/universe
+			http://archive.ubuntu.com/ubuntu focal/main
+			http://archive.ubuntu.com/ubuntu focal/multiverse
+			http://archive.ubuntu.com/ubuntu focal/restricted
+			http://archive.ubuntu.com/ubuntu focal/universe
+			http://archive.ubuntu.com/ubuntu focal-updates/main
+			http://archive.ubuntu.com/ubuntu focal-updates/multiverse
+			http://archive.ubuntu.com/ubuntu focal-updates/restricted
+			http://archive.ubuntu.com/ubuntu focal-updates/universe
+			http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid/main
+			http://packages.linuxmint.com uma/backport
+			http://packages.linuxmint.com uma/import
+			http://packages.linuxmint.com uma/main
+			http://packages.linuxmint.com uma/upstream
+			http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal/main
+			https://deb.opera.com/opera-stable stable/non-free
+			https://dl.google.com/linux/chrome/deb stable/main
+			http://security.ubuntu.com/ubuntu focal-security/main
+			http://security.ubuntu.com/ubuntu focal-security/multiverse
+			http://security.ubuntu.com/ubuntu focal-security/restricted
+			http://security.ubuntu.com/ubuntu focal-security/universe
+			https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/focal pgadmin4/main
+			https://linux.teamviewer.com/deb stable/main
+			https://repo.symfony.com/apt Packages			
+
+Rocky	
+	sudo dnf repolist
+		repo id                         repo name
+		appstream                       Rocky Linux 8 - AppStream
+		baseos                          Rocky Linux 8 - BaseOS
+		epel                            Extra Packages for Enterprise Linux 8 - x86_64
+		epel-modular                    Extra Packages for Enterprise Linux Modular 8 - x86_64
+		extras                          Rocky Linux 8 - Extras
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

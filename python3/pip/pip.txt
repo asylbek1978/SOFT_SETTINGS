@@ -1,0 +1,45 @@
+
+site
+	https://pypi.org/project/pip/
+	https://pip.pypa.io/en/stable/getting-started/
+
+PIP which is included in Python from version 3.4.
+
+install
+	//with python
+		python3 -m ensurepip --upgrade
+			/usr/bin/python3: No module named ensurepip
+		python3.10 -m ensurepip --upgrade
+			Defaulting to user installation because normal site-packages is not writeable
+			Looking in links: /tmp/tmpna2eccq_
+			Requirement already satisfied: setuptools in /usr/local/lib/python3.10/site-packages (63.2.0)
+			Requirement already satisfied: pip in /usr/local/lib/python3.10/site-packages (22.2.1)			
+	//with pip
+		pip install pip
+
+upgrade
+	python3 -m pip install --upgrade pip
+		/usr/bin/python3: No module named pip
+	python3.10 -m pip install --upgrade pip	
+		Defaulting to user installation because normal site-packages is not writeable
+		Requirement already satisfied: pip in /usr/local/lib/python3.10/site-packages (22.2.1)
+		Collecting pip
+		  Downloading pip-22.2.2-py3-none-any.whl (2.0 MB)
+		     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 16.7 kB/s eta 0:00:00
+		Installing collected packages: pip
+		  WARNING: The scripts pip, pip3 and pip3.10 are installed in '/home/asylbek/.local/bin' which is not on PATH.
+		  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+		Successfully installed pip-22.2.2
+
+		[notice] A new release of pip available: 22.2.1 -> 22.2.2
+		[notice] To update, run: pip3.10 install --upgrade pip
+
+
+which pip3.10
+	/usr/local/bin/pip3.10
+
+pip3.10 --version
+	root
+		pip 22.2.1 from /usr/local/lib/python3.10/site-packages/pip (python 3.10)	
+	user
+		pip 22.2.2 from /home/asylbek/.local/lib/python3.10/site-packages/pip (python 3.10)

@@ -7,14 +7,6 @@ port 5432
 user		postgres
 password	12345
 ___________________________________________
-open access to remote ip address
-	C:\Program Files\PostgreSQL\10\data\pg_hba.conf
-	add line
-		host    all             all             10.2.10.100/32            md5
-on default accessible from
-	localhost
-	127.0.0.1
-___________________________________________
 
 pgadmin 4
 master password		123
@@ -89,3 +81,9 @@ SELECT CURRENT_USER usr
 SHOW config_file;
 SHOW hba_file;
 select * from pg_settings where name='config_file'
+
+
+
+https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
+https://www.liquidweb.com/kb/what-is-the-default-password-for-postgresql/
+https://adamtheautomator.com/install-postgresql-on-a-ubuntu/

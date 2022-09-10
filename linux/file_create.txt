@@ -1,0 +1,22 @@
+
+
+touch
+	touch file1.txt
+	touch file1.txt file2.txt file3.txt
+
+redirection command
+	> file1.txt
+
+cat
+	cat > file1.txt
+
+echo
+	echo "Some line" > file1.txt
+	echo > file1.txt
+
+Heredoc
+	cat << EOF > file1.txt
+	Some line
+	Some other line
+	EOF
+

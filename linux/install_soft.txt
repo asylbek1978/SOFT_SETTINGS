@@ -1,10 +1,20 @@
 Linux soft installing
 	sudo apt-get install sublime-text
-
+	sudo apt install alien
 
 installing manually
 //upload file "sublime-text_build-3211_amd64.deb" to folder "/home/a-abduvapov/"
 	cd /home/a-abduvapov/
+
+	// install with apt-get
+	sudo apt-get install sublime-text
+		Чтение списков пакетов… Готово
+		Построение дерева зависимостей
+		Чтение информации о состоянии… Готово
+		Уже установлен пакет sublime-text самой новой версии (3211).
+		Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 399 пакетов не обновлено.
+
+	// install from a "deb" file
 	sudo dpkg -i sublime-text_build-3211_amd64.deb
 		Выбор ранее не выбранного пакета sublime-text.
 		(Чтение базы данных … на данный момент установлен 86281 файл и каталог.)
@@ -14,12 +24,76 @@ installing manually
 		Обрабатываются триггеры для mime-support (3.59ubuntu1) …
 		Обрабатываются триггеры для hicolor-icon-theme (0.15-0ubuntu1) …
 
-	sudo apt-get install sublime-text
-		Чтение списков пакетов… Готово
-		Построение дерева зависимостей
-		Чтение информации о состоянии… Готово
-		Уже установлен пакет sublime-text самой новой версии (3211).
-		Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 399 пакетов не обновлено.		
+		source
+			https://unix.stackexchange.com/questions/159094/how-to-install-a-deb-file-by-dpkg-i-or-by-apt
+
+		When you use apt to install a package, under the hood it uses dpkg. When you install a package using apt, it first creates a list of all the dependencies and downloads it from the repository.
+		Once the download is finished it calls dpkg to install all those files, satisfying all the dependencies.
+		So if you have a .deb file, you can install it by:
+		Using:
+			sudo dpkg -i /path/to/deb/file
+				sudo dpkg -i /home/asylbek/Downloads/opera-stable_82.0.4227.58_amd64.deb	
+			sudo apt-get install -f
+		Using:
+			sudo apt install ./name.deb
+		Or
+			sudo apt install /path/to/package/name.deb
+				sudo apt install 
+
+	// install from a "sh" file	
+		1. Open terminal
+		2. Switch to the directory where you have extracted tar compressed file, there should be a file named install.sh
+		3. Execute the file as root. 
+			a. In Ubuntu/Mint/Elementary OS or other Debian based Linux, use: sudo ./install.sh
+		4. If installation is successfull, you can start "xdm" from Start Menu or by typing "xdman" interminal as non root user
+		5. To uninstall run /opt/"xdman"/uninstall.sh as root
+
+	// execute portable files
+
+		/home/asylbek/Downloads/SOFT LINUX/FileZilla/FileZilla3/bin/filezilla
+		/home/asylbek/Downloads/FILE\ MANAGERS/doublecmd/doublecmd
+
+_______________________
+
+/home/asylbek/.local/share/applications
+/home/asylbek/.local/share/applications/Telegram Desktop
+/home/asylbek/.local/share/applications/Opera
+
+/usr/share/applications/Opera
+
+config
+	/home/asylbek/.config/filezilla/filezilla.xml
+
+cache
+	/home/asylbek/.cache/filezilla
+________________________________________________________________
+
+run a programm
+	//all applications
+		/usr/share/applications/
+	
+	// installed with ".deb" files
+		opera
+	
+
+	/opt/xdman/xdman
+	/opt/sublime_text/sublime_text %F
+	/usr/local/bin/subl  (link)
+	/usr/bin/google-chrome-stable %U
+	
+	opera %U
+	/home/asylbek/Downloads/Telegram/Telegram -workdir /home/asylbek/.local/share/TelegramDesktop/ -- %u
+	/home/asylbek/SOFT/Telegram/Telegram -workdir /home/asylbek/.local/share/TelegramDesktop/ -- %u
+	/usr/bin/google-chrome-stable %U
+	mate-terminal
+	
+	// installed with "apt install program name"
+		filezilla
+			Reading locale option from /home/asylbek/.config/filezilla/filezilla.xml
+open a new folder
+	/usr/bin/caja
+
+_______________________________________________
 
 running sublime text3
 	subl --version
@@ -32,6 +106,7 @@ running sublime text3
 
 	subl -n config.yml
 	subl config.yml
+_______________________________________________
 
 Uninstalling  a .deb file
 	sudo apt-get remove sublime-text

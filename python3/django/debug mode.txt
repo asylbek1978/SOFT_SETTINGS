@@ -1,0 +1,21 @@
+
+myworld/settings.py
+	DEBUG = True
+	DEBUG = False
+
+	ALLOWED_HOSTS = ['127.0.0.1']
+	ALLOWED_HOSTS = ['127.0.0.1', 'yourdomain.com']
+
+templates/404.html:
+
+	<!DOCTYPE html>
+	<html>
+	<title>Wrong address</title>
+	<body>
+
+	<h1>Ooops!</h1>
+
+	<h2>I cannot find the file you requested!</h2>
+
+	</body>
+	</html>

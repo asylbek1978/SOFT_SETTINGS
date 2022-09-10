@@ -1,0 +1,32 @@
+Install
+	apt search opera
+		opera-beta 
+		opera-developer
+		opera-stable
+	apt install opera-stable
+	||
+	sudo dpkg -i /home/asylbek/Downloads/opera-stable_82.0.4227.58_amd64.deb
+
+which opera
+		// Link to shared library (application/x-sharedlib)
+		// /usr/lib/x86_64-linux-gnu/opera/opera
+	/usr/bin/opera
+
+locate opera
+	/etc/apt/sources.list.d/opera-stable.list
+	/etc/cron.daily/opera-browser
+	/home/asylbek/.config/opera
+	
+	/usr/share/applications/opera.desktop  //desktop configuration file (application/x-desktop)
+	/usr/share/menu/opera-stable
+	
+	/var/lib/dpkg/info/opera-stable.config
+	/var/lib/dpkg/info/opera-stable.list
+	/var/lib/dpkg/info/opera-stable.md5sums
+	/var/lib/dpkg/info/opera-stable.postinst
+	/var/lib/dpkg/info/opera-stable.postrm
+	/var/lib/dpkg/info/opera-stable.prerm
+	/var/lib/dpkg/info/opera-stable.templates
+
+cache files
+	/home/asylbek/.cache/opera

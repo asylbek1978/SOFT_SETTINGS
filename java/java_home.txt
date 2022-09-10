@@ -1,0 +1,53 @@
+
+Настройка переменной среды JAVA_HOME
+//Многие программы, написанные на Java, используют переменную среды JAVA_HOME для определения каталога установки Java. Чтобы задать эту переменную среды, нужно предварительно определить место установки Java. Используйте команду update-alternatives:
+
+sudo update-alternatives --config java
+	//Эта команда показывает каждую установку Java и путь установки:
+
+	There is only one alternative in link group java (providing /usr/bin/java): 
+		/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+	Nothing to configure.
+
+	|
+
+	There are 2 choices for the alternative java (providing /usr/bin/java).
+
+	  Selection    Path                                         Priority   Status
+	------------------------------------------------------------
+	  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1111      auto mode
+	  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1111      manual mode
+	* 2            /usr/lib/jvm/java-11-oracle/bin/java          1091      manual mode
+
+	Press <enter> to keep the current choice[*], or type selection number:
+
+//В данном случае пути установки выглядят следующим образом:
+OpenJDK 11 находится в каталоге /usr/lib/jvm/java-11-openjdk-amd64/bin/java.
+Java Oracle располагается в каталоге /usr/lib/jvm/java-11-oracle/jre/bin/java.
+
+
+//Скопируйте путь каталога установки предпочитаемой версии. Откройте каталог /etc/environment в nano или другом текстовом редакторе:
+
+	sudo nano /etc/environment
+	//В конце этого файла добавьте следующую строку, чтобы заменить выделенный путь на собственный скопированный путь, но не включайте часть пути bin/:
+	PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+	
+	JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
+	JAVA_HOME="/usr/lib/jvm/bellsoft-java11-amd64/"
+	JAVA_HOME="/usr/lib/jvm/bellsoft-java17-amd64/"
+
+//При изменении файла будет задан путь JAVA_HOME для всех пользователей системы.
+//Сохраните файл и выйдите из редактора.
+//Снова загрузите файл, чтобы применить изменения к текущему сеансу:
+
+source /etc/environment
+	//Убедитесь, что переменная среды задана:
+
+echo $JAVA_HOME
+	/usr/lib/jvm/java-11-openjdk-amd64
+
+//-------------------------------
+
+
+
+

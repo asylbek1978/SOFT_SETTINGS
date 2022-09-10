@@ -1,0 +1,150 @@
+nodejs
+	https://nodejs.org/
+download
+	https://nodejs.org/en/download/
+	source codes
+		https://nodejs.org/dist/v16.17.0/node-v16.17.0.tar.gz
+		https://nodejs.org/dist/v16.15.1/node-v16.15.1.tar.gz
+		|| wget http://nodejs.org/dist/v16.15.1/node-v16.15.1.tar.gz
+		
+	Linux Binaries (x64)
+		https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+		https://nodejs.org/dist/v16.17.0/node-v16.17.0-linux-x64.tar.xz
+install
+	apt install nodejs
+		check
+			node -v
+				v10.19.0
+		which node
+			/usr/bin/node
+			/usr/bin/node -v
+				v10.19.0
+			/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/node
+		readlink -f $(which node)
+			/usr/bin/node
+
+
+		ls -l /usr/bin/node
+			-rwxr-xr-x 1 root root 14416 Mar 31  2020 /usr/bin/node
+
+	from binary archieve
+	// https://github.com/nodejs/help/wiki/Installation
+		sudo mkdir -p /usr/local/lib/nodejs
+ 		sudo tar -xJvf /home/asylbek/Downloads/SOFT_LINUX/NodeJs/node-v16.15.1-linux-x64.tar.xz -C /usr/local/lib/nodejs 
+ 		ls /usr/local/lib/nodejs
+ 			node-v16.15.1-linux-x64
+ 		ls /usr/local/lib/nodejs/node-v16.15.1-linux-x64
+ 			bin  CHANGELOG.md  include  lib  LICENSE  README.md  share
+ 		
+ 		//start node
+ 		/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/node -v
+ 			v16.15.1
+ 		/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/node
+ 			Welcome to Node.js v16.15.1.
+			Type ".help" for more information.
+			> .help
+			.break    Sometimes you get stuck, this gets you out
+			.clear    Alias for .break
+			.editor   Enter editor mode
+			.exit     Exit the REPL
+			.help     Print this help message
+			.load     Load JS from a file into the REPL session
+			.save     Save all evaluated commands in this REPL session to a file
+
+			Press Ctrl+C to abort current expression, Ctrl+D to exit the REPL
+			> |
+
+		/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/npx -v
+
+		//file locations
+			/usr/local/lib/nodejs/node-v16.15.1-linux-x64/lib/node_modules/npm/bin/npm
+			/usr/local/lib/nodejs/node-v16.15.1-linux-x64/lib/node_modules/npm/bin/npm-cli.js
+			/usr/local/lib/nodejs/node-v16.15.1-linux-x64/lib/node_modules/npm/bin/npx
+			/usr/local/lib/nodejs/node-v16.15.1-linux-x64/lib/node_modules/npm/bin/npx-cli.js
+
+
+
+		//?error start embedded npm
+		/usr/local/lib/nodejs/node-v16.15.1-linux-x64/lib/node_modules/npm/bin/npm
+			Error: Cannot find module '/usr/bin/node_modules/npm/bin/npm-cli.js'
+			Could not determine Node.js install directory
+	//installer
+	https://github.com/nodesource/distributions/blob/master/README.md
+	
+Environment
+	1 way
+		sudo nano /etc/environment
+		export PATH=$PATH:/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin
+			node -v
+				v10.19.0
+		export PATH=/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin:$PATH
+			node -v
+				v16.15.1
+		source /etc/environment
+		
+	2nd way 
+		//try
+		~/.profile
+			bash: /root/.profile: Permission denied
+		add to the end
+			# Nodejs
+			export PATH=/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/:$PATH
+		// refresh profile
+		. ~/.profile
+
+		/home/asylbek/.profile
+			bash: /home/asylbek/.profile: Permission denied
+
+
+Symlinks node, npm, and npx into /usr/bin/
+	sudo ln -s /usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/node /usr/bin/node
+	sudo ln -s /usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/npm /usr/bin/npm
+	sudo ln -s /usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/npx /usr/bin/npx
+
+//-------------------------------------------------------------
+	//---- try
+	sudo tar -C /usr/local --strip-components 1 -xzf /home/asylbek/Downloads/SOFT\ LINUX/NodeJs/node-v16.15.1.tar.gz
+	||
+	sudo tar -C /usr/local --strip-components 1 -xf  /home/asylbek/Downloads/SOFT\ LINUX/NodeJs/node-v16.15.1-linux-x64.tar.xz
+	||
+	sudo tar --directory=/usr/local --strip-components=1 -xf /home/asylbek/Downloads/SOFT\ LINUX/NodeJs/node-v16.15.1-linux-x64.tar.xz
+
+	//Set the system environment variable for Node.js.
+	cd /etc/profile.d
+	//Create one file nodejs.sh in /etc/profile.d with following content:
+	touch nodejs.sh
+		#!/bin/sh
+		export PATH=/opt/node-v12.16.2-linux-s390x/bin:$PATH
+
+Usage
+	cd /var/www/html/nodejs
+	//start server
+	node app.js
+	//open webserver
+	http://localhost:3000
+		Hello World
+
+//stop server
+Ctrl+C stops all node processes
+Ctrl+Z suspends it, which means it can still be running.
+killall node
+
+//find node processes
+ps aux | grep node
+kill -9 "PROCESS_ID"
+//---------------------------------
+Node js packages
+https://www.npmjs.com/package/leader-line
+
+Education
+	https://nodejs.dev/learn
+	https://www.w3schools.com/nodejs/default.asp
+Guides
+	https://nodejs.org/en/docs/guides/
+Docs
+	https://nodejs.org/en/docs/
+
+
+
+
+

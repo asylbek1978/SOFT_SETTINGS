@@ -1,0 +1,46 @@
+
+Memory Linux
+free -g -h -t
+	              total        used        free      shared  buff/cache   available
+	Mem:           5,8G        4,7G        103M         96M        1,0G        725M
+	Swap:          6,0G        2,3G        3,7G
+	Total:          11G        7,1G        3,8G
+
+__________________________________________________
+
+K16786: Error Message: kernel: Out of memory: Kill process <process ID> (<process name>) score <score value> or sacrifice child
+essage Location
+
+You may encounter this message in the following location:
+
+The /var/log/kern.log file
+
+//-------------------------------------------------------------------
+df --help
+df -hT /home
+df -a
+df -k
+df -m
+df -i
+df -T
+df -t ext3
+df -x ext3
+
+
+df -h
+	Filesystem                     Size  Used Avail Use% Mounted on
+	udev                           2,9G     0  2,9G   0% /dev
+	tmpfs                          597M   16M  581M   3% /run
+	/dev/mapper/alfresco--vg-root 1007G  863G   93G  91% /
+	tmpfs                          3,0G  4,0K  3,0G   1% /dev/shm
+	tmpfs                          5,0M     0  5,0M   0% /run/lock
+	tmpfs                          3,0G     0  3,0G   0% /sys/fs/cgroup
+	/dev/sda1                      720M  108M  576M  16% /boot
+	tmpfs                          597M     0  597M   0% /run/user/1006
+	tmpfs                          597M     0  597M   0% /run/user/0
+	tmpfs                          597M     0  597M   0% /run/user/1005
+
+free
+	             total        used        free      shared  buff/cache   available
+	Mem:        6109308     5643116      114500      143652      351692       84560
+	Swap:      11485176      493136    10992040

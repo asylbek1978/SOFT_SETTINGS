@@ -1,0 +1,95 @@
+site
+	https://ru.reactjs.org/
+	https://ru.reactjs.org/docs/getting-started.html
+	https://www.w3schools.com/react/default.asp
+	step by step
+		https://ru.reactjs.org/tutorial/tutorial.html
+
+	https://ru.reactjs.org/community/courses.html
+	theory
+		основные принципы React 
+		https://ru.reactjs.org/docs/hello-world.html
+		https://ru.reactjs.org/docs/react-component.html
+		https://reactjs.org/docs/react-api.html
+		https://ru.reactjs.org/docs/glossary.html
+		https://ru.reactjs.org/docs/faq-ajax.html
+		https://ru.reactjs.org/docs/faq-state.html
+		https://ru.reactjs.org/docs/faq-structure.html
+
+	novice
+		https://www.taniarascia.com/getting-started-with-react/
+	designers
+		https://reactfordesigners.com/
+	community
+		https://ru.reactjs.org/community/support.html
+	phylosophy
+		https://ru.reactjs.org/docs/thinking-in-react.html
+	resources
+		https://ru.reactjs.org/community/courses.html
+
+getting-started
+
+adding react to site
+	https://ru.reactjs.org/docs/add-react-to-a-website.html
+	https://gist.github.com/gaearon/
+
+	минификация для скриптов
+		https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3
+
+	JSX:
+		https://ru.reactjs.org/docs/introducing-jsx.html
+	Вы можете попробовать JSX в этом онлайн-конвертере.
+		https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.15.7
+
+Create a new React Api
+	одностраничное приложение.  Create React App.
+		start terminal
+		source /etc/environment
+		//-- mkdir /home/asylbek/scripts/react/official/newReactApp
+		cd /home/asylbek/scripts/react/official
+		npx create-react-app new_react_app
+		cd new_react_app && npm start
+		http://localhost:3000/
+
+		look at
+			public/index.html
+			src/App.js
+		
+		//build application
+		npm run build
+
+		//Serve it with a static server:
+		npm install -g serve
+		serve -s build
+
+		see more
+			https://create-react-app.dev/
+			https://github.com/facebook/create-react-app#create-react-app--
+
+
+	Node.js серверный сайт с 
+
+	Gatsby статический контент-ориентированный сайт, попробуйте .
+
+	Если вы создаёте библиотеку компонентов, попробуйте более гибкие наборы инструментов.
+
+//-----------------------------------------
+
+npm start
+    Starts the development server.
+
+//production
+npm run build
+    Bundles the app into static files for production.
+
+npm test
+    Starts the test runner.
+
+npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+//-----------------------------------------
+
+Articles
+	https://developer.mozilla.org/ru/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started

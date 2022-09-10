@@ -1,0 +1,31 @@
+tar.gz
+	archieve a folder
+		destination folder/file = /backup/backupfilename.tar.gz
+		source directory = /data/directory
+		tar -cvpzf /backup/backupfilename.tar.gz /data/directory
+
+	extract tar file to folder
+		tar xvzf /backup/backupfilename.tar.gz	/path/to/
+
+tgz
+	extract file to folder
+		tar -xf /home/asylbek/Downloads/SOFT_LINUX/python3/Python-3.10.6.tgz
+		tar -xzvf filename.tgz
+
+tar.xz
+	apt-get install xz-utils
+	// Then, instead of "z" option in tar command (which is for zip), you must use "J" (which is for xz):
+		tar xvfJ file.tar.xz
+
+	extract file to folder
+		tar -xf file.tar.xz
+	
+	install
+		./configure
+		make
+		sudo make install
+	
+	install file in ubuntu
+		tar xvfJ node.tar.xz
+		sudo cp -r node-v14.15.5-linux-x64/{bin,include,lib,share} /usr/
+

@@ -1,0 +1,49 @@
+
+open access to remote ip address
+    locate pg_hba.conf
+    	Rocky Alfresco
+        /opt/alfresco-community/alf_data/postgresql/pg_hba.conf
+            # IPv4 local connections:
+            host    all             all             127.0.0.1/32            md5
+            host    all             all             10.2.10.96/32           md5	
+    	Rocky Postgres
+    	/var/lib/pgsql/data/pg_hba.conf
+        /var/lib/pgsql/14/data/pg_hba.conf
+			# IPv4 local connections:
+			host    all             all             127.0.0.1/32            md5
+			host    all             all             0.0.0.0/0               md5
+
+    locate postgresql.conf
+    	Rocky Alfresco
+        /opt/alfresco-community/alf_data/postgresql/postgresql.conf
+            #listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                                    # comma-separated list of addresses;
+                                                    # defaults to 'localhost'; use '*' for all
+                                                    # (change requires restart)
+            listen_addresses = '*'
+    
+        Rocky Postgres
+    	/etc/postgresql-setup/upgrade/postgresql.conf
+		/usr/lib/tmpfiles.d/postgresql.conf
+		/usr/share/pgsql/postgresql.conf.sample
+		
+        /var/lib/pgsql/data/postgresql.conf
+        /var/lib/pgsql/14/data/postgresql.conf
+        
+
+
+    netstat -an | grep 5432
+
+    Windows
+    C:\Program Files\PostgreSQL\10\data\pg_hba.conf
+	add line
+		host    all             all             10.2.10.100/32            md5
+
+    
+
+
+
+on default accessible from
+	localhost
+	127.0.0.1
+___________________________________________

@@ -1,0 +1,12 @@
+psql
+install
+    sudo apt install postgresql-client-common
+    (http://ru.archive.ubuntu.com/ubuntu/)
+
+
+locate psql
+    /opt/alfresco-community/postgresql/bin/psql
+    /opt/alfresco-community/postgresql/bin/psql.bin
+    /opt/alfresco-community/postgresql/share/psqlrc.sample
+    /root/.psql_history
+    /usr/share/bash-completion/completions/psql

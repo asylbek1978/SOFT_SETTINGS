@@ -1,0 +1,7 @@
+
+postgres
+	https://jdbc.postgresql.org/download.html
+		https://jdbc.postgresql.org/download/postgresql-42.5.0.jar
+
+
+		

@@ -1,0 +1,81 @@
+site
+
+download binaries
+	
+install
+	apt install httpd
+	dnf install httpd
+service
+	systemctl start|stop|reload|restart httpd.service
+	service httpd start|stop|reload|restart
+
+systemctl | grep httpd
+	httpd.service  loaded active running   The Apache HTTP server
+
+Rocky Alfresco
+which httpd
+	/sbin/httpd	
+
+check if installed
+	rpm -qi httpd
+
+service
+	sudo systemctl start httpd
+	sudo systemctl stop httpd
+	sudo systemctl status httpd
+	sudo systemctl reload httpd
+	sudo systemctl restart httpd
+
+//enable the service on boot, use this systemd command:
+	sudo systemctl enable httpd
+
+locate index.html
+	/usr/share/httpd/noindex/index.html
+
+//---------------------------------------------
+//configuration
+	/etc/httpd/conf.d/welcome.conf
+		README  ais.conf autoindex.conf  php.conf  userdir.conf  welcome.conf
+
+	nano /etc/httpd/conf.d/welcome.conf
+<LocationMatch "^/+$">
+    Options -Indexes
+    ErrorDocument 403 /.noindex.html
+</LocationMatch>
+
+<Directory /usr/share/httpd/noindex>
+    AllowOverride None
+    Require all granted
+</Directory>
+
+Alias /.noindex.html /usr/share/httpd/noindex/index.html
+Alias /poweredby.png /usr/share/httpd/icons/apache_pb3.png
+
+	nano /etc/httpd/conf.d/ais.conf
+<VirtualHost *:80>
+    ServerName ais.loc
+    DocumentRoot /var/www/html/web
+    <Directory "/var/www/b.ais.at.kg/web">
+        Options FollowSymlinks Indexes Multiviews
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+//---------------------------------------------
+
+
+
+
+//---------------------------------------------
+
+
+
+//---------------------------------------------
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+site
+	https://www.npmjs.com/
+	https://docs.npmjs.com/
+install 
+	sudo apt search npm
+	sudo apt install npm
+upgrade
+	npm install -location=global npm
+download
+	login 	asylbek78
+	mail	asilbekov1978@mail.ru
+	pass	Q6UpL4/Ywcm)$5C
+
+	https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+which npm
+	/usr/local/bin/npm
+	/usr/local/lib/nodejs/node-v16.15.1-linux-x64/bin/npm
+
+Usage
+	npm -v
+		8.11.0

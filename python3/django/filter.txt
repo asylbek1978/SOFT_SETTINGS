@@ -1,0 +1,38 @@
+Filter tag
+
+Filter Reference
+	https://www.w3schools.com/django/django_tags_filter.php
+
+Filter a Value
+	With the pipe "|" character followed by a filter name, you can run a value through a filter before returning it.
+	The name of the filter defines what the filter will do with the value.
+
+
+	Return the variable firstname with upper case letters:
+	<h1>Hello {{ firstname|upper }}, how are you?</h1>
+
+Multiple Filters
+	You can add more than one filter by adding pipe | characters followed by filter names:
+
+	Return the first character of variable firstname, in lower case:
+	<h1>Hello {{ firstname|first|lower }}, how are you?</h1>
+
+The filter Tag
+	The filter tag allows you to run a whole section of code through a filter, and return it according to the filter keyword(s).
+	Example
+	Return the variable firstname with upper case letters:
+	{% filter upper %}
+	  <h1>Hello everyone, how are you?</h1>
+	{% endfilter %}
+		HELLO EVERYONE, HOW ARE YOU?
+
+
+	To add multiple filters, separate the keywords with the pipe | character:
+	Example
+	Separate filters with the pipe character:
+
+	{% filter upper|linenumbers %}Hello!
+	my name is
+	Emil.
+	What is your name?{% endfilter %}
+		1. HELLO! 2. MY NAME IS 3. EMIL. 4. WHAT IS YOUR NAME?

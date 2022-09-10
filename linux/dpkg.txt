@@ -1,0 +1,8 @@
+
+dpkg provides the low-level infrastructure for handling the installation and removal of Debian software packages.
+
+Rocky Linux
+install
+	apt install dpkg
+	dnf -y install dpkg
+

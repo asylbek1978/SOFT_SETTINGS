@@ -1,0 +1,86 @@
+//https://docs.rockylinux.org/books/admin_guide/13-softwares/
+
+sudo apt install rpm
+sudo dnf install rpm
+
+
+Red hat
+	RPM : RedHat Package Manager
+	//command
+	rpm [-i][-U] package.rpm [-e] package
+		Option	Description
+		-i package.rpm	Installs the package.
+		-U package.rpm	Updates an already installed package.
+		-e package.rpm	Uninstalls the package.
+		-h	Displays a progress bar.
+		-v	Informs about the progress of the operation.
+		--test	Tests the command without executing it.
+
+	//example
+	rpm -ivh package.rpm
+		
+	//query the system package database. The RPM database is located in the directory /var/lib/rpm
+	rpm -qa
+
+	//This command queries all the packages installed on the system.
+	rpm -q [-a][-i][-l] package [-f] file
+		rpm -qil package
+		rpm -qf /path/to/file
+
+	Option	Description
+	-a	Lists all packages installed on the system.
+	-i __package__	Displays the package information.
+	-l __package__	Lists the files contained in the package.
+	-f	Shows the name of the package containing the specified file.
+	--last	The list of packages is given by installation date (the last installed packages appear first).
+
+	//list the last installed packages:
+	sudo rpm -qa --last | head
+
+	//list the installation history of the kernel:
+	sudo rpm -qa --last kernel
+
+	// list all installed packages with a specific name using grep:
+	sudo dnf list installed | grep httpd
+
+	//-------------------------------------------------------------
+	DNF : Dandified Yum
+	DNF (Dandified Yum) is a software package manager, successor of YUM (Yellow dog Updater Modified). It works with RPM** packages grouped in a local or remote repository (a directory for storing packages). For the most common commands, its usage is identical to that of yum. The "dnf" command allows the management of packages by comparing those installed on the system with those in the repositories defined on the server. It also automatically installs dependencies, if they are also present in the repositories. "dnf" is the manager used by many RedHat based distributions (RockyLinux, Fedora, CentOS, ...).
+	The DNF manager relies on one or more configuration files to target the repositories containing the RPM packages. These files are located in /etc/yum.repos.d/ and must end with .repo in order to be used by DNF.
+	Example:
+		/etc/yum.repos.d/Rocky-BaseOS.repo
+
+	//The dnf command allows you to install a package by specifying only the short name.
+	dnf [install][remove][list all][search][info] package
+		Option						Description
+		install						Installs the package.
+		remove						Uninstall the package.
+		list all					Lists the packages already in the repository.
+		search						Search for a package in the repository.
+		provides */command_name		Search for a command.
+		info						Displays the package information.
+		autoremove					Removes all packages installed as dependencies but no longer needed.
+		repolist					Lists the repositories configured on the system.
+			--all
+			--enabled
+			--disabled
+			-v
+		grouplist					Lists available package collections.
+		groupinstall				
+		clean						Removes temporary files.
+		update
+	dnf list
+		Parameter	Description
+		all			Lists the installed packages and then those available on the repositories.
+		available	Lists only the packages available for installation.
+		updates		Lists packages that can be upgraded.
+		obsoletes	Lists the packages made obsolete by higher versions available.
+		recent		Lists the latest packages added to the repository.		
+	Examples
+		dnf search nginx
+			dnf search nginx | grep mod
+		dnf install nginx
+		dnf remove httpd
+
+Debian
+	APT (Advanced Packaging Tool).

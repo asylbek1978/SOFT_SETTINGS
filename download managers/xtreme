@@ -1,0 +1,46 @@
+download
+	https://xtremedownloadmanager.com/#downloads
+	https://github.com/subhra74/xdm/releases/download/7.2.11/xdm-setup-7.2.11.tar.xz
+install
+	1. Open terminal
+	2. Switch to the directory where you have extracted tar compressed file, there should be a file named install.sh
+	3. Execute the file as root. 
+		sudo ./install.sh
+which xdman
+	/usr/bin/xdman
+
+locate xdman
+	/opt/xdman/xdman
+	/usr/bin/xdman
+	
+	/home/asylbek/.xdman
+	/home/asylbek/.config/autostart/xdman.desktop
+	/home/asylbek/.config/mintmenu/-opt-xdman-icon.png
+	/home/asylbek/.xdman/config.txt
+	/home/asylbek/.xdman/downloads.txt
+	/home/asylbek/.xdman/metadata
+	/home/asylbek/.xdman/queues.txt
+	/home/asylbek/.xdman/settings.json
+	/home/asylbek/.xdman/settings_updated
+	/home/asylbek/.xdman/temp
+	/home/asylbek/Desktop/xdman.desktop
+	/opt/xdman
+	/opt/xdman/1.version
+	/opt/xdman/ffmpeg
+	/opt/xdman/icon.png
+	/opt/xdman/jre
+	/opt/xdman/native_host
+	/opt/xdman/uninstall.sh
+	/opt/xdman/xdman
+	/opt/xdman/xdman.desktop
+	/opt/xdman/xdman.jar
+
+	/opt/xdman/jre/man/man1/unpack200.1
+	/usr/bin/xdman
+	/usr/share/applications/xdman.desktop
+
+run
+	xdman 
+
+uninstall run 
+	/opt/xdman/uninstall.sh as root

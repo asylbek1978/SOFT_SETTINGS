@@ -1,5 +1,5 @@
 test server
-http://10.8.111.3/ru/case
+ssh a-abduvapov@10.8.111.3 
 10.8.111.3
 Login as: a-abduvapov
 Password: snH47@74hw9173
@@ -50,3 +50,6 @@ clear ais.at.kg cache
 update database symfony schema
 	cd /var/www/ais.at.kg
 	php bin/console doctrine:schema:update --force
+
+get last user logins
+	https://linuxhint.com/check-user-login-history-linux/

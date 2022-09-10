@@ -1,0 +1,81 @@
+tutorial
+	https://stackoverflow.com/questions/41326911/maven-plugin-for-tomcat-9
+	https://www.baeldung.com/tomcat-deploy-war
+
+Deploy From Maven
+If we want to use Maven for deploying our web archives, we must configure Tomcat as a server in Maven's settings.xml file.
+1
+sudo nano /usr/share/maven/conf/settings.xml
+|
+sudo nano $MAVEN_HOME/conf/settings.xml
+	<server>
+	    <id>TomcatServer</id>
+	    <username>admin</username>
+	    <password>password</password>
+	</server>
+
+2 Add users
+	nano /usr/local/tomcat/conf/tomcat-users.xml
+	add
+	<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<user username="admin" password="password" roles="manager-gui, manager-script"/>
+
+create a new Java web application	
+	mvn archetype:generate -DgroupId=com.baeldung -DartifactId=tomcat-war-deployment -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+		[INFO] ----------------------------------------------------------------------------
+		[INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
+		[INFO] ----------------------------------------------------------------------------
+		[INFO] Parameter: groupId, Value: com.baeldung
+		[INFO] Parameter: artifactId, Value: tomcat-war-deployment
+		[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+		[INFO] Parameter: package, Value: com.baeldung
+		[INFO] Parameter: packageInPathFormat, Value: com/baeldung
+		[INFO] Parameter: package, Value: com.baeldung
+		[INFO] Parameter: groupId, Value: com.baeldung
+		[INFO] Parameter: artifactId, Value: tomcat-war-deployment
+		[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+		[INFO] Project created from Archetype in dir: /root/tomcat-war-deployment
+		[INFO] ------------------------------------------------------------------------
+		[INFO] BUILD SUCCESS
+		[INFO] ------------------------------------------------------------------------
+		[INFO] Total time:  10:50 min
+		[INFO] Finished at: 2022-08-09T11:58:59+06:00
+		[INFO] ------------------------------------------------------------------------
+
+ls /root/tomcat-war-deployment
+	pom.xml  src
+
+//---------------------------------
+
+3 adding maven plugin
+	nano /root/tomcat-war-deployment/pom.xml
+		<plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+                <url>http://localhost:8080/manager/text</url>
+                <server>TomcatServer</server>
+                <path>/myapp</path>
+            </configuration>
+        </plugin>
+
+//---------------------------------
+
+4 Maven Goals
+	mvn tomcat7:deploy
+	mvn tomcat7:undeploy
+	mvn tomcat7:redeploy
+
+	mvn tomcat7:deploy
+		[ERROR] No plugin found for prefix 'tomcat7' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/root/.m2/repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+		org.apache.maven.plugin.prefix.NoPluginFoundForPrefixException: No plugin found for prefix 'tomcat7' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/root/.m2/repository), central (https://repo.maven.apache.org/maven2)]
+
+error
+	No plugin found for prefix 'tomcat7' in the current project and in the plugin groups
+		https://stackoverflow.com/questions/24311383/maven-no-plugin-found-for-prefix-tomcat7-in-the-current-project-and-in-the-p
+		https://russianblogs.com/article/4142998124/
+
+tomcat 10-maven-plugin

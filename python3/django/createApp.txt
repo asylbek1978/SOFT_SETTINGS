@@ -1,0 +1,277 @@
+
+create app
+	(myproject) ../django/myworld$
+		python3.10 manage.py startapp members
+		//creates folder in myworld/members
+
+Views
+	myworld/members/views.py  
+		from django.shortcuts import render
+		from django.http import HttpResponse
+
+		def index(request):
+		    return HttpResponse("Hello world!")
+
+    members/urls.py 	//create new file 
+		from django.urls import path
+		from . import views
+
+		urlpatterns = [
+		    path('', views.index, name='index'),
+		]
+
+	myworld/myworld/urls.py
+		from django.contrib import admin
+		from django.urls import include, path
+
+		urlpatterns = [
+		    path('members/', include('members.urls')),
+		    path('admin/', admin.site.urls),
+		]
+	
+	http://127.0.0.1:8000/members/
+
+Templates
+	mkdir members/templates
+	touch members/templates/index.html
+		<!DOCTYPE html>
+		<html>
+		<body>
+
+		<h1>Hello World!</h1>
+		<p>Welcome to my first Django project!</p>
+
+		</body>
+		</html>
+
+
+	members/views.py edit
+		from django.http import HttpResponse
+		from django.template import loader
+
+		def index(request):
+		  	template = loader.get_template('index.html')
+		  	return HttpResponse(template.render())	
+
+	add plication members in
+	myworld/settings.py
+		INSTALLED_APPS = [
+		    ...
+		    'django.contrib.staticfiles',
+		    'members.apps.MembersConfig'
+		]
+
+	migrate settings
+	python3.10 manage.py migrate
+	python3.10 manage.py runserver
+	http://127.0.0.1:8000/members/
+		code from members/templates/index.html
+
+Models (database tables)
+	When we created the Django project, we got an empty SQLite database. It was created in the myworld root folder.
+	django/myworld/db.sqlite3
+
+	/members/models.py
+		from django.db import models
+
+		class Members(models.Model):
+		  firstname = models.CharField(max_length=255)
+		  lastname = models.CharField(max_length=255)
+
+	//create a migration file in members/migrations/0001_initial.py  folder
+	python3.10 manage.py makemigrations members
+		Migrations for 'members':
+		  members/migrations/0001_initial.py
+		    - Create model Members
+	python3.10 manage.py migrate
+		Operations to perform:
+		  Apply all migrations: admin, auth, contenttypes, members, sessions
+		Running migrations:
+		  Applying members.0001_initial... OK
+
+Add Records in shell
+	//open a Python shell
+	python3.10 manage.py shell
+	>>> from members.models import Members
+		Members.objects.all()
+			<QuerySet []>
+		member = Members(firstname='Emil', lastname='Refsnes') //add records
+		member.save()
+	>>> Members.objects.all().values()
+			<QuerySet [{'id': 1, 'firstname': 'Emil', 'lastname': 'Refsnes'}]>
+
+
+Add Multiple Records in shell
+
+	>>> member1 = Members(firstname='Tobias', lastname='Refsnes')
+	>>> member2 = Members(firstname='Linus', lastname='Refsnes')
+	>>> member3 = Members(firstname='Lene', lastname='Refsnes')
+	>>> member4 = Members(firstname='Stale', lastname='Refsnes')
+	>>> members_list = [member1, member2, member3, member4]
+	>>> for x in members_list:
+	>>>		x.save()
+	>>> Members.objects.all().values()
+			<QuerySet [{'id': 1, 'firstname': 'Emil', 'lastname': 'Refsnes'}, {'id': 2, 'firstname': 'Tobias', 'lastname': 'Refsnes'}, {'id': 3, 'firstname': 'Linus', 'lastname': 'Refsnes'}, {'id': 4, 'firstname': 'Lene', 'lastname': 'Refsnes'}, {'id': 5, 'firstname': 'Stale', 'lastname': 'Refsnes'}]>
+
+View table records in browser
+	members/views.py
+		from django.http import HttpResponse
+		from django.template import loader
+		from .models import Members
+
+		def index(request):
+			mymembers = Members.objects.all().values()
+			output = ""
+			for x in mymembers:
+				output += x["firstname"]
+			return HttpResponse(output)
+
+	python3.10 manage.py runserver
+	http://127.0.0.1:8000/members/
+
+//----------------------------------------------------------
+
+Adding Template
+	members/templates/index.html
+		<h1>Members</h1>
+
+		<table border="1">
+		{% for x in mymembers %}
+		<tr>
+		<td>{{ x.id }}</td>
+		<td>{{ x.firstname }}</td>
+		<td>{{ x.lastname }}</td>
+		</tr>
+		{% endfor %}
+		</table>
+
+members/views.py
+		from django.http import HttpResponse
+		from django.template import loader
+		from .models import Members
+
+		def index(request):
+		  mymembers = Members.objects.all().values()
+		  template = loader.get_template('index.html')
+		  context = {
+		    'mymembers': mymembers,
+		  }
+		  return HttpResponse(template.render(context, request))
+
+//----------------------------------------------------------
+
+Add Record
+	members/templates/index.html
+		<p>
+		<a href="add/">Add member</a>
+		</p>	 
+	members/templates/add.html
+		<h1>Add member</h1>
+
+		<form action="addrecord/" method="post">
+			{% csrf_token %}
+			First Name:<br>
+			<input name="first">
+			<br><br>
+			Last Name:<br>
+			<input name="last">
+			<br><br>
+			<input type="submit" value="Submit">
+		</form>
+
+	members/views.py
+		...
+		def add(request):
+		  	template = loader.get_template('add.html')
+		  	return HttpResponse(template.render({}, request))
+
+	members/urls.py
+		...
+		path('add/', views.add, name='add'),
+		path('add/addrecord/', views.addrecord, name='addrecord'),
+		...
+
+	members/views.py
+		from django.http import HttpResponse, HttpResponseRedirect
+		from django.template import loader
+		from django.urls import reverse
+		from .models import Members
+
+		def index(request):
+		  mymembers = Members.objects.all().values()
+		  template = loader.get_template('index.html')
+		  context = {
+		    'mymembers': mymembers,
+		  }
+		  return HttpResponse(template.render(context, request))
+		  
+		def add(request):
+		  template = loader.get_template('add.html')
+		  return HttpResponse(template.render({}, request))
+		  
+		def addrecord(request):
+		  x = request.POST['first']
+		  y = request.POST['last']
+		  member = Members(firstname=x, lastname=y)
+		  member.save()
+		  return HttpResponseRedirect(reverse('index'))
+
+	enter fields Jane Dow
+
+//----------------------------------------------------------
+
+Delete Records
+	members/urls.py
+		path('delete/<int:id>', views.delete, name='delete'),
+
+	members/views.py
+		...
+
+		def delete(request, id):
+		  member = Members.objects.get(id=id)
+		  member.delete()
+		  return HttpResponseRedirect(reverse('index'))
+
+//----------------------------------------------------------
+
+Update Records
+	members/urls.py
+		path('update/<int:id>', views.update, name='update'),
+		path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
+
+	members/views.py
+		def update(request, id):
+		  mymember = Members.objects.get(id=id)
+		  template = loader.get_template('update.html')
+		  context = {
+		    'mymember': mymember,
+		  }
+		  return HttpResponse(template.render(context, request))		
+		
+		def updaterecord(request, id):
+		  first = request.POST['first']
+		  last = request.POST['last']
+		  member = Members.objects.get(id=id)
+		  member.firstname = first
+		  member.lastname = last
+		  member.save()
+		  return HttpResponseRedirect(reverse('index'))
+		  
+	members/templates/update.html
+		<h1>Update member</h1>
+
+		<form action="updaterecord/{{ mymember.id }}" method="post">
+		{% csrf_token %}
+		First Name:<br>
+		<input name="first" value="{{ mymember.firstname }}">
+		<br><br>
+		Last Name:<br>
+		<input name="last" value="{{ mymember.lastname }}">
+		<br><br>
+		<input type="submit" value="Submit">
+		</form>
+
+
+
+
+

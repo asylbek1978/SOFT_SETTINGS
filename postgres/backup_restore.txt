@@ -1,0 +1,87 @@
+https://www.postgresql.org/docs/current/app-pgdump.html
+https://www.postgresql.org/docs/9.5/app-pgrestore.html
+pg_dump password argument
+	https://stackoverflow.com/questions/2893954/how-to-pass-in-password-to-pg-dump
+postgres convert backup file to sql online
+	https://stackoverflow.com/questions/8746920/convert-postgresql-dump-file-to-mysql
+
+
+compare 2 dbases
+	https://habr.com/ru/post/518840/
+	http://compalex.net/
+		http://demo.compalex.net/index.php?action=tables
+
+
+make manual
+	localhost
+	remote host
+	formats sql, tar
+	certain tables,
+
+
+backup options
+	PGAdmin4
+		user=alfresco
+		filename=alfresco_test
+		format= tar file
+		command
+		// tar format
+		/usr/bin/pg_dump --file "/home/asylbek/alfresco_test" --host "10.8.111.4" --port "5432" --username "alfresco" --no-password --verbose --role "alfresco" --format=t --blobs "alfresco"
+
+		// custom format
+		/usr/bin/pg_dump --file "/home/asylbek/alfresco_test_custom" --host "10.8.111.4" --port "5432" --username "alfresco" --no-password --verbose --role "alfresco" --format=c --blobs "alfresco"
+
+		//example2
+		/usr/bin/pg_dump --file "/home/asylbek/alfresco_default" --host "localhost" --port "5442" --username "alfresco" --no-password --verbose --role "alfresco" --format=t --blobs "alfresco"
+
+		//rocky alfresco default
+		/usr/bin/pg_dump --file "/home/asylbek/alfresco_com52_default_utf8_user_Alfresco" --host "10.77.52.14" --port "5432" --username "alfresco" --no-password --verbose --role "alfresco" --format=t --blobs --encoding "UTF8" "alfresco"
+
+	backup only one table
+		/usr/bin/pg_dump  --dbname "ais_sverdlovsk_backup"  --host "10.8.111.5" --port "5432" --username "owen" --password "19256qwezxc" --file "/home/asylbek/1_custom" --verbose --format=c --blobs --table "public.reference_mapping_tool"
+
+	//test server
+	terminal
+		ais_test
+		/usr/bin/pg_dump --file "/home/a-abduvapov/ais_test_custom_2022_08_13" --host "10.8.111.5" --port "5432" --username "postgres" --password --verbose --role "postgres" --format=c  --dbname "ais_test" --blobs
+			Password: postgres12345
+
+		ais_sverdlovsk
+		/usr/bin/pg_dump --file "/home/a-abduvapov/ais_sverdlovsk_custom_2022_08_13" --host "10.8.111.5" --port "5432" --username "postgres" --password --verbose --role "postgres" --format=c  --dbname "ais_sverdlovsk" --blobs
+
+		ais_central
+		/usr/bin/pg_dump --file "/home/a-abduvapov/ais_central_custom_2022_08_13" --host "10.8.111.5" --port "5432" --username "postgres" --password --verbose --role "postgres" --format=c  --dbname "ais_central" --blobs
+
+ 
+
+//restore
+https://www.postgresql.org/docs/current/app-pgrestore.html
+	PGAdmin4
+		example 1
+			/usr/bin/pg_restore --host "localhost" --port "5442" --username "alfresco" --no-password --role "alfresco" --dbname "alfresco" --verbose "/home/asylbek/Downloads/POSTGRES/DUMPS/ALFRESCO/alfresco_test"
+
+		example 2
+			/usr/bin/pg_restore --host "localhost" --port "5442" --username "alfresco" --no-password --role "alfresco" --dbname "alfresco" --verbose "/home/asylbek/Downloads/POSTGRES/DUMPS/ALFRESCO/alfresco_test_custom"
+
+		/usr/bin/pg_restore --host "10.77.52.14" --port "5432" --username "alfresco" --no-password --role "alfresco" --dbname "alfresco" --verbose "/home/asylbek/Downloads/POSTGRES/DUMPS/ALFRESCO/alfresco_test_custom"
+	
+	//terminal
+		/usr/bin/pg_restore --host "localhost" --port "5432" --username "postgres" --password --role "postgres" --dbname "ais_test" --verbose "/home/a.abduvapov/ais_test_custom_2022_08_13"
+			Password: postgres12345
+
+		/usr/bin/pg_restore --host "localhost" --port "5432" --username "postgres" --password --role "postgres" --dbname "ais_sverdlovsk" --verbose "/home/a.abduvapov/ais_sverdlovsk_custom_2022_08_13"
+
+		/usr/bin/pg_restore --host "localhost" --port "5432" --username "postgres" --password --role "postgres" --dbname "ais_central" --verbose "/home/a.abduvapov/ais_central_custom_2022_08_13"
+
+//Convert a dump file to sql
+error
+	syntax
+		pg_restore latest.dump > latest.sql
+	example
+		/usr/bin/pg_restore --file /home/asylbek/Downloads/Telegram\ Desktop/ais_central_260722.backup > latest.sql
+		/usr/bin/pg_restore --file /home/asylbek/Downloads/Telegram\ Desktop/ais_sverdlovsk_260722.backup > latest.sql
+		/usr/bin/pg_restore --file /home/asylbek/Downloads/Telegram\ Desktop/ais_test_260722.backup > latest.sql
+		
+		/usr/bin/pg_restore --file home/asylbek/report_application_type_ais_central_backup > latest.sql
+		
+		

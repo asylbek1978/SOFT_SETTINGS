@@ -1,0 +1,106 @@
+
+Download the Maven Binaries
+	https://maven.apache.org/download.cgi
+		https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+								Link							Checksums								Signature
+		Binary tar.gz archive	apache-maven-3.8.6-bin.tar.gz	apache-maven-3.8.6-bin.tar.gz.sha512	apache-maven-3.8.6-bin.tar.gz.asc
+		Binary zip archive		apache-maven-3.8.6-bin.zip		apache-maven-3.8.6-bin.zip.sha512		apache-maven-3.8.6-bin.zip.asc
+		Source tar.gz archive	apache-maven-3.8.6-src.tar.gz	apache-maven-3.8.6-src.tar.gz.sha512	apache-maven-3.8.6-src.tar.gz.asc
+		Source zip archive		apache-maven-3.8.6-src.zip		apache-maven-3.8.6-src.zip.sha512		apache-maven-3.8.6-src.zip.asc	
+		we need Binary tar.gz archive	apache-maven-3.8.6-bin.tar.gz
+			https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+			
+
+	old releases
+		https://maven.apache.org/docs/history.html
+
+install from binaries
+	wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+	cd /home/asylbek/Downloads/SOFT_LINUX/maven
+	tar -xvf apache-maven-3.8.6-bin.tar.gz
+	sudo mv apache-maven-3.8.6 /opt/
+
+Setting M2_HOME and Path Variables
+	Add the following lines to the user profile file (.profile).
+		M2_HOME='/opt/apache-maven-3.8.6'
+		PATH="$M2_HOME/bin:$PATH"
+		export PATH
+	Relaunch the terminal or execute 
+		$ source .profile 
+	to apply the changes.
+
+//-----------------------
+
+install 
+	apt install maven
+
+
+version
+	/usr/share/maven/bin/mvn -v
+	|
+	mvn -v
+		Apache Maven 3.6.3
+		Maven home: /usr/share/maven
+		Java version: 11.0.15, vendor: Private Build, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+		Default locale: en_US, platform encoding: UTF-8
+		OS name: "linux", version: "5.4.0-74-generic", arch: "amd64", family: "unix"
+
+		Apache Maven 3.6.3
+		Maven home: /usr/share/maven
+		Java version: 17.0.4.1, vendor: BellSoft, runtime: /usr/lib/jvm/bellsoft-java17-amd64
+		Default locale: en_US, platform encoding: UTF-8
+		OS name: "linux", version: "5.4.0-74-generic", arch: "amd64", family: "unix"
+	
+	/opt/apache-maven-3.8.6/bin/mvn -v
+		Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
+		Maven home: /opt/apache-maven-3.8.6
+		Java version: 17.0.4.1, vendor: BellSoft, runtime: /usr/lib/jvm/bellsoft-java17-amd64
+		Default locale: en_US, platform encoding: UTF-8
+		OS name: "linux", version: "5.4.0-74-generic", arch: "amd64", family: "unix"
+//-----------------------
+
+which mvn
+	/usr/bin/mvn
+nano /usr/bin/mvn
+readlink -f $(which mvn)
+	/usr/share/maven/bin/mvn
+		//installation folder is "/usr/share/maven/"
+//-----------------------
+
+Environment
+	sudo nano /etc/environment
+	MAVEN_HOME="/usr/share/maven"
+	MAVEN_HOME="/opt/apache-maven-3.8.6"
+	//force the Ubuntu terminal to reload the environment configuration file:
+	source /etc/environment
+
+	echo $MAVEN_HOME
+		/usr/share/maven
+		|
+		/opt/apache-maven-3.8.6
+
+    
+//-----------------------
+Guides
+https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+
+
+settings
+	?{user.home}/.m2/settings.xml
+	sudo nano /usr/share/maven/conf/settings.xml
+	|
+	sudo nano $MAVEN_HOME/conf/settings.xml
+
+
+google
+	maven это
+
+//-----------------------------------------
+
+mvn install
+	Maven also maintains a repository of dependencies on your local machine (usually in a .m2/repository directory in your home directory) for quick access to project dependencies. If you’d like to install your project’s JAR file to that local repository, then you should invoke the install goal. The install goal will compile, test, and package your project’s code and then copy it into the local dependency repository, ready for another project to reference it as a dependency.
+//-----------------------------------------
+
+Maven Shade Plugin 
+	https://maven.apache.org/plugins/maven-shade-plugin/
+		The completed pom.xml file is using the Maven Shade Plugin for the simple convenience of making the JAR file executable. The focus of this guide is getting started with Maven, not using this particular plugin.

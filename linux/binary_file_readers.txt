@@ -1,0 +1,2 @@
+bin files opener online
+	https://iamkate.com/code/binary-file-viewer/

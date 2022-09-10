@@ -1,0 +1,207 @@
+
+dynamicreports.org
+java-source.net/open-source/charting-and-reporting
+site
+	https://community.jaspersoft.com/
+compare free and enterprise editions
+	https://www.jaspersoft.com/editions
+	https://www.jaspersoft.com/products/jasperreports-server/professional-edition
+	https://www.jaspersoft.com/products/jasperreports-server/enterprise-edition
+documentation
+	https://community.jaspersoft.com/documentation
+download
+	https://community.jaspersoft.com/download
+	https://community.jaspersoft.com/community-download
+		JasperReports Server CE
+			https://community.jaspersoft.com/project/download/212/nojs
+		JasperReports Library CE
+			https://community.jaspersoft.com/project/download/202/nojs
+				https://community.jaspersoft.com/project/jasperreports-library/releases
+					jasperreports-6.20.0-project.zip
+						https://community.jaspersoft.com/project/jasperreports-library/releases?release_id=1198211&download=https%3A//sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%25206.20.0/jasperreports-6.20.0-project.zip/download
+							https://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%206.20.0/jasperreports-6.20.0-project.zip/download
+					jasperreports-6.20.0-project.tar.gz
+						https://yer.dl.sourceforge.net/project/jasperreports/jasperreports/JasperReports%206.20.0/jasperreports-6.20.0-project.tar.gz
+			| 
+			https://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%206.20.0/
+				jasperreports-6.20.0-project.tar.gz Linux
+					https://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%206.20.0/jasperreports-6.20.0-project.tar.gz/download
+				jasperreports-6.20.0-project.zip Windows
+					https://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%206.20.0/jasperreports-6.20.0-project.zip/download
+
+
+		JasperReports Studio CE
+			https://community.jaspersoft.com/project/download/496/nojs
+				https://community.jaspersoft.com/project/jaspersoft-studio/releases
+
+	archieve
+		https://sourceforge.net/projects/jasperreports/files/archive/jasperreports/
+		version 6.0.0
+			https://sourceforge.net/projects/jasperreports/files/archive/jasperreports/JasperReports%206.0.0/
+				jasperreports-6.0.0-project.tar.gz
+					https://sourceforge.net/projects/jasperreports/files/archive/jasperreports/JasperReports%206.0.0/jasperreports-6.0.0-project.tar.gz/download
+						https://master.dl.sourceforge.net/project/jasperreports/archive/jasperreports/JasperReports%206.0.0/jasperreports-6.0.0-project.tar.gz?viasf=1
+
+	http://ant.apache.org
+		Download -> Binary Distributions
+			https://ant.apache.org/bindownload.cgi
+				https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip
+
+	Apache Ivy
+	https://ant.apache.org/ivy/
+	https://ant.apache.org/ivy/download.cgi
+		https://dlcdn.apache.org//ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz
+	Add ivy-2.5.0.jar file to an Ant library
+	cp -a /home/asylbek/Downloads/SOFT_LINUX/apache/apache-ivy-2.5.0/ivy-2.5.0.jar /usr/local/ant/lib
+
+
+
+install
+	mkdir /opt/jasperreports6_20
+	mv  -v /home/asylbek/Downloads/SOFT_LINUX/java/jasperReports/jasperreports6_20/*  /opt/jasperreports6_20/
+	ls /opt/jasperreports6_20/
+		build.xml         ext              src
+		changes.txt       ivysettings.xml  tests
+		clirr-ignore.xml  ivy.xml          TIB_js-jrlib-ce_6.20.0_license.pdf
+		demo              pom.xml          TIB_js-jrlib-ce_6.20.0_license.txt
+		docs              readme.txt       tools
+
+	version 6.0.0
+	mkdir /opt/jasperreports_6_0_0
+	mv  -v /home/asylbek/Downloads/SOFT_LINUX/java/jasperReports/jasperreports_6_0_0/*  /opt/jasperreports_6_0_0/
+	ls /opt/jasperreports_6_0_0/
+
+first steps
+	https://community.jaspersoft.com/wiki/jasperreports-library-first-steps
+
+
+JasperReports Library - Samples
+	https://community.jaspersoft.com/wiki/jasperreports-library-samples
+
+//-----------------------------------------------------
+Usage
+	version 6.0.0
+		Start the sample database
+			cd /opt/jasperreports_6_0_0/demo/hsqldb
+			ant runServer
+				//started some server
+			ant runManager
+				//manage database
+
+		//new terminal
+		cd /opt/jasperreports_6_0_0/demo/samples/
+		start demo sample "/opt/jasperreports_6_0_0/demo/samples/barbecue"
+			cd /opt/jasperreports_6_0_0/demo/samples/barbecue
+			ant -p //-- show all processes
+
+	version 6.20.0
+		Start the sample database
+			cd /opt/jasperreports6_20/demo/hsqldb
+			ant runServer
+				//started some server
+
+		//new terminal
+		cd /opt/jasperreports6_20/demo/samples/
+		start demo sample "/opt/jasperreports6_20/demo/samples/barbecue"
+			cd /opt/jasperreports6_20/demo/samples/barbecue
+			ant -p //-- show all processes, 
+				BUILD SUCCESSFUL
+				Total time: 3 minutes 0 seconds
+			ant javac 
+				// Compiles the java source files of the test application.
+				// Builds from file build.xml
+				javac:
+				    [mkdir] Created dir: /opt/jasperreports6_20/demo/samples/barcode4j/build/classes
+				    [javac] Compiling 1 source file to /opt/jasperreports6_20/demo/samples/barcode4j/build/classes
+				     [copy] Copying 1 file to /opt/jasperreports6_20/demo/samples/barcode4j/build/classes				
+			ant compile
+				//Compiles the XML report design and produces the .jasper file.
+				// Compile the JRXML report templates
+				// Builds from file build.xml
+				compile:
+				    [mkdir] Created dir: /opt/jasperreports6_20/demo/samples/barcode4j/build/reports
+				      [jrc] Compiling 1 report design files.
+				      [jrc] File : /opt/jasperreports6_20/demo/samples/barcode4j/reports/Barcode4JReport.jrxml ... OK.
+				//created files. jasper files
+					build/reports/Barcode4JReport.jasper
+			ant fill
+				//Fills the compiled report design with data and produces the .jrprint file.
+				fill:
+				     [java] Filling time : 797
+				//created files. jrprint files
+					build/reports/Barcode4JReport.jrprint
+			ant view
+				some barcode file viewed in Jasperviewer
+				//Launches the report viewer to preview the report stored in the .jrprint file.
+			ant viewDesign
+				// loads the compiled report template that is normally found in the *.jasper file.
+				some barcode file viewed in JasperDesignViewer
+				//Launches the design viewer to preview the compiled report design.
+			ant viewDesignXML
+				//loads the JRXML report template, which is more useful since you can edit the JRXML file and click the Reload button to immediately see the modification on the screen.
+				
+				BUILD FAILED
+				Target "viewDesignXML" does not exist in the project "hibernate". 
+
+			ant run
+				Buildfile: /opt/jasperreports6_20/demo/samples/barbecue/build.xml
+				BUILD FAILED
+				Target "run" does not exist in the project "barbecue".
+			dir build\reports
+				... some created files
+			ant clean 
+				//Deletes all the generated files.
+
+			ant pdf
+				//
+				build/reports/Barcode4JReport.pdf
+
+			ant test
+				//clean javac compile creates al files
+
+
+			//created files
+			ls /opt/jasperreports6_20/demo/samples/barbecue/build/classes
+			ls /opt/jasperreports6_20/demo/samples/barbecue/build/reports
+
+
+			//project files
+			//text
+			reports/Barcode4JReport.jrxml
+
+			//settings
+			build.xml
+
+			//dependencies
+            ivy.xml
+
+            //source
+            src/Barcode4JApp.java
+            src/jasperreports.properties
+//-----------------------------------------------------
+examples
+barcode4j
+	cd /opt/jasperreports6_20/demo/samples/barcode4j
+
+//-----------------------------------------------------
+book
+	/opt/jasperreports6_20/docs/JasperReports-Ultimate-Guide-3.pdf
+
+iReport Designer - NetBeans
+
+Jaspersoft Studio - Eclipse
+//-----------------------------------------------------
+
+cit@keu.kg
+Ashat Ashatov
+pass 	Ashat@12345678
+
+a.abduvapov@gmail.com
+Asylbek Abduvapov
+pass	Asylbek@JasperReports12345
+
+//-----------------------------------------------------
+
+
+fully modifiable state ( JasperDesign objects) 
+compiled form ( JasperReport objects ).

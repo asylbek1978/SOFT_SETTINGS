@@ -88,9 +88,10 @@ __________________________________________________
 user    host            port
 owen    10.8.111.5      5432
 SELECT CURRENT_USER usr
-      ,inet_server_addr() host 
-      ,inet_server_port() port 
-
+        ,inet_server_addr() serverHost 
+        ,inet_server_port() serverPort 
+        ,inet_client_addr() clientHost
+        ,inet_client_port() clientPort
 
 
 -- use inet_client_addr() to get address of the remote connection
@@ -98,8 +99,8 @@ SELECT CURRENT_USER usr
 user    host            port
 owen    10.2.10.100     62654
 SELECT CURRENT_USER usr
-      ,inet_client_addr() host
-      ,inet_client_port() port
+      ,inet_client_addr() clientHost
+      ,inet_client_port() clientPort
 _________________________________________________
 
 SELECT current_database();
@@ -107,11 +108,11 @@ SELECT * FROM current_catalog;
 SELECT current_catalog;
     ais_sverdlovsk
 _________________________________________________
-
-SELECT schema_name FROM information_schema.schemata;
-SELECT nspname FROM pg_catalog.pg_namespace;
+get schemas
+    SELECT schema_name FROM information_schema.schemata;
+    ?   SELECT nspname FROM pg_catalog.pg_namespace;
     public, information_schema, pg_catalog ...
 _________________________________________________
 
 list active connections on PostgreSQL?
-SELECT * FROM pg_stat_activity;
+    SELECT * FROM pg_stat_activity;

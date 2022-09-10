@@ -1,0 +1,122 @@
+linux show environment variables
+	https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html#:~:text=To%20list%20all%20the%20environment%20variables%2C%20use%20the%20command%20%22%20env,variables%2C%20including%20all%20local%20variables.
+
+list all environments
+	$ env
+
+//get value
+$ echo $USER
+	root
+
+//--------------------------
+
+//Add JAVA_HOME to the environment
+	sudo nano /etc/environment
+		//Paste the JAVA_HOME assignment at the bottom of the file:
+		JAVA_HOME="/lib/jvm/java-11-openjdk-amd64/"
+
+//force the Ubuntu terminal to reload the environment configuration file:
+	source /etc/environment
+
+$ echo $JAVA_HOME
+	/lib/jvm/java-11-openjdk-amd64/bin/java
+
+//-------------------------
+?
+sudo vi /etc/launchd.conf
+	setenv CATALINA_HOME /Users/ХХХ/apache-tomcat-7.0.42
+
+//-------------------------
+All users
+	sudo nano /etc/environment
+	sudo nano /etc/profile
+Specific user
+	sudo nano ~/.profile
+		sudo nano /root/.profile
+		sudo nano /home/asylbek/.profile
+Choose environment in current shell
+	source /etc/environment
+		echo $JAVA_HOME -> /usr/lib/jvm/bellsoft-java17-amd64/
+		echo $MAVEN_HOME -> /opt/apache-maven-3.8.6/
+		echo $ANT_HOME -> /usr/local/apacheAnt1_10_12/
+		ant 
+			Command 'ant' not found, but can be installed with:
+			apt install ant
+
+
+	source /etc/profile
+		echo $JAVA_HOME -> /usr/lib/jvm/bellsoft-java17-amd64/
+		echo $MAVEN_HOME -> /opt/apache-maven-3.8.6/
+							/usr/share/maven
+		echo $ANT_HOME -> /usr/local/ant
+		ant
+			Buildfile: build.xml does not exist!
+			Build failed
+
+	
+//-------------------------
+
+
+//-------------------------
+
+
+//-------------------------
+create a new sh file
+nano /etc/profile.d/ant.sh
+	export ANT_HOME=/usr/local/ant
+	export PATH=${ANT_HOME}/bin:${PATH}
+
+ls /etc/environment.d/
+	90atk-adaptor.conf  90qt-a11y.conf
+ls /etc/profile.d/
+	01-locale-fix.sh  bash_completion.sh  gawk.csh  im-config_wayland.sh  vte.csh
+	ant.sh            flatpak.sh          gawk.sh   vte-2.91.sh
+//-------------------------
+?
+nano ~/.bashrc
+	export ANT_HOME=/usr/local/ant
+	export PATH=${ANT_HOME}/bin:${PATH}
+	export PATH=${PATH}:${ANT_HOME}/bin
+	:wq!
+source ~/.bashrc
+
+//----------------------------
+nano /home/asylbek/.profile
+	# ~/.profile: executed by the command interpreter for login shells.
+	# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+	# exists.
+	# see /usr/share/doc/bash/examples/startup-files for examples.
+	# the files are located in the bash-doc package.
+
+	# the default umask is set in /etc/profile; for setting the umask
+	# for ssh logins, install and configure the libpam-umask package.
+	#umask 022
+
+	# if running bash
+	if [ -n "$BASH_VERSION" ]; then
+	    # include .bashrc if it exists
+	    if [ -f "$HOME/.bashrc" ]; then
+	        . "$HOME/.bashrc"
+	    fi
+	fi
+
+	# set PATH so it includes user's private bin if it exists
+	if [ -d "$HOME/bin" ] ; then
+	    PATH="$HOME/bin:$PATH"
+	fi
+
+	# set PATH so it includes user's private bin if it exists
+	if [ -d "$HOME/.local/bin" ] ; then
+	    PATH="$HOME/.local/bin:$PATH"
+	fi
+
+nano /root/.profile 
+	# ~/.profile: executed by Bourne-compatible login shells.
+
+	if [ "$BASH" ]; then
+	  if [ -f ~/.bashrc ]; then
+	    . ~/.bashrc
+	  fi
+	fi
+
+	mesg n 2> /dev/null || true

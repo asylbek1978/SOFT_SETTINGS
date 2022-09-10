@@ -1,0 +1,6 @@
+grep "nameserver" /etc/resolv.conf
+	nameserver 127.0.0.53
+
+cat /etc/resolv.conf
+OR
+$ less /etc/resolv.conf

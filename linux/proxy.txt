@@ -1,0 +1,2 @@
+set proxy
+	export http_proxy=http://172.16.1.10:8080

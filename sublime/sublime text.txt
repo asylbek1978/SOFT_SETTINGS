@@ -19,8 +19,9 @@ which subl
 locate subl
 	/home/asylbek/.config/sublime-text
 	/opt/sublime_text
-	/usr/bin/subl
-	/usr/local/bin/subl
+	link to "/opt/sublime_text/sublime_text"
+		/usr/bin/subl  
+		/usr/local/bin/subl
 	/usr/share/applications/sublime_text.desktop
 	/var/lib/dpkg/info/sublime-text.list
 	/var/lib/dpkg/info/sublime-text.md5sums

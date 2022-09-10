@@ -1,2 +1,2 @@
-cd C:\wamp64\www\symfony_last
+cd /var/www/html/symfony_last
 symfony server:start

@@ -1,0 +1,11 @@
+site
+	https://ant.apache.org/ivy/
+download	
+	https://ant.apache.org/ivy/download.cgi
+		https://dlcdn.apache.org//ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz
+install
+	echo $ANT_HOME
+		/usr/local/ant
+
+	cp -a /home/asylbek/Downloads/SOFT_LINUX/apache/apache-ivy-2.5.0/ivy-2.5.0.jar /usr/local/ant/lib
+	

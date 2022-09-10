@@ -1,0 +1,3 @@
+extract archieves
+	//tar xf <archieve name>
+	tar xf FileZilla_3.57.0_x86_64-linux-gnu.tar.bz2

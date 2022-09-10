@@ -1,0 +1,9 @@
+nano /usr/local/tomcat/conf/server.xml
+
+default
+	<Connector port="8080" protocol="HTTP/1.1" 
+	  connectionTimeout="20000" redirectPort="8443" />
+
+change port to 8081
+	<Connector port="8081" protocol="HTTP/1.1" 
+	  connectionTimeout="20000" redirectPort="8443" />

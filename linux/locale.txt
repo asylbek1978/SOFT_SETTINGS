@@ -1,0 +1,58 @@
+locale
+	https://blog.mailns.ru/linux/1112/
+
+System available locales
+	localectl list-locales	
+		C.UTF-8
+		...
+		en_US.UTF-8
+		en_ZA.UTF-8
+		en_ZM.UTF-8
+		en_ZW.UTF-8
+		kk_KZ.UTF-8
+		ru_RU.UTF-8
+
+Check default locale
+	localectl	
+		//linux mint	
+		System Locale: LANG=en_US.UTF-8
+			LC_NUMERIC=kk_KZ.UTF-8
+			LC_MONETARY=kk_KZ.UTF-8
+			LC_PAPER=kk_KZ.UTF-8
+			LC_NAME=kk_KZ.UTF-8
+			LC_ADDRESS=kk_KZ.UTF-8
+			LC_TELEPHONE=kk_KZ.UTF-8
+			LC_MEASUREMENT=kk_KZ.UTF-8
+			LC_IDENTIFICATION=kk_KZ.UTF-8
+		VC Keymap: n/a
+		X11 Layout: us
+		X11 Model: pc105
+
+		// rocky linux
+		System Locale: LANG=en_US.UTF-8
+       	VC Keymap: us
+      	X11 Layout: us
+
+Install russian package:
+
+	dnf install -y glibc-langpack-ru
+
+
+set system default locale to russian
+	localectl set-locale LANG=ru_RU.utf8
+
+
+Изменим раскладку клавиатуру на русскую:
+	localectl set-x11-keymap ru
+
+Откроем файл .bashrc (представляет собой файл сценария оболочки, обычно используемый в качестве файла конфигурации для конкретного пользователя).
+	mcedit ~/.bashrc
+	и добавим в него:
+		export LANG="ru_RU.utf8"
+		export LC_CTYPE="ru_RU.utf8"
+		export LC_ALL="ru_RU.utf8"
+
+
+
+
+

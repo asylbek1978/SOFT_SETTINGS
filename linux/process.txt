@@ -1,0 +1,43 @@
+
+list processes that uses some program (tomcat)
+	ps -ef | grep tomcat
+		root      5170     1 92 15:34 pts/0    00:06:53 /opt/alfresco-community/java/bin/java -Djava.util.logging.config.file=/opt/alfresco-community/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Xms4G -Xmx64G -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Djava.awt.headless=true -Dalfresco.home=/opt/alfresco-community -XX:ReservedCodeCacheSize=128m -Djdk.tls.ephemeralDHKeySize=2048 -Djava.endorsed.dirs=/opt/alfresco-community/tomcat/endorsed -classpath /opt/alfresco-community/tomcat/bin/bootstrap.jar:/opt/alfresco-community/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/opt/alfresco-community/tomcat -Dcatalina.home=/opt/alfresco-community/tomcat -Djava.io.tmpdir=/opt/alfresco-community/tomcat/temp org.apache.catalina.startup.Bootstrap start
+		
+		root      5302     1 99 15:36 pts/0    00:05:24 /opt/alfresco-community/java/bin/java -Djava.util.logging.config.file=/opt/alfresco-community/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Xms4G -Xmx64G -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Djava.awt.headless=true -Dalfresco.home=/opt/alfresco-community -XX:ReservedCodeCacheSize=128m -Djdk.tls.ephemeralDHKeySize=2048 -Djava.endorsed.dirs=/opt/alfresco-community/tomcat/endorsed -classpath /opt/alfresco-community/tomcat/bin/bootstrap.jar:/opt/alfresco-community/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/opt/alfresco-community/tomcat -Dcatalina.home=/opt/alfresco-community/tomcat -Djava.io.tmpdir=/opt/alfresco-community/tomcat/temp org.apache.catalina.startup.Bootstrap start
+
+		root      5822  4835  0 15:41 pts/0    00:00:00 grep --color=auto tomcat
+
+		_________
+		working
+		root      8722     1 12 05:48 ?        00:39:43 /opt/alfresco-community/java/bin/java -Djava.util.logging.config.file=/opt/alfresco-community/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Xms4G -Xmx64G -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Djava.awt.headless=true -Dalfresco.home=/opt/alfresco-community -XX:ReservedCodeCacheSize=128m -Dalfresco.home=/opt/alfresco-community -Dcom.sun.management.jmxremote -Dsun.security.ssl.allowUnsafeRenegotiation=true -XX:ReservedCodeCacheSize=128m -Djdk.tls.ephemeralDHKeySize=2048 -Djava.endorsed.dirs=/opt/alfresco-community/tomcat/endorsed -classpath /opt/alfresco-community/tomcat/bin/bootstrap.jar:/opt/alfresco-community/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/opt/alfresco-community/tomcat -Dcatalina.home=/opt/alfresco-community/tomcat -Djava.io.tmpdir=/opt/alfresco-community/tomcat/temp org.apache.catalina.startup.Bootstrap start
+		
+		root     10268 10200  0 10:59 pts/2    00:00:00 grep --color=auto tomcat
+
+	ps aux | grep "alfresco-community"
+
+//-----------------------------------
+kill process
+	kill -9 276675
+kill processes used by specified program
+	pkill -9 -f idea_community
+
+
+//-----------------------------------
+ls /proc
+ls /proc | less
+//list of files for systemd process with PID 1:
+	ls /proc/1
+
+top
+htop
+glances
+pidof firefox
+ps -p 2523 -o comm=
+	firefox
+ps aux | grep 2523
+man ps
+
+ps aux | grep {process-name-here}
+ps -aux | grep {process-to-find-here}
+
+top -bcn 1 | grep postgresql

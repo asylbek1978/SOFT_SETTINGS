@@ -1,0 +1,15 @@
+https://www.section.io/engineering-education/express/
+https://www.npmjs.com/package/nodemon
+https://www.section.io/engineering-education/rendering-html-pages-as-a-http-server-response-using-node-js/
+npm install express
+
+code
+
+
+var app = express();
+app.get("/", (req, res) =>{
+    res.send("hello world!");
+});
+app.listen(3000, () => {
+    console.log("Application started and Listening on port 3000")
+})

@@ -1,0 +1,61 @@
+1 	Building a RESTful Web Service
+	Learn how to create a RESTful web service with Spring.
+	https://spring.io/guides/gs/rest-service/
+	folder:	rest_service
+	status:	ok
+2 	Consuming a RESTful Web Service
+	Learn how to retrieve web page data with Spring's RestTemplate.
+	https://spring.io/guides/gs/consuming-rest/
+	folder:	consuming_rest
+	status:	error, unavailable service link https://quoters.apps.pcfone.io/api/random
+3 	Building Java Projects with Maven
+	Learn how to build a Java project with Maven.
+	https://spring.io/guides/gs/maven/
+	folder:	mavenDemo
+	status:	ok,
+		mvn compile
+			[ERROR] Error executing Maven.
+			[ERROR] java.lang.IllegalStateException: Unable to load cache item
+			[ERROR] Caused by: Unable to load cache item
+			[ERROR] Caused by: Could not initialize class com.google.inject.internal.cglib.core.$MethodWrapper
+		sulution
+			update maven from 3.6.3 till apache-maven-3.8.6
+			https://medium.com/ci-cd-devops/error-error-executing-maven-error-java-lang-illegalstateexception-unable-to-load-cache-item-39e886a67216
+		| 
+		/opt/apache-maven-3.8.6/bin/mvn compile
+			BUILD SUCCESS
+4 	Uploading Files
+	Learn how to build a Spring application that accepts multi-part file uploads.
+	https://spring.io/guides/gs/uploading-files/
+	folder:	uploadFiles
+	status:	ok,
+5 	Messaging with Redis
+	Learn how to use Redis as a message broker.
+	https://spring.io/guides/gs/messaging-redis/
+	folder: messaging-redis
+	status: no
+		need to install redis server.
+6 	Accessing Data with Neo4j
+	Learn how to persist objects and relationships in Neo4j's NoSQL data store.
+	https://spring.io/guides/gs/accessing-data-neo4j/
+	folder: accessing-data-neo4j
+	status: no
+		need to install neo4j dbase server.
+7 	Building a RESTful Web Service with Spring Boot Actuator
+	Learn how to create a RESTful Web service with Spring Boot Actuator.
+	https://spring.io/guides/gs/actuator-service/
+	folder: actuator-service
+	status: no, compare github and tutorial files
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20

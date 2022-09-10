@@ -1,0 +1,36 @@
+download
+
+install
+	sudo apt-get update
+	sudo apt-get install apache2
+configs
+
+
+which apache2
+	/usr/sbin/apache2
+
+
+service apache2
+	apache2 {start|stop|graceful-stop|restart|reload|force-reload}
+	service apache2 status
+		active or not, some text
+
+change main port
+	nano /etc/apache2/ports.conf
+		# /etc/apache2/sites-enabled/000-default.conf
+
+		Listen 80
+
+		<IfModule ssl_module>
+		        Listen 443
+		</IfModule>
+
+		<IfModule mod_gnutls.c>
+		        Listen 443
+		</IfModule>
+
+		# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+apache2 logs
+	/var/log/apache2
+

@@ -1,0 +1,10 @@
+install
+	apt-get install telnet -y
+	dnf install telnet -y
+
+Syntax
+	Usage: telnet [-4] [-6] [-8] [-E] [-L] [-a] [-d] [-e char] [-l user]
+	[-n tracefile] [ -b addr ] [-r] [host-name [port]]
+
+Examples
+	telnet localhost 22

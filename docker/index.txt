@@ -1,0 +1,102 @@
+Docker Engine 
+
+
+install
+	1 way Install using the repository
+		1  set up the Docker repository.
+			//Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+			sudo apt-get update
+			sudo apt-get install ca-certificates curl gnupg lsb-release
+
+			//Add Docker’s official GPG key:
+			sudo mkdir -p /etc/apt/keyrings
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+			
+			//Use the following command to set up the repository:
+			echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+
+		2  install and update Docker from the repository. 
+		Install Docker Engine.
+			1
+				sudo apt-get update
+	 			sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+					Reading package lists... Done
+					Building dependency tree       
+					Reading state information... Done
+					Package docker-ce is not available, but is referred to by another package.
+					This may mean that the package is missing, has been obsoleted, or
+					is only available from another source
+
+					N: Ignoring file 'pgdg.list.save.1' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+					E: Package 'docker-ce' has no installation candidate
+					E: Unable to locate package docker-ce-cli
+					E: Unable to locate package containerd.io
+					E: Couldn't find any package by glob 'containerd.io'
+					E: Couldn't find any package by regex 'containerd.io'
+					E: Unable to locate package docker-compose-plugin
+
+			2 To install a specific version of Docker Engine, list the available versions in the repo, then select and install:
+				1 List the versions available in your repo:
+					apt-cache madison docker-ce
+						docker-ce | 5:20.10.16~3-0~ubuntu-jammy
+				2 Install a specific version using the version string from the second column, for example, 5:20.10.16~3-0~ubuntu-jammy.		sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
+					sudo apt-get install docker-ce=5:20.10.16~3-0~ubuntu-jammy docker-ce-cli=5:20.10.16~3-0~ubuntu-jammy containerd.io docker-compose-plugin
+
+			3 Verify that Docker Engine is installed correctly by running the hello-world image.
+				sudo docker run hello-world
+
+		3 Continue to Linux postinstall to allow non-privileged users to run Docker commands and for other optional configuration steps.
+		https://docs.docker.com/engine/install/linux-postinstall/
+
+	2 way  Install from a package
+		https://download.docker.com/linux/ubuntu/dists/
+			https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/containerd.io_1.6.7-1_amd64.deb
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-rootless-extras_20.10.9~3-0~ubuntu-focal_amd64.deb
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-compose-plugin_2.6.0~ubuntu-focal_amd64.deb
+				https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-scan-plugin_0.9.0~ubuntu-focal_amd64.deb
+				
+				sudo dpkg -i /home/asylbek/Downloads/SOFT_LINUX/docker/containerd.io_1.6.7-1_amd64.deb
+				sudo dpkg -i /home/asylbek/Downloads/SOFT_LINUX/docker/docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb
+				sudo dpkg -i /home/asylbek/Downloads/SOFT_LINUX/docker/docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb
+				sudo dpkg -i /home/asylbek/Downloads/SOFT_LINUX/docker/docker-compose-plugin_2.6.0~ubuntu-focal_amd64.deb
+				sudo dpkg -i /home/asylbek/Downloads/SOFT_LINUX/docker/docker-scan-plugin_0.9.0~ubuntu-focal_amd64.deb
+
+		Verify that Docker Engine is installed correctly by running the hello-world image.
+			sudo docker run hello-world
+		
+		Upgrade Docker Engine
+			To upgrade Docker Engine, download the newer package file and repeat the installation procedure, pointing to the new file.
+
+
+	3 way Install using the convenience script
+		...
+
+
+Uninstall Docker Engine
+	Uninstall the Docker Engine, CLI, Containerd, and Docker Compose packages:
+		sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+	Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:
+		sudo rm -rf /var/lib/docker
+		sudo rm -rf /var/lib/containerd
+You must delete any edited configuration files manually.
+
+
+//--------------------------------
+Usage
+	//download alfresco community 7.2 docker file "docker-compose.yml" and move it to /home/asylbek/Downloads/SOFT_LINUX/alfresco/docker-compose.yml
+	cd /home/asylbek/Downloads/SOFT_LINUX/alfresco
+	subl /home/asylbek/Downloads/SOFT_LINUX/alfresco/docker-compose.yml
+		docker login quay.io -u="alfresco+acs_v6_trial" -p="MDF9RNGUJPKZ83KK8UVGUVWO9AYKUZ0VN6WG5VOOCUT6BX19JJLU5ZL0HKU7N20C"
+		docker compose up
+	docker login quay.io -u="alfresco+acs_v6_trial" -p="MDF9RNGUJPKZ83KK8UVGUVWO9AYKUZ0VN6WG5VOOCUT6BX19JJLU5ZL0HKU7N20C"
+	docker compose up
+
+

@@ -1,0 +1,134 @@
+Java EE (EJB, JSF, JPA, JTA) 
+Java Spring (Data, Web, Security);
+опыт работы с реляционными базами данных (построение сложных запросов, хранимых процедур и функций);
+SOAP и REST;
+развертыванию приложения на JBoss;
+Git;
+MAVEN;
+reports
+	Jasper Reports
+		https://ru.wikipedia.org/wiki/JasperReports
+		https://community.jaspersoft.com/
+		https://habr.com/ru/company/tinkoff/blog/461719/
+
+	JSF(PrimeFaces)
+	ORACLE APEX
+		https://apex.oracle.com/en/
+		https://ru.wikipedia.org/wiki/Oracle_Application_Express
+		https://apex.oracle.com/en/learn/getting-started/
+Java (Spring Boot) + Vue, 
+Java/kotlin + angular, 
+Apache Kafka, 
+Apache Spark
+	Apache Spark — фреймворк для реализации распределённой обработки неструктурированных и слабоструктурированных данных, входящий в экосистему проектов Hadoop.
+	https://ru.wikipedia.org/wiki/Apache_Spark
+	https://mcs.mail.ru/blog/what-is-apache-spark
+
+Apache Hive
+	Apache Hive — система управления базами данных на основе платформы Hadoop. Позволяет выполнять запросы, агрегировать и анализировать данные, хранящиеся в Hadoop.
+	https://ru.wikipedia.org/wiki/Apache_Hive
+	https://hive.apache.org/
+Tomcat, Postgres, 
+HDFS 
+	https://ru.wikipedia.org/wiki/Hadoop
+	https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
+Hibernate
+	https://hibernate.org/
+	https://ru.wikipedia.org/wiki/Hibernate_(%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0)
+	https://habr.com/ru/post/320542/
+HBase, 
+ClickHouse, 
+Redis.
+Solidity
+	объектно-ориентированный, предметно-ориентированный язык программирования самовыполняющихся контрактов для платформы Ethereum.
+	https://ru.wikipedia.org/wiki/Solidity
+	github.com/ethereum/solidity
+
+Web3j
+	https://docs.web3j.io/4.8.7/
+	https://github.com/web3j
+	https://russianblogs.com/article/15721840295/
+RabbitMQ
+Jenkins
+	jenkins.io
+	программная система предназначенная для обеспечения процесса непрерывной интеграции программного обеспечения.
+
+REST API
+
+PL-SQL
+	https://ru.wikipedia.org/wiki/PL/SQL
+
+analitic
+	Agile (Scrum, Kanban);
+	Jira
+		коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.
+		https://ru.wikipedia.org/wiki/Jira
+		https://www.atlassian.com/ru/software/jira
+	Моделирование бизнес-процессов (UML, BPMN);
+
+//---------------------------------
+Telegram
+@Stiletto007
+E-Mail
+hr@it.salyk.kg
+Телефон
++996 709 788 744
+
+https://www.palm.careers/
+
+
+youtube
+	https://www.youtube.com/c/BoostBrainCourse/playlists
+
+	Roman Brovko
+		https://www.youtube.com/c/RomanBrovko/playlists
+	alishev
+		https://www.youtube.com/c/alishevN/playlists
+
+//-------------------------------
+java
+https://devkg.com/ru/jobs/programmisty-v-otdel-razrabotki-po-oao-ayyl-bank-7623
+	iskender.usenkanov@ab.kg 
+	https://www.linkedin.com/in/iskender-usenkanov-59111421/
+	SQL / PL-SQL, JasperReport, ORACLE APEX, 
+https://devkg.com/ru/jobs/sql-pl-sql-razrabotchik-oao-kommercheskiy-bank-kyrgyzstan-7630
+https://devkg.com/ru/jobs/senior-java-gu-ukuk-pri-gp-kr-6684 200 000
+https://devkg.com/ru/jobs/v-kompaniyu-trebuyutsya-java-razrabotchikb-middle-senior-osoo-sanarip-dolboor-7807
+	Spring, Hibernate; 		SQL, PostgreSQL, MySQL
+	 EJB, JPA, JSF 2, JAX-RS, JAX-WS;
+
+php
+https://devkg.com/ru/jobs/php-developer-saybers-7077	500
+
+turbine kreuzberg
+	https://devkg.com/ru/jobs/php-razrabotchik-turbine-kreuzberg-7725
+//-------------------------------
+
+Devops
+• Системы контроля версий (Git, SVN, Mercurial);
+
+• CI (Jenkins, Gitlab, Travis);
+
+• Оркестрацию (Kubernetes, Terraform);
+
+• Системы сборки (Docker);
+
+• Управление конфигурации (Puppet, Chef, Ansible);
+
+• Мониторинг и журналирование (Grafana, Zabbix, Prometheus. Elasticsearch/Kibana/Logstash);
+
+Настраивать безопасность (GPG, Vault, SSL);
+
+Создавать и оптимизировать CI/CD;
+
+Настраивать Jira, Confluence, Redmine, Basecamp;
+
+Уметь применять методологии управлениями проектов:
+
+Scrum, Kanban, Waterfall, Zero-Zero
+
+Опыт работы по кластеризации с SQL БД (GraphQL; PostgreSQL; MySQL; Oracle и т.д) 
+//-------------------------------
+
+Работа мониторинга на основе Zabbix, Prometheus;
+

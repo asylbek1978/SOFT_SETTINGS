@@ -1,0 +1,281 @@
+
+Template Variables
+
+examples
+	//variables in template.html
+	<h1>Hello {{ firstname }}, how are you?</h1>
+
+	//variables in views.py
+	// send variables to html file
+		// variable firstname
+		from django.http import HttpResponse
+		from django.template import loader
+
+		def testing(request):
+		  template = loader.get_template('template.html')
+		  context = {
+		    'firstname': 'Linus',
+		  }
+		  return HttpResponse(template.render(context, request))
+
+Create Variables in Template
+	template.html
+		{% with firstname="Tobias" %}
+		<h1>Hello {{ firstname }}, how are you?</h1>
+
+//------------------------------------------------------------
+
+Template Tags
+	template.html
+		{% if greeting == 1 %}
+		  <h1>Hello</h1>
+		{% else %}
+		  <h1>Bye</h1>
+		{% endif %}
+
+		<ul>
+		  {% for x in mymembers %}
+		    <li>{{ x.firstname }}</li>
+		  {% endfor %}
+		</ul>
+
+	views.py
+		from django.http import HttpResponse
+		from django.template import loader
+		from .models import Members
+
+		def testing(request):
+		  mymembers = Members.objects.all().values()
+		  template = loader.get_template('template.html')
+		  context = {
+		    'greeting': 1,
+		    'mymembers': mymembers,
+		  }
+		  return HttpResponse(template.render(context, request)) 		
+
+	list of all template tags
+		https://www.w3schools.com/django/django_template_tags.php
+
+	if
+		{% if greeting == 1 %}
+		  	<h1>Hello</h1>
+		{% elif %}
+			<h1>Hello</h1>
+		{% else %}
+  			<h1>Goodbye</h1>
+		{% endif %}
+
+	Operators
+		{% if greeting %}
+		  	<h1>Hello</h1>
+		{% endif %} 
+
+		{% if greeting == 2 %}
+		  	<h1>Hello</h1>
+		{% endif %}
+
+		==, !=, <, <=, >, >=, 
+		and or
+			{% if greeting == 1 and day == "Friday" %}
+			  <h1>Hello Weekend!</h1>
+			{% endif %} 
+
+			{% if greeting == 1 or greeting == 5 %}
+
+			{% if greeting == 1 and day == "Friday" or greeting == 5 %}	
+			Parentheses are not allowed in if statements in Django, so when you combine and and or operators, it is important to know that parentheses are added for and but not for or.
+			Meaning that the above example is read by the interpreter like this:
+			{% if (greeting == 1 and day == "Friday") or greeting == 5 %}
+
+		in
+			{% if 'Banana' in fruits %}
+			  	<h1>Hello</h1>
+			{% else %}
+			  	<h1>Goodbye</h1>
+			{% endif %}
+
+		not in
+			{% if 'Banana' not in fruits %}
+			 	<h1>Hello</h1>
+			{% else %}
+				<h1>Goodbye</h1>
+			{% endif %}
+
+		is
+			if two objects are the same.
+			{% if x is y %}
+			  <h1>YES</h1>
+			{% else %}
+			  <h1>NO</h1>
+			{% endif %}
+				-- no, objects
+
+			{% with var1=x var2=x %}
+			  {% if var1 is var2 %}
+			    <h1>YES</h1>
+			  {% else %}
+			    <h1>NO</h1>
+			  {% endif %}
+			{% endwith %}
+				-- YES
+				The x variable is created in views.py, and both var1 and var2 points to x.
+
+		is not
+			context = {
+			    'x': ['Apple', 'Banana', 'Cherry'],   
+			    'y': ['Apple', 'Banana', 'Cherry'],
+			}
+			{% if x is not y %}
+			  <h1>YES</h1>
+			{% else %}
+			  <h1>NO</h1>
+			{% endif %}
+				-- YES
+
+	For Loops
+		context = {
+    		'fruits': ['Apple', 'Banana', 'Cherry'],   
+  		}
+		{% for x in fruits %}
+		  <h1>{{ x }}</h1>
+		{% endfor %}
+
+
+		context = {
+		    'cars': [
+		      {
+		        'brand': 'Ford',
+		        'model': 'Mustang',
+		        'year': '1964',
+		      },
+		      {
+		        'brand': 'Ford',
+		        'model': 'Bronco',
+		        'year': '1970',
+		      },
+		      {
+		        'brand': 'Volvo',
+		        'model': 'P1800',
+		        'year': '1964',
+		      }]
+		}
+		{% for x in cars %}
+		  <h1>{{ x.brand }}</h1>
+		  <p>{{ x.model }}</p>
+		  <p>{{ x.year }}</p>
+		{% endfor %}
+
+
+		<QuerySet [
+		  {
+		    'id': 1,
+		    'firstname': 'Emil',
+		    'lastname': 'Refsnes'
+		  },
+		  {
+		    'id': 2,
+		    'firstname': 'Tobias',
+		    'lastname': 'Refsnes'
+		  },
+		  {
+		    'id': 3,
+		    'firstname': 'Linus',
+		    'lastname': 'Refsnes'
+		  },
+		  {
+		    'id': 4,
+		    'firstname': 'Lene',
+		    'lastname': 'Refsnes'
+		  },
+		  {
+		    'id': 5,
+		    'firstname': 'Stalikken',
+		    'lastname': 'Refsnes'
+		  }
+		]>
+		{% for x in members %}
+		  <h1>{{ x.id }}</h1>
+		  <p>
+		    {{ x.firstname }}
+		    {{ x.lastname }}
+		  </p>
+		{% endfor %} 
+		mymembers = Members.objects.all().values()
+		  	template = loader.get_template('template.html')
+		  	context = {
+		    	'members': mymembers,
+		  	}
+
+	Reversed loop
+		{% for x in members reversed %}
+		  <h1>{{ x.id }}</h1>
+		  <p>
+		    {{ x.firstname }}
+		    {{ x.lastname }}
+		  </p>
+		{% endfor %} 
+		5 4 3 2 1
+
+	empty // if the object is empty does not exist:
+		<ul>
+		  {% for x in emptytestobject %}
+		    <li>{{ x.firstname }}</li>
+		  {% empty %}
+		    <li>No members</li>
+		  {% endfor %}
+		</ul> 
+
+	Loop variables
+		forloop.counter // starts with 1
+		forloop.counter0 // starts with 0
+		forloop.first
+		forloop.last
+		forloop.parentloop
+		forloop.revcounter
+		forloop.revcounter0
+
+		<ul>
+		  {% for x in fruits %}
+		    <li>{{ forloop.counter }}</li>
+		  {% endfor %}
+		</ul>
+			1 2 3 4 5
+
+		<ul>
+		  {% for x in fruits %}
+		    <li
+		      {% if forloop.first %}
+		        style='background-color:lightblue;'
+		      {% endif %}
+		    >{{ x }}</li>
+		  {% endfor %}
+		</ul> 
+
+		<ul>
+		  {% for x in fruits %}
+		    <li
+		      {% if forloop.last %}
+		        style='background-color:lightblue;'
+		      {% endif %}
+		    >{{ x }}</li>
+		  {% endfor %}
+		</ul>
+
+		<ul>
+		  {% for x in fruits %}
+		    <li>{{ forloop.revcounter }}</li>
+		  {% endfor %}
+		</ul>
+			5 4 3 2 1
+
+		<ul>
+		  {% for x in fruits %}
+		    <li>{{ forloop.revcounter0 }}</li>
+		  {% endfor %}
+		</ul> 
+			4 3 2 1 0
+
+//------------------------------------------------------------
+
+
+

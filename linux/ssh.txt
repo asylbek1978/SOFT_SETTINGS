@@ -61,12 +61,15 @@ _______________________________________________________________________________
 Editing configuration files
 Allow ip adresses
 	sudo nano /etc/hosts.allow 
+		sshd : 127.0.0.1
 	sudo nano /etc/hosts.deny
 
 change default port
 	//Edit the SSH daemon configuration file, for example, you can change the default port for SSH connections.:
 	sudo nano /etc/ssh/sshd_config
 _______________________________________________________________________________
+
+https://linuxize.com/post/using-the-ssh-config-file/#ssh-config-file-example
 
 
 ?

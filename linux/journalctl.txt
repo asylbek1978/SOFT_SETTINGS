@@ -1,0 +1,7 @@
+
+journalctl -f _TRANSPORT=kernel
+	...
+	Out of memory: Kill process 2201 (java) score 911 or sacrifice child
+	Killed process 2195 (java) total-vm:87837392kB, anon-rss:5723856kB, file-rss:1328kB
+	Adding 6291452k swap on /swapfile.  Priority:-1 extents:51 across:11067388k FS
+	...

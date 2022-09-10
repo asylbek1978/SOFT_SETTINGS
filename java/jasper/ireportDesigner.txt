@@ -1,0 +1,38 @@
+
+site
+	https://community.jaspersoft.com/project/ireport-designer
+
+download
+	https://community.jaspersoft.com/project/ireport-designer/releases
+		iReport Designer (v5.6.0) Published: 2014-May-28
+			iReport-5.6.0.tar.gz 
+				https://sourceforge.net/projects/ireport/files/iReport/iReport-5.6.0/iReport-5.6.0.tar.gz/download
+			https://sourceforge.net/projects/ireport/files/iReport/
+				https://sourceforge.net/projects/ireport/files/iReport/iReport-5.6.0/iReport-5.6.0.tar.gz/download		
+Resources
+	https://community.jaspersoft.com/project/ireport-designer/resources
+	Getting Started
+	tutorials
+
+Usage
+	Designing a Report
+		https://community.jaspersoft.com/node/205414
+	Testing Your Report
+		https://community.jaspersoft.com/node/205354
+	Deploying Your Report
+		https://community.jaspersoft.com/node/205375
+
+install
+	mkdir /opt/iReport_5_6_0
+	mv  -v /home/asylbek/Downloads/SOFT_LINUX/java/jasperReports/iReportDesigner/iReport_5_6_0/*  /opt/iReport_5_6_0/
+	ls /opt/iReport_5_6_0/
+		bin  Changelog.txt  etc  ide10  ireport  LICENSE_ireport.txt  license-text-files  nb6.5  notice.txt  platform9  readme.txt  Third-Party-Notices.pdf
+
+Running 
+	ls /opt/iReport_5_6_0/bin
+		document.ico  ireport  ireport.exe  ireport_w.exe
+	/opt/iReport_5_6_0/bin/ireport
+		Unrecognized VM option 'MaxPermSize=512m'
+		Error: Could not create the Java Virtual Machine.
+		Error: A fatal exception has occurred. Program will exit.
+	? try to run with  java 8 

@@ -1,0 +1,17 @@
+Configuration
+	https://www.mulesoft.com/tomcat-configuration
+
+Performance
+	https://www.mulesoft.com/tomcat-performance
+
+Tomcat JVM files
+	https://www.mulesoft.com/tomcat-jvm
+
+
+ls /usr/local/tomcat/conf/
+	Catalina         catalina.properties  jaspic-providers.xml  logging.properties  tomcat-users.xml  web.xml
+	catalina.policy  context.xml          jaspic-providers.xsd  server.xml          tomcat-users.xsd
+
+users, roles
+	nano /usr/local/tomcat/conf/tomcat-users.xml
+

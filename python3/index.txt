@@ -1,0 +1,98 @@
+site
+
+download
+	https://www.python.org/downloads/
+		https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tar.xz
+	Linux
+	https://www.python.org/downloads/source/
+		https://www.python.org/downloads/release/python-3106/
+			Gzipped source tarball
+				https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz
+			XZ compressed source tarball
+				https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tar.xz
+
+install
+	sudo apt update
+	sudo search python
+	sudo apt install python3.9
+	python3 --version
+		Python 3.8.5
+
+//-------------------------------
+
+Install Python 3.7 From Source Code
+	//Install Supporting Software
+		sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget libsqlite3-dev
+
+	cd /tmp
+	wget https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz
+	//Extract Compressed Files
+	tar -xf /home/asylbek/Downloads/SOFT_LINUX/python3/Python-3.10.6.tgz
+	cd Python-3.10.6
+	//The ./configure command evaluates and prepares Python to install on your system. Using the --optimization option speeds code execution by 10-20%.
+	./configure --enable-optimizations
+
+	//(Option) Overwrite Default Python Installation. To install Python 3.8.3 over the top of your existing Python, enter the following:
+	sudo make install
+
+	//Install a Second Instance of Python
+	sudo make altinstall
+
+	python3.10 --version
+		Python 3.10.6
+
+	cd ..
+	rm -r Python-3.10.6
+
+//------------------------------
+
+which python3
+	/usr/bin/python3
+
+readlink -f $(which python3)
+	/usr/bin/python3.8
+
+which python3.10
+	/usr/local/bin/python3.10
+
+ls /usr/bin/
+	...
+	python2
+	python2.7
+	python3
+	python3.8
+	python3.9
+	...
+
+python2 --version
+	Python 2.7.18
+python2.7 --version
+	Python 2.7.18
+python3 --version
+	Python 3.8.5
+python3.8 --version
+	Python 3.8.5
+python3.9 --version
+	Python 3.9.13
+python3.10 --version
+	Python 3.10.6
+
+//------------------------------
+
+Scripts
+	python3 /home/asylbek/scripts/python3/w3school/helloworld.py
+	python3.10 /home/asylbek/scripts/python3/w3school/helloworld.py
+
+//------------------------------
+
+Terminal usage
+	/usr/bin/python3.8
+	python3
+	>>> print("Hello, World!")
+	Hello, World!
+	>>> exit()
+
+//------------------------------
+
+Apache2 python3 django
+	https://qna.habr.com/q/170089

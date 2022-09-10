@@ -1,0 +1,15 @@
+install
+	// teamviewer depends on libminizip1;
+	sudo apt install libminizip1
+	sudo dpkg -i /home/asylbek/Downloads/SOFT\ LINUX/teamviewer_15.25.5_amd64.deb
+
+which teamviewer
+	// Link to shell script (application/x-shellscript)
+	//	/opt/teamviewer/tv_bin/script/teamviewer
+	/usr/bin/teamviewer
+	
+
+locate teamviewer
+
+run teamviewer
+	/opt/teamviewer/tv_bin/script/teamviewer

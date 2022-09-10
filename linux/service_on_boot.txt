@@ -1,0 +1,25 @@
+
+//enable the service on boot, use this systemd command:
+	sudo systemctl enable apache2
+	sudo systemctl enable nginx
+
+//disable the service on boot, use this systemd command:
+	sudo systemctl disable apache2
+		Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+		Executing: /lib/systemd/systemd-sysv-install disable apache2
+		Removed /etc/systemd/system/multi-user.target.wants/apache2.service.		
+
+//list all enabled (loaded on boot) services
+	systemctl list-unit-files --state=enabled
+		UNIT FILE                                  STATE   VENDOR PRESET
+		acpid.path                                 enabled enabled      
+		cups.path                                  enabled enabled      
+		ntp-systemd-netif.path                     enabled enabled      
+		accounts-daemon.service                    enabled enabled      
+		anacron.service                            enabled enabled      
+		apache2.service                            enabled enabled 
+
+
+Creating a Linux service with systemd
+	https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6
+

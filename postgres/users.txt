@@ -1,0 +1,119 @@
+postgres
+	user
+		//User-specific settings override database-specific ones if there is a conflict.
+		create
+			CREATE USER testuser   // CREATE USER includes LOGIN by default
+			CREATE USER testuser
+				WITH [ENCRYPTED|UNENCRYPTED] PASSWORD '12345'  | NULL
+					//whether the password is stored encrypted in pg_shadow
+				SUPERUSER | NOSUPERUSER
+				CREATEDB|NOCREATEDB  //default is NOCREATEDB
+				CREATEROLE | NOCREATEROLE
+				INHERIT | NOINHERIT
+				LOGIN | NOLOGIN
+				REPLICATION | NOREPLICATION
+				BYPASSRLS | NOBYPASSRLS
+				CONNECTION LIMIT connlimit
+
+				CREATEUSER | NOCREATEUSER 
+					//default NOCREATEUSER CREATEUSER will also make the user a superuser, who can override all access restrictions.
+				VALID UNTIL 'abstime'
+					// only for password
+					// to set the password never to expire, use 'infinity'.
+				
+				IN GROUP groupname [, groupname2, groupname3]
+				IN ROLE role_name [, ...]
+			    IN GROUP role_name [, ...]
+			    ROLE role_name [, ...]
+			    ADMIN role_name [, ...]
+			    USER role_name [, ...]
+				SYSID uid 
+			examples
+				CREATE USER jonathan LOGIN;
+				CREATE USER testuser WITH PASSWORD 'jw8s0F4' CREATEDB VALID UNTIL '2005-01-01';
+
+				CREATE ROLE ais_test WITH
+					LOGIN
+					NOSUPERUSER
+					INHERIT
+					NOCREATEDB
+					NOCREATEROLE
+					NOREPLICATION
+					PASSWORD 'zpjZqj5DtFf'
+				;
+
+				CREATE ROLE ais_central WITH
+					LOGIN
+					SUPERUSER
+					INHERIT
+					CREATEDB
+					CREATEROLE
+					REPLICATION
+					PASSWORD 'jeDTWBDQf2V'
+				;
+
+				CREATE ROLE ais_sverdlovsk WITH
+					LOGIN
+					NOSUPERUSER
+					INHERIT
+					NOCREATEDB
+					NOCREATEROLE
+					NOREPLICATION
+					PASSWORD '19256qwezxc'
+				;
+		change
+			ALTER USER <username> 
+				WITH [ENCRYPTED|UNENCRYPTED] PASSWORD '12345'
+				CREATEDB|NOCREATEDB  //default is NOCREATEDB
+				CREATEUSER | NOCREATEUSER //default NOCREATEUSER
+				VALID UNTIL 'abstime'
+
+			ALTER USER name RENAME TO newname
+				//Only a database superuser can rename user accounts. 
+				//The current session user cannot be renamed. (Connect as a different user if you need to do that.) Because MD5-encrypted passwords use the user name as cryptographic salt, renaming a user clears their MD5 password.
+
+			ALTER USER name SET parameter { TO | = } { value | DEFAULT }
+				// user configuration parameter
+					//  SELECT * FROM pg_settings 
+					// SELECT * FROM pg_settings WHERE name LIKE '%library_path' LIMIT 1; 
+				ALTER USER testuser SET maintenance_work_mem = 100000; // maintenance_work_mem	65536
+					SHOW maintenance_work_mem // 64MB
+				ALTER ROLE testuser SET maintenance_work_mem = 100000;
+										log_statement='all'
+
+				ALTER USER testuser RESET maintenance_work_mem
+					parameter escapes from record
+				ALTER USER testuser SET maintenance_work_mem FROM CURRENT
+					sets parameter fron current database parameters
+				
+
+			ALTER USER name RESET parameter|ALL
+
+				ALTER USER { role_specification | ALL } [ IN DATABASE database_name ] SET configuration_parameter { TO | = } { value | DEFAULT }
+				ALTER USER { role_specification | ALL } [ IN DATABASE database_name ] SET configuration_parameter FROM CURRENT
+				ALTER USER { role_specification | ALL } [ IN DATABASE database_name ] RESET configuration_parameter
+				ALTER USER { role_specification | ALL } [ IN DATABASE database_name ] RESET ALL
+
+				where role_specification can be:
+
+				    role_name
+				  | CURRENT_ROLE
+				  | CURRENT_USER
+				  | SESSION_USER
+
+			examples
+				ALTER USER davide WITH PASSWORD 'hu8jmn3';
+				ALTER USER manuel VALID UNTIL 'Jan 31 2030';
+				ALTER USER chris VALID UNTIL 'May 4 12:00:00 2005 +1';
+				ALTER USER fred VALID UNTIL 'infinity';
+				ALTER USER miriam CREATEUSER CREATEROLE CREATEDB;
+				ALTER ROLE worker_bee SET maintenance_work_mem = 100000;
+				ALTER ROLE testuser IN DATABASE testdatabase SET client_min_messages = DEBUG;
+
+
+
+
+
+		delete
+			DROP USER testuser
+			//To drop a user who owns a database, first drop the database or change its ownership.

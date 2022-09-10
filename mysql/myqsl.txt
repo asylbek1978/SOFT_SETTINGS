@@ -1,0 +1,94 @@
+download
+
+install
+
+
+usage
+	mysql -V
+		mysql  Ver 8.0.27-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+	service mysql status
+		Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     	Active: active (running) 
+	
+	sudo su -
+	mysql  -u root 
+	//mysql -h localhost -u username -p password databaseName
+	
+
+	Select user from mysql.user;
+		+------------------+
+		| user             |
+		+------------------+
+		| debian-sys-maint |
+		| mysql.infoschema |
+		| mysql.session    |
+		| mysql.sys        |
+		| root             |
+		+------------------+
+
+		+------------------+
+		| user             |
+		+------------------+
+		| asylbek          |
+		| debian-sys-maint |
+		| mysql.infoschema |
+		| mysql.session    |
+		| mysql.sys        |
+		| phpmyadmin       |
+		| root             |
+		+------------------+
+
+
+	create a new user 'asylbek' with password 'nhelyjckjvfnm'
+		CREATE USER 'asylbek'@'localhost' IDENTIFIED BY 'nhelyjckjvfnm';
+
+	check priveleges of user
+		SHOW GRANTS FOR 'asylbek'@'localhost';
+	give privelesges to user
+		// GRANT "type_of_permission" ON "database_name.table_name" TO 'username'@'localhost';
+		// select privelege
+		GRANT SELECT ON * . * TO 'asylbek'@'localhost';
+
+		// all priveleges 
+		GRANT ALL PRIVILEGES ON * . * TO 'asylbek'@'localhost';
+		
+		GRANT GRANT OPTION ON * . * TO 'asylbek'@'localhost';
+		
+		//
+		FLUSH PRIVILEGES;
+
+	Revoke priveleges from user
+		// REVOKE type_of_permission ON database_name.table_name FROM 'username'@'localhost';
+		REVOKE SELECT ON * . * FROM 'asylbek'@'localhost';
+		REVOKE ALL PRIVILEGES ON * . * FROM 'asylbek'@'localhost';
+
+	delete user
+		DROP USER 'asylbek'@'localhost';
+
+error
+UPDATE mysql.user SET Password=PASSWORD('nhelyjckjvfnm') WHERE User='root'; 
+UPDATE mysql.user SET Password=PASSWORD('nhelyjckjvfnm') WHERE User='asylbek';
+UPDATE mysql.user SET authentication_string=PASSWORD('nhelyjckjvfnm') WHERE user='root';  
+UPDATE mysql.user SET Password=PASSWORD('[password]') WHERE User='[username]';
+
+
+Select authentication_string from mysql.user WHERE User='root';
+	+-----------------------+
+	| authentication_string |
+	+-----------------------+
+	|                       |
+	+-----------------------+
+
+Select authentication_string from mysql.user WHERE User='asylbek';
+	+------------------------------------------------------------------------+
+	| authentication_string                                                  |
+	+------------------------------------------------------------------------+
+	| $A$005$a	BOh4.
+	                     3yQSSDWvxpAaNrDIMtHi7CmTbBFPb8mQ3/5UOrQ8Pt0wmmn4 |
+	+------------------------------------------------------------------------+
+	1 row in set (0,00 sec)
+
+
+Select * from mysql.user WHERE User='root';
+
+https://www.youtube.com/watch?v=6d5RREqxN44

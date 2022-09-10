@@ -1,0 +1,129 @@
+install
+	apt install npm
+update
+	npm install -g npm@latest
+	npm install -g npm
+	npm install -g npm@8.19.1
+		
+
+	npm install -location=global npm
+	npm install -location=global npm@latest
+	npm install -location=global npm@8.19.1
+	npm fund
+		official
+	npm -v
+		8.19.1
+
+commands
+	which npm
+		
+		
+
+	version
+		npm -v
+			6.14.4
+	which npm
+		/usr/bin/npm
+		/usr/local/bin/npm
+	ls -l /usr/bin/npm
+		lrwxrwxrwx 1 root root 27 Apr  9  2020 /usr/bin/npm -> ../share/npm/bin/npm-cli.js
+	ls -l /usr/local/bin/npm
+		lrwxrwxrwx 1 root root 38 Jun 11 09:35 /usr/local/bin/npm -> ../lib/node_modules/npm/bin/npm-cli.js
+	/usr/local/bin/npm -v
+
+locate npm-cli.js
+	/usr/local/deps/npm/bin/npm-cli.js
+	/usr/local/deps/npm/test/bin/npm-cli.js
+	/usr/local/lib/node_modules/npm/bin/npm-cli.js
+	/usr/share/npm/bin/npm-cli.js
+	/var/lib/docker/overlay2/70bec255ee56d3a4f63e934c726f31e6d2fb0f19994ed037adeacb62e713f159/diff/usr/local/lib/node_modules/npm/bin/npm-cli.js
+	/var/lib/docker/overlay2/7a31806eb20db87c056838941ad073e13128a25ddd0660339217e18343aec7a8/diff/usr/local/lib/node_modules/npm/bin/npm-cli.js
+
+//----------------------------------------------------
+npm search <packagename>
+https://www.section.io/engineering-education/beginner-guide-to-npm/
+
+npm install <packagename>
+	npm i leader-line
+	npm install lodash
+	npm install lodash@4.17.19 ## install lodash version 4.17.19
+	npm install express
+	## install multiple packages at a go
+	npm i mongoose  moment underscore 
+		"dependencies": {
+		    "express": "^4.17.1",
+		    "lodash": "^4.17.20"
+		}
+npm install --save-dev <module>
+	npm install nodemon --save-dev ## install a dev package to our dependencies
+		"devDependencies": {
+		    "nodemon": "^2.0.4"
+		}
+
+list down the packages installed for this project
+npm list --depth=0
+	nodejs@1.0.0 /var/www/html/nodejs
+	└── leader-line@1.0.7
+
+//check outdated modules 
+npm outdate
+// update all modules
+npm update
+
+// remooving a project
+npm uninstall moment
+
+//Installing Global Packages
+Packages installed globally are saved on your system and not on your project’s local path. A global package can be accessed and used by any project. That means they aren’t added to the package.json file. Global packages end up in your PATH environment variable. NPM saves global packages in {prefix}/lib/node_modules and drops executable files in {prefix}/bin.
+Where {prefix} is /usr/local/ or /usr/. These packages are installed to \Users\kim\.node_modules_global path and not saved in our project dependencies.
+npm install --global <module>
+npm i --g <module>
+	npm install uglify-js mocha jshint --global
+npm list -g --depth=0
+	/usr/local/lib
+	├── jshint@2.13.4
+	├── mocha@10.0.0
+	├── npm@8.12.1
+	└── uglify-js@3.16.0
+
+AUDIT
+npm audit
+npm audit fix ## resolve packages vulnerabilities
+
+CACHE
+npm cache clean --force
+//----------------------------------------------------------------------
+//Initializing your First Project with NPM
+cd /var/www/html/nodejs
+npm init 
+||
+npm init --yes ## triggers the initialization of a project default NPM value
+	package name: (nodejs) nodejs
+	version: (1.0.0) 1.0.0
+	description: my first project
+	entry point: (app.js) index.js
+	test command: test
+	git repository: 
+	keywords: 
+	author: asylbek
+	license: (ISC) 
+	About to write to /var/www/html/nodejs/package.json:
+
+	{
+	  "name": "nodejs",
+	  "version": "1.0.0",
+	  "description": "my first project",
+	  "main": "index.js",
+	  "dependencies": {
+	    "leader-line": "^1.0.7"
+	  },
+	  "devDependencies": {},
+	  "scripts": {
+	    "test": "test"
+	  },
+	  "author": "asylbek",
+	  "license": "ISC"
+	}
+
+
+	Is this OK? (yes) 

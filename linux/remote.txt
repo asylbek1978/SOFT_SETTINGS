@@ -7,3 +7,12 @@ https://linuxconfig.org/ubuntu-20-04-remote-desktop-access-from-windows-10
 https://ubuntu.com/tutorials/access-remote-desktop#1-overview
 
 https://www.makeuseof.com/tag/how-to-establish-simple-remote-desktop-access-between-ubuntu-and-windows/
+
+
+______________________________________________
+
+linux close access from remote ip address
+Block SSH and FTP Access to Specific IP and Network Range in Linux
+	https://www.tecmint.com/block-ssh-and-ftp-access-to-specific-ip-and-network-range/
+
+___________________________________________________

@@ -1,0 +1,93 @@
+site
+	https://tomcat.apache.org/
+download
+	Tomcat 10.0.23 Released
+		https://tomcat.apache.org/download-10.cgi
+	//Download And Extract The Latest Binary Distribution
+	//Binary Distributions Core
+		wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23.tar.gz
+	
+	mv /root/apache-tomcat-10.0.23.tar.gz  /home/asylbek/Downloads/SOFT_LINUX/tomcat/apache-tomcat-10.0.23.tar.gz
+	//verify the MD5 checksum
+	md5sum /home/asylbek/Downloads/SOFT_LINUX/tomcat/apache-tomcat-10.0.23.tar.gz
+		820ca70d01adf99d602615fb8d648162  /home/asylbek/Downloads/SOFT_LINUX/tomcat/apache-tomcat-10.0.23.tar.gz
+install
+	//extract the package
+	tar xvzf /home/asylbek/Downloads/SOFT_LINUX/tomcat/apache-tomcat-10.0.23.tar.gz -C /home/asylbek/Downloads/SOFT_LINUX/tomcat/
+
+	// move the extracted folder into a dedicated directory
+	sudo mv /home/asylbek/Downloads/SOFT_LINUX/tomcat/apache-tomcat-10.0.23 /usr/local/tomcat
+
+www folder
+	/usr/local/tomcat/webapps
+
+usage
+	start
+		$ $CATALINA_HOME/bin/startup.sh
+		|
+		/usr/local/tomcat/bin/catalina.sh start|stop
+		/usr/local/tomcat/bin/startup.sh
+			Using CATALINA_BASE:   /usr/local/tomcat
+			Using CATALINA_HOME:   /usr/local/tomcat
+			Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+			Using JRE_HOME:        /usr/lib/jvm/java-11-openjdk-amd64
+			Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+			Using CATALINA_OPTS:   
+			Tomcat started.
+		http://localhost:8080/
+		//To check if your server is up and running correctly, use:
+			$ ps -ef | grep java | grep 8080
+	stop
+		/usr/local/tomcat/bin/shutdown.sh
+			Using CATALINA_BASE:   /usr/local/tomcat
+			Using CATALINA_HOME:   /usr/local/tomcat
+			Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+			Using JRE_HOME:        /usr/lib/jvm/java-11-openjdk-amd64
+			Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+			Using CATALINA_OPTS:   
+			NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+
+	version
+		/usr/local/tomcat/bin/version.sh
+			Using CATALINA_BASE:   /usr/local/tomcat
+			Using CATALINA_HOME:   /usr/local/tomcat
+			Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+			Using JRE_HOME:        /usr
+			Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+			Using CATALINA_OPTS:   
+			NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+			Server version: Apache Tomcat/10.0.23
+			Server built:   Jul 14 2022 08:16:11 UTC
+			Server number:  10.0.23.0
+			OS Name:        Linux
+			OS Version:     5.4.0-74-generic
+			Architecture:   amd64
+			JVM Version:    11.0.15+10-Ubuntu-0ubuntu0.20.04.1
+			JVM Vendor:     Private Build
+
+//---------
+if editing ".bashrc", as it this will allow you to set up automatic start for Tomcat, if you need it.  Open the file with vi:
+
+$ vi ~/.bashrc
+	export JAVA_HOME=/usr/lib/path/to/java
+	export CATALINA_HOME=/usr/local/tomcat/
+
+Log out and log back into bash to have your changes take effect.
+
+//---------
+
+Running Tomcat Automatically At Linux Startup
+Create A Tomcat-Specific User and User Group
+Adjust Ownership For New Users And Groups
+Relay Traffic For Non-Root Tomcat User
+Create A Custom init Script
+	https://www.mulesoft.com/tcat/tomcat-linux
+
+//---------
+
+Tcat Server is the enterprise Tomcat application server
+	https://www.mulesoft.com/misc/forms/download/tcat-lbox-form.php
+
+Useful links
+	https://tomcat.apache.org/tomcat-6.0-doc/manager-howto.html
+	

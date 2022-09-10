@@ -1,0 +1,12 @@
+postgres
+	group
+		create
+			CREATE GROUP testgroup;
+			CREATE GROUP testgroup WITH USER jonathan, david;
+		change
+			ALTER GROUP testgroup RENAME TO testgroup1 
+		change users of group
+			ALTER GROUP testgroup ADD USER testuser,  ;
+			ALTER GROUP testgroup DROP USER testuser, ... ;
+		delete
+			DROP GROUP name;

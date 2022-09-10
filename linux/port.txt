@@ -1,0 +1,67 @@
+1	lsof
+	sudo lsof -i -P -n
+		COMMAND    PID        USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+		chronyd   1163      chrony    6u  IPv4  17158      0t0  UDP 127.0.0.1:323 
+		chronyd   1163      chrony    7u  IPv6  17159      0t0  UDP [::1]:323 
+		sshd      1237        root    5u  IPv4  28677      0t0  TCP *:22 (LISTEN)
+		rsyslogd  1466        root    7u  IPv4  19279      0t0  TCP 10.77.52.14:54650->10.220.120.10:514 (ESTABLISHED)
+		postgres. 1661    postgres    3u  IPv6  29850      0t0  TCP [::1]:5432 (LISTEN)
+
+	sudo lsof -i -P -n | grep LISTEN
+		COMMAND    PID        USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+		sshd      1237        root    5u  IPv4  28677      0t0  TCP *:22 (LISTEN)
+		postgres. 1661    postgres    3u  IPv6  29850      0t0  TCP [::1]:5432 (LISTEN)
+		postgres. 1661    postgres    4u  IPv4  29851      0t0  TCP 127.0.0.1:5432 (LISTEN)
+		java      4970        root   21u  IPv6  29611      0t0  TCP *:41557 (LISTEN)
+		java      4970        root   46u  IPv6  29617      0t0  TCP *:8080 (LISTEN)
+		java      4970        root   47u  IPv6  29620      0t0  TCP *:8009 (LISTEN)
+		java      4970        root   52u  IPv6  20429      0t0  TCP *:8443 (LISTEN)
+		java      4970        root  242u  IPv6  46264      0t0  TCP 127.0.0.1:8005 (LISTEN)
+		java      4970        root  549u  IPv6  38277      0t0  TCP *:445 (LISTEN)
+		java      4970        root  550u  IPv6  38278      0t0  TCP *:139 (LISTEN)
+
+	sudo lsof -i -P -n | grep ESTABLISHED
+	
+	doas lsof -i -P -n | grep LISTEN ### [OpenBSD] ###
+
+	//who uses port
+	sudo lsof -i:22
+		ssh
+
+2 	netstat
+	// netstat is depricated use ss instead
+	netstat -tulpn | grep LISTEN
+	ss -tulw
+	ss -tulwn
+	ss -tulwn | grep LISTEN
+	//ss options
+		-t : Show only TCP sockets on Linux
+		-u : Display only UDP sockets on Linux
+		-l : Show listening sockets. For example, TCP port 22 is opened by SSHD server.
+		-p : List process name that opened sockets
+		-n : Don’t resolve service names i.e. don’t use DNS
+
+3	nmap
+
+	nmap -sT -O localhost
+	snmap -sU -O 192.168.2.13 ##[ list open UDP ports ]##
+	nmap -sT -O 192.168.2.13 ##[ list open TCP ports ]##
+	//combine TCP/UDP scan
+		nmap -sTU -O 192.168.2.13
+
+cat|more|less /etc/services
+
+List all open ports
+	netstat -lntu
+list listening sockets with an open port.
+	ss -lntu
+make sure, let’s ensure that port 4000 is not used, using the netstat or the ss command.
+	netstat -na | grep :4000
+	ss -na | grep :4000
+
+open port.
+linux open port
+https://www.digitalocean.com/community/tutorials/opening-a-port-on-linux
+	For Ubuntu Users and ufw firewall based Systems
+		sudo ufw allow 4000
+	...		

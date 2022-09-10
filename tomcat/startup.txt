@@ -1,0 +1,12 @@
+https://www.mulesoft.com/tcat/tomcat-start
+
+Manual, Automatic, and Remote start of tomcat/
+
+sh /usr/local/tomcat/bin/catalina.sh start|stop
+
+sh /usr/local/tomcat/bin/startup.sh
+sh /usr/local/tomcat/bin/shutdown.sh
+sh /usr/local/tomcat/bin/version.sh
+
+
+

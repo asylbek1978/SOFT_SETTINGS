@@ -1,0 +1,21 @@
+Adding a new repository
+	PHP 7.4 is not yet available in the default repositories. The Remi Repository is the perfect repo to install php7.4. Remi repo is a free and stable YUM repository mainly for the PHP stack. It contains packages for the latest versions of PHP.
+	To enable Remi Repository in our Centos Server:
+	sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+		Last metadata expiration check: 1:27:57 ago on Sun Aug 14 11:54:42 2022.
+		remi-release-8.rpm                                                                                                                                                                                             50 kB/s |  29 kB     00:00    
+		Package yum-utils-4.0.21-11.el8.noarch is already installed.
+		Dependencies resolved.
+
+//list all repos from system
+sudo dnf repolist
+	repo id                         repo name
+	appstream                       Rocky Linux 8 - AppStream
+	baseos                          Rocky Linux 8 - BaseOS
+	epel                            Extra Packages for Enterprise Linux 8 - x86_64
+	epel-modular                    Extra Packages for Enterprise Linux Modular 8 - x86_64
+	extras                          Rocky Linux 8 - Extras
+	remi-modular                    Remi's Modular repository for Enterprise Linux 8 - x86_64
+	remi-safe                       Safe Remi's RPM repository for Enterprise Linux 8 - x86_64
+
+

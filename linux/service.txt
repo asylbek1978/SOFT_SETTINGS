@@ -44,3 +44,11 @@ root
 	sudo nano /etc/postgresql/12/main/pg_hba.conf
 	sudo subl /etc/postgresql/12/main/pg_hba.conf
 	sudo nano /etc/postgresql/12/main/pg_hba.conf
+
+//-------------------------------------
+service files Rocky
+	ls /usr/lib/systemd/system/
+
+nano /usr/lib/systemd/system/nginx.service.d/php-fpm.conf	
+	[Unit]
+	Wants=php-fpm.service

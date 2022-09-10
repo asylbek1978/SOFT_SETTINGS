@@ -1,0 +1,60 @@
+
+site
+	https://community.jaspersoft.com/project/jaspersoft-studio
+
+download
+	https://community.jaspersoft.com/project/jaspersoft-studio/releases
+		Jaspersoft Studio (v6.20.0)
+
+	community
+		https://community.jaspersoft.com/community-download
+		https://community.jaspersoft.com/project/jaspersoft-studio/releases
+			TIB_js-studiocomm_6.20.0_linux_x86_64.tgz
+				https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/TIB_js-studiocomm_6.20.0_linux_x86_64.tgz/download
+					https://yer.dl.sourceforge.net/project/jasperstudio/JaspersoftStudio-6.20.0/TIB_js-studiocomm_6.20.0_linux_x86_64.tgz
+			
+			TIB_js-studiocomm_6.20.0_linux_amd64.deb
+				https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/TIB_js-studiocomm_6.20.0_linux_amd64.deb/download
+
+		sourceforge.net
+			https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/
+				https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/TIB_js-studiocomm_6.20.0_linux_x86_64.tgz/download
+				
+				https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/TIB_js-studiocomm_6.20.0_linux_amd64.deb/download
+install
+	root
+	cd /opt
+	tar -xzvf /home/asylbek/Downloads/SOFT_LINUX/java/jasperReports/jaspersoftStudio/TIB_js-studiocomm_6.20.0_linux_x86_64.tgz
+run
+	sh /opt/TIB_js-studiocomm_6.20.0/runjss.sh
+
+Project Folders
+	ls /root/JaspersoftWorkspace/
+		MyReports Blank_A4.jasper  Blank_A4.jrxml
+	ls /root/JaspersoftWorkspace/MyReports/
+		bin
+
+wiki
+	https://community.jaspersoft.com/wiki/jaspersoft-studio-features
+	https://community.jaspersoft.com/wiki/jaspersoft-studio-tutorials-archive
+	https://community.jaspersoft.com/wiki/designing-report-jaspersoft-studio
+	https://community.jaspersoft.com/wiki/introduction-jaspersoft-studio
+	https://community.jaspersoft.com/wiki/using-report-parameters-jaspersoft-studio
+	https://community.jaspersoft.com/wiki/variables
+
+video tutorials
+	first report
+		https://www.youtube.com/watch?v=yRLvJgz9Dxk
+
+
+File -> New -> Jasper Report
+	Parent Folder 	: 	MyFirst Report
+	File Name		:	MyFirstReport.jrxml
+
+	Parent Folder 	: 	MyReports/bin
+	File Name		:	MyFirstReport.jrxml
+
+
+https://www.youtube.com/watch?v=-eg-t35eAYU&list=PL5NudtWaQ9l4LEzDAU-DdBQAp21lLH00r&index=7
+https://www.youtube.com/playlist?list=PL5NudtWaQ9l4LEzDAU-DdBQAp21lLH00r
+https://www.youtube.com/results?search_query=Jaspersoft++Studio

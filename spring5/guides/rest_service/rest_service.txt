@@ -1,0 +1,56 @@
+Building a RESTful Web Service
+	https://spring.io/guides/gs/rest-service/
+	https://start.spring.io/
+		Project: Maven Project
+		Spring boot: 2.7.3
+		Project Metadata
+			Group: com.example
+			Artifact: rest-service
+			Name: rest-service
+			Description: Demo project for Spring Boot
+			Package name: com.example.rest-service
+			Packaging: Jar
+			Java: 17
+		Add dependency "Spring Web"
+		Generate
+			rest-service.zip 
+		Share: https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=rest-service&name=rest-service&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.rest-service&dependencies=web
+
+cd /home/asylbek/spring_java/rest-service/
+
+Unpack rest-service.zip to /home/asylbek/spring_java/rest-service/
+
+
+
+Create files in /home/asylbek/spring_java/rest-service/src/main/java/com/example/restservice folder
+	GreetingController.java
+	Greeting.java
+
+
+Run the application
+	./mvnw spring-boot:run
+	http://localhost:8080/greeting
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+
+Run the JAR file
+	java -jar target/rest-service-0.0.1-SNAPSHOT.jar
+	http://localhost:8080/greeting
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	http://localhost:8080/greeting
+	http://localhost:8080/greeting?name=User
+
+Repo
+	https://github.com/spring-guides/gs-rest-service
+
+Git
+	git clone https://github.com/spring-guides/gs-rest-service.git
+	cd gs-rest-service/initial

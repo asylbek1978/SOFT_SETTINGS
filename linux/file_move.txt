@@ -1,0 +1,50 @@
+
+//move sourceFile destinationFile
+mv /opt/alfresco-community/alf_data/backup/alfresco_backup.tar.gz /opt/alfresco-community/alf_data/backup/alfresco/alfresco_backup.tar.gz
+
+//------------------------------------------------------
+COPY VIA SSH
+
+Make sure the scp command is available on both sides - both on the client and on the server.
+
+//copy via ssh from remote to local server
+	scp -r username@host.com:/path/to/dir local/path 
+
+	scp -r  aabduvapov@10.8.111.4:/opt/alfresco-community/alf_data/backup/alfresco_backup.tar.gz /opt/alfresco-community/alf_data/alfresco_backup.tar.gz
+
+//copy via ssh from local to remote server
+	local to remote
+		scp -r local/path username@host.com:/path/to/dir 
+
+		scp -r /home/asylbek/Downloads/SOFT_LINUX/package_managers/rpm-4.14.0.tar.bz2 aabduvapov@10.8.111.4:/home/aabduvapov/rpm-4.14.0.tar.bz2 
+
+		scp -r /home/asylbek/Downloads/SOFT_LINUX/nmap/nmap_7.92-2_amd64.deb aabduvapov@10.8.111.4:/home/aabduvapov/nmap_7.92-2_amd64.deb 
+
+		scp -r /opt/alfresco-community/alf_data/backup/alfresco_backup.tar.gz a.abduvapov@10.77.52.14:/home/a.abduvapov/alfresco_backup.tar.gz 
+
+		scp -r /opt/alfresco-community/alf_dataalfresco_backup.tar.gz a.abduvapov@10.77.52.14:/home/a.abduvapov/alfresco_backup.tar.gz
+
+		scp -r /home/asylbek/ais_test_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_test_custom_2022_08_13 
+		scp -r /home/asylbek/ais_central_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_central_custom_2022_08_13
+		scp -r /home/asylbek/ais_sverdlovsk_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_sverdlovsk_custom_2022_08_13
+
+	remote to local
+		scp -r a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_test_custom_2022_08_13 /home/asylbek/ais_test_custom_2022_08_13 
+
+	remote to remote
+
+	scp -r /home/a-abduvapov/ais_test_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_test_custom_2022_08_13
+	scp -r /home/a-abduvapov/ais_central_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_central_custom_2022_08_13
+	scp -r /home/a-abduvapov/ais_sverdlovsk_custom_2022_08_13 a.abduvapov@10.77.52.12:/home/a.abduvapov/ais_sverdlovsk_custom_2022_08_13
+	
+//------------------------------------------------------
+Move folder
+syntax
+	mv  -v ~/Downloads/* ~/Videos/
+example
+	mv  -v /opt/alfresco-community/alf_data/contentstore/opt/alfresco-community/alf_data/contentstore/*  /opt/alfresco-community/alf_data/contentstore/
+
+//------------------------------------------------------
+
+move from roots downloads folder to other users home folder
+	scp Downloads/jdk-11.0.7_linux-x64_bin.tar.gz aabduvapov@10.8.111.4:~

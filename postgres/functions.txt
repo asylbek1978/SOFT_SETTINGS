@@ -1,0 +1,5 @@
+
+postgresql list all functions
+	https://database.guide/3-ways-to-list-all-functions-in-postgresql/
+postgresql functions
+	https://www.tutorialspoint.com/postgresql/postgresql_functions.htm#:~:text=PostgreSQL%20functions%2C%20also%20known%20as,single%20function%20within%20the%20database.

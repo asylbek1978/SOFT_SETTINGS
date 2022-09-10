@@ -1,0 +1,42 @@
+
+
+ip route
+	default via 10.2.10.65 dev eno1 proto dhcp metric 100 
+	10.2.10.64/26 dev eno1 proto kernel scope link src 10.2.10.96 metric 100 
+	169.254.0.0/16 dev eno1 scope link metric 1000 
+
+route
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+	default         _gateway        0.0.0.0         UG    100    0        0 eno1
+	10.2.10.64      0.0.0.0         255.255.255.192 U     100    0        0 eno1
+	link-local      0.0.0.0         255.255.0.0     U     1000   0        0 eno1
+
+
+route -n
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+	0.0.0.0         10.2.10.65      0.0.0.0         UG    100    0        0 eno1
+	10.2.10.64      0.0.0.0         255.255.255.192 U     100    0        0 eno1
+	169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 eno1
+
+add a new route
+route add -net 192.168.0.0/24
+
+
+netstat -rn
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+	0.0.0.0         10.2.10.65      0.0.0.0         UG        0 0          0 eno1
+	10.2.10.64      0.0.0.0         255.255.255.192 U         0 0          0 eno1
+	169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eno1	
+
+netstat -a | grep 10.2.10.0/100
+
+
+How to change the default gateway
+	route add 10.2.10.65
+
+
+ip link show
+ip addr

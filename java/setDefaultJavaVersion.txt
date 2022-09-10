@@ -1,0 +1,22 @@
+
+На одном сервере может быть установлено несколько версий Java. Задать версию по умолчанию можно через командную строку с помощью команды update-alternatives.
+
+sudo update-alternatives --config java
+	//Если вы установили обе версии Java, перечисленные в этом обучающем руководстве, результат будет выглядеть так:
+
+	There are 2 choices for the alternative java (providing /usr/bin/java).
+
+	  Selection    Path                                         Priority   Status
+	------------------------------------------------------------
+	  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1111      auto mode
+	  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1111      manual mode
+	* 2            /usr/lib/jvm/java-11-oracle/bin/java          1091      manual mode
+
+	Press <enter> to keep the current choice[*], or type selection number:
+
+	//Выберите число, соответствующее версии Java, кототрая будет использоваться по умолчанию, или нажмите ENTER для сохранения текущих настроек.
+
+	//Это можно сделать и для других команд Java, например, для компилятора (javac):
+	sudo update-alternatives --config javac
+	
+	//Также эту команду можно использовать для настройки других команд, в том числе keytool, javadoc, jarsigner и т. д.

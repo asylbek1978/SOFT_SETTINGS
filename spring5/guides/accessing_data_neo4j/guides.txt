@@ -1,0 +1,70 @@
+Accessing Data with Neo4j
+Learn how to persist objects and relationships in Neo4j's NoSQL data store.
+	https://spring.io/guides/gs/accessing-data-neo4j/
+	https://start.spring.io/
+		Project: Maven Project
+		Spring boot: 2.7.3
+		Project Metadata
+			Group: com.example
+			Artifact: accessing-data-neo4j
+			Name: accessing-data-neo4j
+			Description: Demo project for Spring Boot
+			Package name: com.example.accessing-data-neo4j
+			Packaging: Jar
+			Java: 17
+		Add dependency "Spring Data Neo4j"
+		Generate
+			accessing-data-neo4j.zip 
+		Share: https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=accessing-data-neo4j&name=accessing-data-neo4j&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.accessing-data-neo4j&dependencies=data-neo4j
+
+cd /home/asylbek/spring_java/accessing-data-neo4j/
+
+Unpack accessing-data-neo4j.zip to /home/asylbek/spring_java/accessing-data-neo4j/
+
+Create files in /home/asylbek/spring_java/accessing-data-neo4j/src/main/java/com/example/consumingrest folder
+	Quote.java
+
+
+Run the application
+	./mvnw spring-boot:run
+	?http://localhost:8080/
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+	
+Run the JAR file
+	?java -jar target/rest-service-0.0.1-SNAPSHOT.jar
+	?http://localhost:8080/
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	?http://localhost:8080/
+
+Repo
+	https://github.com/spring-guides/gs-accessing-data-neo4j
+
+Git
+	https://github.com/spring-guides/gs-accessing-data-neo4j/archive/main.zip
+	git clone https://github.com/spring-guides/gs-accessing-data-neo4j.git
+	cd gs-accessing-data-neo4j/initial
+	cd gs-accessing-data-neo4j/complete
+
+
+
+//---------------------------------------------
+Neo4j Server
+	apt install install neo4j
+	https://neo4j.com/download/community-edition/
+	neo4j start
+
+By default, Neo4j has a username and password of neo4j and neo4j. However, it requires that the new account password be changed. To do so, run the following command:
+
+curl -v -u neo4j:neo4j POST localhost:7474/user/neo4j/password -H "Content-type:application/json" -d "{\"password\":\"secret\"}"
+This changes the password from neo4j to secret — something to NOT do in production! With that step completed, you should be ready to run the rest of this guide.
+
+//------------------------------------

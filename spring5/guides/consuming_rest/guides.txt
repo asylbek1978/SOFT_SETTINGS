@@ -1,0 +1,64 @@
+Consuming a RESTful Web Service
+	https://spring.io/guides/gs/consuming-rest/
+	https://start.spring.io/
+		Project: Maven Project
+		Spring boot: 2.7.3
+		Project Metadata
+			Group: com.example
+			Artifact: consuming-rest
+			Name: consuming-rest
+			Description: Demo project for Spring Boot
+			Package name: com.example.consuming-rest
+			Packaging: Jar
+			Java: 17
+		Add dependency "Spring Web"
+		Generate
+			consuming-rest.zip 
+		Share: https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=consuming-rest&name=consuming-rest&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.consuming-rest&dependencies=web
+
+cd /home/asylbek/spring_java/consuming-rest/
+
+Unpack consuming-rest.zip to /home/asylbek/spring_java/consuming-rest/
+
+
+
+Create files in /home/asylbek/spring_java/consuming-rest/src/main/java/com/example/consumingrest folder
+	Quote.java
+
+
+Run the application
+	./mvnw spring-boot:run
+	?http://localhost:8080/
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+	error occured
+		https://quoters.apps.pcfone.io/api/random  site can not be opened
+			{
+			   type: "success",
+			   value: {
+			      id: 10,
+			      quote: "Really loving Spring Boot, makes stand alone Spring apps easy."
+			   }
+			}
+
+Run the JAR file
+	java -jar target/rest-service-0.0.1-SNAPSHOT.jar
+	?http://localhost:8080/
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	?http://localhost:8080/
+
+Repo
+	https://github.com/spring-guides/gs-consuming-rest
+
+Git
+	https://github.com/spring-guides/gs-consuming-rest/archive/main.zip
+	https://github.com/spring-guides/gs-consuming-rest.git
+	cd gs-consuming-rest/initial

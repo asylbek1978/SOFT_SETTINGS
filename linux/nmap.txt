@@ -1,0 +1,76 @@
+site
+	https://nmap.org
+
+download binaries
+	https://nmap.org/download.html#linux-rpm
+		https://nmap.org/dist/nmap-7.92-1.x86_64.rpm
+install binaries
+	//--------------------
+	//convert to deb file
+		cd /home/asylbek/Downloads/SOFT_LINUX/nmap
+		sudo alien nmap-7.92-1.x86_64.rpm
+			nmap_7.92-2_amd64.deb generated
+		sudo dpkg --install nmap_7.92-2_amd64.deb
+install
+	sudo apt install nmap
+	dnf -y install nmap
+
+Tutorial
+	https://nmap.org/book/man.html
+
+Usage
+	nmap --help
+
+
+	nmap -sTU -O localhost
+	nmap -sTU -O 127.0.0.1
+		Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-23 12:02 +06
+		Nmap scan report for localhost (127.0.0.1)
+		Host is up (0.000045s latency).
+		Not shown: 1992 closed ports
+		PORT     STATE         SERVICE
+		22/tcp   open          ssh
+		80/tcp   open          http
+		631/tcp  open          ipp
+		3306/tcp open          mysql
+		5432/tcp open          postgresql
+		123/udp  open          ntp
+		631/udp  open|filtered ipp
+		5353/udp open|filtered zeroconf
+		Device type: general purpose
+		Running: Linux 2.6.X
+		OS CPE: cpe:/o:linux:linux_kernel:2.6.32
+		OS details: Linux 2.6.32
+		Network Distance: 0 hops
+
+		OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+		Nmap done: 1 IP address (1 host up) scanned in 2.76 seconds
+
+	nmap -sTU -O 10.77.52.14
+		Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-23 12:04 +06
+		Nmap scan report for 10.77.52.14
+		Host is up (0.0029s latency).
+		Not shown: 1000 open|filtered ports, 999 filtered ports
+		PORT   STATE SERVICE
+		22/tcp open  ssh
+		Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+		Device type: general purpose
+		Running: Linux 4.X
+		OS CPE: cpe:/o:linux:linux_kernel:4.4
+		OS details: Linux 4.4
+
+		OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+		Nmap done: 1 IP address (1 host up) scanned in 27.39 seconds
+
+	//specified ports
+	nmap -sTU -O 10.77.52.14 -p 80,8080 
+		PORT     STATE         SERVICE
+		80/tcp   filtered      http
+		8080/tcp filtered      http-proxy
+		80/udp   open|filtered http
+		8080/udp open|filtered http-alt
+
+	// list with state opened
+	nmap -sTU -O 10.77.52.14 --open
+		PORT   STATE SERVICE
+		22/tcp open  ssh

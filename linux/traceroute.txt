@@ -1,0 +1,78 @@
+Install
+	apt install traceroute            # version 1:2.1.0-2, or
+	apt install inetutils-traceroute  # version 2:1.9.4-11ubuntu0.1
+
+Usage
+	traceroute --help
+		Usage: traceroute [OPTION...] HOST
+		Print the route packets trace to network host.
+
+		  -f, --first-hop=NUM        set initial hop distance, i.e., time-to-live
+		  -g, --gateways=GATES       list of gateways for loose source routing
+		  -I, --icmp                 use ICMP ECHO as probe
+		  -m, --max-hop=NUM          set maximal hop count (default: 64)
+		  -M, --type=METHOD          use METHOD (`icmp' or `udp') for traceroute
+		                             operations, defaulting to `udp'
+		  -p, --port=PORT            use destination PORT port (default: 33434)
+		  -q, --tries=NUM            send NUM probe packets per hop (default: 3)
+		      --resolve-hostnames    resolve hostnames
+		  -t, --tos=NUM              set type of service (TOS) to NUM
+		  -w, --wait=NUM             wait NUM seconds for response (default: 3)
+		  -?, --help                 give this help list
+		      --usage                give a short usage message
+		  -V, --version              print program version
+
+	traceroute --usage
+		Usage: traceroute [-I?V] [-f NUM] [-g GATES] [-m NUM] [-M METHOD] [-p PORT]
+		            [-q NUM] [-t NUM] [-w NUM] [--first-hop=NUM] [--gateways=GATES]
+		            [--icmp] [--max-hop=NUM] [--type=METHOD] [--port=PORT]
+		            [--tries=NUM] [--resolve-hostnames] [--tos=NUM] [--wait=NUM]
+		            [--help] [--usage] [--version] HOST
+
+
+By default, a traceroute sends UDP packets. Add the option -I for ICMP probe packets:
+	traceroute -I <hostname or IP>
+Include the -n option to hide the device names for a cleaner output:
+	traceroute -In <hostname or IP>
+By default, the number of packets sent is three. Change the number with the -q option followed by the number of packets:
+	traceroute -Inq <number> <hostname or IP>
+
+traceroute 10.77.52.14 --icmp
+	traceroute to 10.77.52.14 (10.77.52.14), 64 hops max
+	1   10.2.10.65  0,290ms  0,243ms  0,242ms 
+	2   *  *  * 
+	3   10.77.52.14  2,288ms  2,924ms  2,936ms
+
+traceroute 10.77.52.14 --icmp --resolve-hostnames
+	traceroute to 10.77.52.14 (10.77.52.14), 64 hops max
+	  1   10.2.10.65 (_gateway)  0,324ms  0,285ms  0,275ms 
+	  2   *  *  * 
+	  3   10.77.52.14 (10.77.52.14)  2,492ms  2,628ms  2,966ms 
+
+$ traceroute 10.8.111.3
+traceroute to 10.8.111.3 (10.8.111.3), 64 hops max
+  1   10.2.10.65  0,259ms  0,233ms  0,214ms 
+  2   *  *  * 
+  3   10.8.111.3  4,443ms  *  * 
+
+
+$ traceroute vb.kg
+	traceroute to vb.kg (212.2.227.212), 64 hops max
+	  1   10.2.10.65  0,459ms  0,924ms  0,940ms 
+	  2   213.109.64.161  4,516ms  0,750ms  0,523ms 
+	  3   212.112.96.5  0,925ms  0,922ms  0,775ms 
+	  4   94.143.195.162  1,201ms  0,825ms  0,750ms 
+	  5   185.20.123.25  20,840ms  16,895ms  9,698ms 
+	  6   185.20.122.142  164,726ms !X  *  * 
+
+//---------------------------------------------------
+10.77.52.14
+
+traceroute 10.8.111.3
+traceroute to 10.8.111.3 (10.8.111.3), 30 hops max, 60 byte packets
+ 1  _gateway (10.77.52.1)  1.176 ms  1.330 ms  1.421 ms
+ 2  10.8.111.3 (10.8.111.3)  1.027 ms  1.083 ms  1.046 ms
+
+traceroute 10.77.52.10
+traceroute to 10.77.52.10 (10.77.52.10), 30 hops max, 60 byte packets
+ 1  10.77.52.10 (10.77.52.10)  0.547 ms  0.492 ms  0.450 ms

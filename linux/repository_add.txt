@@ -1,0 +1,41 @@
+tutorial
+    https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04-ru
+    
+добавьте сторонний репозиторий
+Установите пакет software-properties-common, который добавит команду "add-apt-repository" в вашу систему:
+    sudo apt install software-properties-common
+
+импортируйте ключ подписи для верификации программного обеспечения, которое вы собираетесь установить
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EA8CACC073C3DB2A
+        Output
+        gpg: key EA8CACC073C3DB2A: public key "Launchpad PPA for Linux Uprising" imported
+        gpg: Total number processed: 1
+        gpg:               imported: 1
+
+
+После этого используйте команду add-apt-repository, чтобы добавить репозиторий в список источников пакетов:
+    sudo add-apt-repository ppa:linuxuprising/java
+        Oracle Java 11 (LTS) and 12 installer for Ubuntu, Linux Mint and Debian.
+        Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 11, so a working Internet connection is required.
+        The packages in this PPA are based on the WebUpd8 Oracle Java PPA packages: https://launchpad.net/~webupd8team/+archive/ubuntu/java
+        Created for users of https://www.linuxuprising.com/
+        Installation instructions (with some tips), feedback, suggestions, bug reports etc.:
+        . . .
+        Press [ENTER] to continue or ctrl-c to cancel adding it
+
+Обновите список пакетов, чтобы новое программное обеспечение стало доступным к установке
+    sudo apt update
+
+Установщик начнет искать Oracle JDK, который вы загрузили в /var/cache/oracle-jdk11-installer-local. 
+Создайте этот каталог и переместите архив Oracle JDK туда:
+
+    sudo mkdir -p /var/cache/oracle-jdk11-installer-local/
+    sudo cp jdk-11.0.7_linux-x64_bin.tar.gz /var/cache/oracle-jdk11-installer-local/
+    
+    //После этого выполните установку пакета:
+    sudo apt install oracle-java11-installer-local
+
+
+
+
+

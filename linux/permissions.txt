@@ -1,0 +1,4 @@
+
+set execute permission
+	и установить разрешение на запуск файлов с расширением .sh.
+	sudo chmod +x ./*.sh

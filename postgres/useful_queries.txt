@@ -38,18 +38,40 @@ List available functions
 		 Схема | Имя | Тип данных результата | Типы данных аргументов | Тип
 		-------+-----+-----------------------+------------------------+-----
 		(0 строк)
+
 To list available views in the current database
 	\dv
 		Отношения не найдены.
+	https://www.postgresql.org/docs/9.5/infoschema-views.html
 
 To list all users and their assign roles,
 	\du
+	SELECT r.rolname, r.rolsuper, r.rolinherit,
+	  r.rolcreaterole, r.rolcreatedb, r.rolcanlogin,
+	  r.rolconnlimit, r.rolvaliduntil,
+	  ARRAY(SELECT b.rolname
+	        FROM pg_catalog.pg_auth_members m
+	        JOIN pg_catalog.pg_roles b ON (m.roleid = b.oid)
+	        WHERE m.member = r.oid) as memberof
+	, r.rolreplication
+	, r.rolbypassrls
+	FROM pg_catalog.pg_roles r
+	WHERE r.rolname !~ '^pg_'
+	ORDER BY 1;
 				                                    Список ролей
 		  Имя роли   |                                Атрибуты                                 | Член ролей
 		-------------+-------------------------------------------------------------------------+------------
 		 ais_central | Суперпользователь, Создаёт роли, Создаёт БД                             | {}
 		 ais_test    | Суперпользователь, Создаёт роли, Создаёт БД                             | {}
 		 postgres    | Суперпользователь, Создаёт роли, Создаёт БД, Репликация, Пропускать RLS | {}
+	
+	
+
+list database roles
+	select d.datname, r.rolname
+	from pg_catalog.pg_database d, pg_catalog.pg_roles r
+	where d.datdba = r.oid;
+
 Get version
 	SELECT version();
 Show commands history
@@ -91,10 +113,6 @@ Edit command in your own editor
 	(0 строк)	
 
 
-
-
-
-
 clean screen
 	\! cls
 quit
@@ -113,17 +131,22 @@ list database all schemas
 	\dn
 		public
 
-get info about table columns
-	SELECT 
-	   table_name, 
-	   column_name, 
-	   data_type 
-	FROM 
-	   information_schema.columns
-	WHERE 
-	   table_name = 'city';
-
-
 Linux
 sudo -i -u postgres
 sudo systemctl status postgresql
+
+___________________________________________________________________
+array_priveleges
+
+-- SELECT
+-- INSERT
+-- UPDATE
+-- DELETE
+-- TRUNCATE
+-- REFERENCES
+-- TRIGGER
+-- CREATE
+-- CONNECT
+-- TEMP
+-- EXECUTE
+-- USAGE

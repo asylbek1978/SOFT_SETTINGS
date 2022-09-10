@@ -1,0 +1,135 @@
+
+virtual hosts
+	//list all virtual hosts
+	cd /etc/apache2/sites-available/
+	ls 
+		000-default.conf  default-ssl.conf
+
+	//create a new vHost symfony_last
+	nano symfony_last.conf
+NameVirtualHost *
+<VirtualHost *:80>
+        #ServerAdmin webmaster@symfony_last.kg
+        ServerName symfony_last
+        ServerAlias www.symfony_last
+        DocumentRoot /var/www/html/symfony_last/public
+        <Directory "/var/www/html/symfony_last/public">
+            Options FollowSymlinks Indexes Multiviews
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+        AddHandler php-cgi .php .php3 .php4 .php5 .phtml
+        #ScriptAlias /php-bin/ /var/www/php-bin/
+        #ScriptAlias /cgi-bin/ /var/www/symfony_last/web/cgi-bin/
+        #ErrorLog ${APACHE_LOG_DIR}/error.log
+</VirtualHost>
+
+	//create a new vHost symfony_last.kg
+	nano symfony_last.kg.conf
+NameVirtualHost *
+<VirtualHost *:80>
+        #ServerAdmin webmaster@symfony_last.kg
+        ServerName symfony_last.kg
+        ServerAlias www.symfony_last.kg
+        DocumentRoot /var/www/html/symfony_last/public
+        <Directory "/var/www/html/symfony_last/public">
+            Options FollowSymlinks Indexes Multiviews
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+        AddHandler php-cgi .php .php3 .php4 .php5 .phtml
+        #ScriptAlias /php-bin/ /var/www/php-bin/
+        #ScriptAlias /cgi-bin/ /var/www/symfony_last/web/cgi-bin/
+        #ErrorLog ${APACHE_LOG_DIR}/error.log
+</VirtualHost>
+
+	//Enable new vhosts	
+	sudo a2ensite symfony_last.conf
+	sudo a2ensite symfony_last.kg.conf
+	
+
+	systemctl stop apache2
+	sudo nano /etc/hosts
+			127.0.0.1       symfony_last
+			127.0.0.1       symfony_last.kg
+
+	systemctl start apache2
+
+	http://symfony_last/
+	http://symfony_last.kg/
+	//ok
+
+	//remove nhost configuration from apache2
+	sudo a2dissite symfony_last.conf
+	sudo a2dissite symfony_last.kg.conf
+
+//--------------------------------------------------------
+
+examples	
+test server
+	cd /etc/apache2/sites-available/
+	ls
+		ais.sot.kg.conf   akim.ais.sot.kg.conf  b.ais.sot.kg.conf
+		ais.test.kg.conf  asil.ais.sot.kg.conf  prod.ais.sot.kg.conf
+	nano ais.test.kg.conf
+NameVirtualHost *
+<VirtualHost *:80>
+        #ServerName ais.sot.kg
+        DocumentRoot /var/www/ais.at.kg/web
+        ServerAdmin webmaster@sot.kg
+        <Directory "/var/www/ais.at.kg/web">
+            Options FollowSymlinks Indexes Multiviews
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+        #ServerAlias www.ais.sot.kg
+        AddHandler php-cgi .php .php3 .php4 .php5 .phtml
+        ScriptAlias /php-bin/ /var/www/php-bin/
+        ScriptAlias /cgi-bin/ /var/www/ais.at.kg/web/cgi-bin/
+</VirtualHost>
+
+	nano asil.ais.sot.kg.conf
+		
+	create new conf file asil_git.ais.sot.kg.conf
+		touch asil_git.ais.sot.kg.conf
+	edit conf file
+		nano asil_git.ais.sot.kg.conf
+NameVirtualHost *
+Listen 9095
+<VirtualHost *:9095>
+        #ServerName asil_git.ais.sot.kg
+        DocumentRoot /var/www/asil_git.ais.at.kg/web
+        ServerAdmin webmaster@sot.kg
+        <Directory "/var/www/asil_git.ais.at.kg/web">
+            Options FollowSymlinks Indexes Multiviews
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+        #ServerAlias www.asil_git.ais.sot.kg
+        AddHandler php-cgi .php .php3 .php4 .php5 .phtml
+        ScriptAlias /php-bin/ /var/www/php-bin/
+        ScriptAlias /cgi-bin/ /var/www/asil_git.ais.at.kg/web/cgi-bin/
+</VirtualHost>
+			//extra 
+				ErrorLog ${APACHE_LOG_DIR}/error.log
+				CustomLog ${APACHE_LOG_DIR}/access.log combined
+			
+
+	Enable the New Virtual Host Files		
+		a2ensite asil_git.ais.sot.kg.conf
+			Enabling site asil_git.ais.sot.kg.
+			To activate the new configuration, you need to run:
+			  service apache2 reload
+	
+	service apache2 reload
+	
+	Testing the Websites
+		sudo nano /etc/hosts
+			localhost       symfony_last.kg
+
+Virtual host examples
+	https://httpd.apache.org/docs/2.4/vhosts/examples.html

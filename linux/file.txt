@@ -28,4 +28,26 @@ Remove Directories (Folders)
 	To remove multiple directories 
 		rm -r dirname1 dirname2 dirname3
 
+________________________________________________________
 
+File properties
+
+ls -l <somefile>
+	ls -l /etc/hosts.allow
+		-rw-r--r-- 1 root root 411 ноя 25  2018 /etc/hosts.allow
+
+stat <somefile>
+	stat  /etc/hosts.allow
+		File: '/etc/hosts.allow'
+		  Size: 411       	Blocks: 8          IO Block: 4096   regular file
+		Device: fc00h/64512d	Inode: 60293131    Links: 1
+		Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+		Access: 2022-07-14 19:28:41.403497317 +0600
+		Modify: 2018-11-25 03:24:08.536020120 +0600
+		Change: 2018-11-25 03:24:08.536020120 +0600
+		 Birth: -
+
+file  /etc/hosts.deny
+	/etc/hosts.deny: ASCII text
+
+__________________________________________________________

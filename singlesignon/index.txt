@@ -1,0 +1,5 @@
+
+Single sign on
+https://github.com/jasny/sso
+https://stackoverflow.com/questions/37192398/symfony-and-sso-apache-authentification
+

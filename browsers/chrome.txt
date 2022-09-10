@@ -1,0 +1,41 @@
+download
+	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+install
+	apt search chrome
+		google-chrome-beta
+		google-chrome-stable
+		google-chrome-unstable
+	apt install google-chrome-stable
+	||
+	sudo dpkg -i /home/asylbek/Downloads/SOFT\ LINUX/browsers/google-chrome-stable_current_amd64.deb
+	
+
+which google-chrome
+	/usr/bin/google-chrome
+
+which google-chrome-stable
+	/usr/bin/google-chrome-stable
+
+locate google-chrome
+	/etc/alternatives/google-chrome
+	/etc/apt/sources.list.d/google-chrome.list
+	/etc/apt/trusted.gpg.d/google-chrome.gpg
+	/etc/cron.daily/google-chrome
+	/etc/default/google-chrome
+	/etc/gufw/app_profiles/chromecast.gufw
+	/home/asylbek/.cache/google-chrome
+
+	/opt/google/chrome/google-chrome
+	/opt/google/chrome/cron/google-chrome
+	/usr/bin/google-chrome
+	/usr/bin/google-chrome-stable
+	/usr/share/appdata/google-chrome.appdata.xml
+	/usr/share/applications/google-chrome.desktop
+
+	/usr/share/menu/google-chrome.menu
+	/var/lib/dpkg/alternatives/google-chrome
+	/var/lib/dpkg/info/google-chrome-stable.list
+	/var/lib/dpkg/info/google-chrome-stable.md5sums
+	/var/lib/dpkg/info/google-chrome-stable.postinst
+	/var/lib/dpkg/info/google-chrome-stable.postrm
+	/var/lib/dpkg/info/google-chrome-stable.prerm

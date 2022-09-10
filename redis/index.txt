@@ -1,0 +1,382 @@
+Redis
+download
+	https://redis.io/download/
+
+install
+    apt install redis
+
+usage
+    redis-server
+//----------------------------
+mcedit /etc/hostname 
+
+hostname
+hostnamectl
+poweroff
+systemctl disable|stop|status firewalld
+iptables -L -nv
+nano /opt/alfresco-community/tomcat/shared/classes/alfresco-global.properties
+nmap localhost
+firewall-cmd --list-ports
+wget http://localhost:8080
+
+ping ya.ru
+dnf update
+dnf install mc
+mcedit /etc/ssh/sshd_config
+mcedit /etc/rsyslog.conf
+ip a
+dnf -y install epel-release
+dnf -y install net-tools bind-utils htop atop iftop lsof wget bzip2 traceroute gdisk yum-utils vim mc tmux
+cp /usr/share/mc/syntax/sh.syntax /usr/share/mc/syntax/unknown.syntax
+systemctl stop firewalld
+dnf -y install iptables-services
+systemctl enable iptables
+mcedit /etc/ipt.sh
+/etc/ipt.sh
+chmod 0740 /etc/ipt.sh
+adduser b.saktanov
+passwd b.saktanov
+usermod -aG wheel b.saktanov
+passwd -l a.abduvapov
+passwd -u a.abduvapov
+yum remove postfix
+yum install fontconfig libSM libICE libXrender libXext cups-libs
+wget http://nchc.dl.sourceforge.net/project/alfresco/Alfresco%205.0.d%20Community/alfresco-community-5.0.d-installer-linux-x64.bin
+chmod +x alfresco-community-5.0.d-installer-linux-x64.bin
+./alfresco-community-5.0.d-installer-linux-x64.bin
+curl localhost:8080
+firewall-cmd --add-port=8080/tcp -permanent
+firewall-cmd --add-port=8080/tcp
+sudo yum install firewalld
+systemctl start firewalld
+sudo systemctl enable firewalld
+sudo systemctl status firewalld
+firewall-cmd --add-port=8080/tcp
+firewall-cmd --add-port=8443/tcp
+firewall-cmd --add-port=7070/tcp
+firewall-cmd --add-port 8085/tcp
+firewall-cmd --add-port 8009/tcp
+firewall-cmd --reload
+
+
+
+ss -tulpn
+sudo vim /etc/hosts
+history
+ss -tulpan
+ss -tulpan
+curl localhost:8080
+wget 
+wget localhost:8080/share
+vim /etc/hosts
+sudo dnf install firewalld
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+sudo firewall-cmd --list-all
+sudo firewall-cmd --zone=public --permanent --add-port 8080/tcp
+sudo firewall-cmd --zone=public --permanent --add-port 8443/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-all
+service alfresco edit --full
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+service tomcat status
+hostnamectl
+
+nano /opt/alfresco-community/tomcat/shared/classes/alfresco-global.properties
+./psql -h 10.8.111.4 -d alfresco  -U alfresco -W
+
+poweroff
+mcedit /etc/hostname
+	NEW-AIS-TEST
+
+
+    1  ping ya.ru
+    2  dnf update
+    3  dnf install mc
+    4  mcedit /etc/ssh/sshd_config 
+    5  mcedit /etc/rsyslog.conf 
+    6  reboot
+    7  ipa 
+    8  ip a
+    9  exit
+   10  dnf -y install epel-release
+   11  dnf update
+   12  dnf -y install net-tools bind-utils htop atop iftop lsof wget bzip2 traceroute gdisk yum-utils vim mc tmux
+   13  date
+   14  cp /usr/share/mc/syntax/sh.syntax /usr/share/mc/syntax/unknown.syntax
+   15  systemctl stop firewalld
+   16  systemctl disable firewalld
+   17  dnf -y install iptables-services
+   18  systemctl enable iptables
+   19  systemctl start iptables
+   20  mcedit /etc/ipt.sh
+   21  chmod 0740 /etc/ipt.sh
+   22  /etc/ipt.sh
+   23  iptables -L -nv
+   24  adduser b.saktanov
+   25  passwd b.saktanov
+   26  usermod -aG wheel b.saktanov
+   27  adduser a.bolushbekuulu
+   28  passwd a.bolushbekuulu
+   29  usermod -aG wheel a.bolushbekuulu
+   30  adduser a.abduvapov
+   31  passwd a.abduvapov
+   32  usermod -aG wheel a.abduvapov
+   33  passwd -l a.abduvapov
+   34  ip a
+   35  passwd -u a.abduvapov
+   36  mcedit /etc/ipt.sh 
+   37  /etc/ipt.sh 
+   38  exit
+   39  mcedit /etc/ipt.sh 
+   40  /etc/ipt.sh 
+   41  htop
+   42  exit
+   43  yum remove postfix
+   44  yum install fontconfig libSM libICE libXrender libXext cups-libs
+   45   wget http://nchc.dl.sourceforge.net/project/alfresco/Alfresco%205.0.d%20Community/alfresco-community-5.0.d-installer-linux-x64.bin
+   46  chmod +x alfresco-community-5.0.d-installer-linux-x64.bin
+   47  ./alfresco-community-5.0.d-installer-linux-x64.bin
+   48  curl localhost:8080
+   49  curl localhost:80
+   50  curl localhost
+   51  curl localhost:8080
+   52  firewall-cmd --add-port=8080/tcp -permanent
+   53  firewall-cmd --add-port=8080/tcp
+   54  sudo yum install firewalld
+   55  systemctl start firewalld
+   56  sudo systemctl enable firewalld
+   57  sudo systemctl status firewalld
+   58  firewall-cmd --add-port=8080/tcp
+   59   ss -tulpn
+   60                   *:*      users:(("java",pid=4635,fd=47))
+   61  clear
+   62  firewall-cmd --add-port=8443/tcp
+   63  firewall-cmd --add-port=7070/tcp
+   64  firewall-cmd --reload
+   65  sudo vim /etc/hosts 
+   66  sudo vim /etc/hosts 
+   67  sudo vim /etc/host
+   68  sudo vim /etc/hosts
+   69  history
+   70  ss -tulpan
+   71  htop
+   72  ss -tulpan
+   73  curl localhost:8080
+   74  wget localhost:8080
+   75  ls
+   76  wget localhost:8080/share
+   77  vim /etc/hosts
+   78  sudo dnf install firewalld
+   79  sudo systemctl start firewalld
+   80  sudo systemctl enable firewalld
+   81  sudo systemctl status firewalld
+   82  sudo firewall-cmd --list-all
+   83  sudo firewall-cmd --zone=public --permanent --add-port 8080/tcp
+   84  sudo firewall-cmd --reload
+   85  sudo firewall-cmd --list-all
+   86  ls
+   87  clear
+   88  sudo reboot now
+   89  service alfresco status 
+   90  /opt/alfresco-community/alfresco.sh status tomcat
+   91  service alfresco edit --full
+   92  /opt/alfresco-5.0.d/alfresco.sh status
+   93  locate apahce2
+   94  locate apache2
+   95  ls
+   96  cd/opt/alfresco-5.0.d/tomcat/
+   97  cd /opt/alfresco-5.0.d/tomcat/
+   98  ls
+   99  vim
+  100  cd conf/
+  101  ls
+  102  git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+  103  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+  104  git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+  105  yum install git
+  106  git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+  107  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+  108  vim
+  109  sudo firewall-cmd --zone=public --permanent --add-port 8443/tcp
+  110  sudo firewall-cmd --reload
+  111  vim
+  112  exit
+  113  /opt/alfresco-5.0.d/tomcat/bin/catalina.sh version
+  114  ls
+  115  service apache2 status
+  116  apt search apache2
+  117  locate apache2
+  118  ls
+  119  ping 10.77.52.12
+  120  service --status-all
+  121  service tomcat status
+  122  ls
+  123  cd /opt/alfresco-5.0.d/tomcat/
+  124  ls
+  125  cd conf
+  126  ls
+  127  cd ../
+  128  ls
+  129  wget http://localhost:8080/
+  130  wget http://localhost:8080/share/
+  131  nano index.html
+  132  rm index.html
+  133  ls
+  134  ps -ef | grep tomcat
+  135  wget http://localhost:8080
+  136  sudo lsof -i:22
+  137  sudo lsof -i:8080
+  138  firewall-cmd --list-ports
+  139  sudo lsof -i:8443
+  140  firewall-cmd --list-ports
+  141  firewall-cmd --add-port 8085/tcp
+  142  firewall-cmd --list-ports
+  143  firewall-cmd --add-port 8009/tcp
+  144  firewall-cmd --add-port 8443/tcp
+  145  sudo netstat -tulpn | grep LISTEN
+  146  nmap -sTU -O localhost
+  147  ls
+  148  apt install nmap
+  149  ls
+  150  service http status
+  151  firewall-cmd --list-ports
+  152  ls
+  153  locate alfresco
+  154  8009/tcp 8080/tcp 8085/tcp 8443/tcp
+  155  cd /home/b.saktanov/
+  156  ls
+  157  ls share
+  158  cd share
+  159  file alfresco-community-5.0.d-installer-linux-x64.bin
+  160  stat alfresco-community-5.0.d-installer-linux-x64.bin
+  161  ls
+  162  cd /opt/alfresco-5.0.d/
+  163  ls
+  164  grep -i "alfresco started" alfresco.log
+  165  nmap -sTU -O 10.77.52.12 --open
+  166  -V
+  167  version
+  168  uname -r
+  169  cat /etc/os-release
+  170  lsb_release -a
+  171  hostnamectl
+  172  uninstall --help
+  173  ls
+  174  clear
+  175  /opt/alfresco/alfresco.sh status
+  176  alfresco.sh status
+  177  /alfresco.sh status
+  178  ls
+  179  alfresco.sh status
+  180  /alfresco.sh status
+  181  /opt/alfresco-5.0.d/alfresco.sh status
+  182  ls
+  183  /opt/alfresco-5.0.d/alfresco.sh stop
+  184  service alfresco
+  185  ./uninstall
+  186  service alfresco
+  187  ls
+  188  cd../
+  189  cd ../
+  190  ls
+  191  cd ../
+  192  ls
+  193  service --help
+  194  service --status-all
+  195  home
+  196  ls
+  197  cd /home/a.abduvapov
+  198  ls
+  199  chmod a+x alfresco-community-installer-201707-linux-x64.bin
+  200  ./alfresco-community-installer-201707-linux-x64.bin
+  201  free -g -h -t
+  202  htop
+  203  free -m
+  204  swapon -s
+  205  dd if=/dev/zero of=/swapfile bs=1M count=10240
+  206  mkswap /swapfile
+  207  nano /etc/fstab
+  208  service alfresco status
+  209  free -m
+  210  reboot
+  211  service alfresco status
+  212  free -m
+  213  locate alfresco-global-properties
+  214  locate alfresco-global
+  215  nano /opt/alfresco-community/tomcat/shared/classes/alfresco-global.properties
+  216  ls
+  217  which psql
+  218  sudo dpkg -i http://archive.ubuntu.com/ubuntu/pool/main/p/postgresql-common/postgresql-client-common_173ubuntu0.3_all.deb
+  219  rpm -a
+  220  rpm -qa --last | head
+  221  dnf -y install dpkg
+  222  sudo dpkg -i http://archive.ubuntu.com/ubuntu/pool/main/p/postgresql-common/postgresql-client-common_173ubuntu0.3_all.deb
+  223  cd /opt/alfresco-community/postgresql/bin/
+  224  ./psql -h localhost -d alfresco  -U alfresco -W
+  225  ls
+  226  ./psql -h 10.8.111.4 -d alfresco  -U alfresco -W
+  227  ./psql -h 10.77.52.12 -d ais_central  -U ais_central -W
+  228  ls
+  229  nano /opt/alfresco-community/tomcat/shared/classes/alfresco-global.properties
+  230  htop
+  231  lsof -i -P -n
+  232  lsof -i -P -n | grep LISTEN
+  233  sudo lsof -i -P -n | grep ESTABLISHED
+  234  man lsof
+  235  lsof -i:22
+  236  sudo lsof -i -P -n | grep sshd
+  237  netstat -tulpn | grep LISTEN
+  238  netstat -tulpn 
+  239  ss -tulpn 
+  240  nmap -sT -O localhost
+  241  less /etc/services
+  242  rpm -a
+  243  dnf -y install nmap
+  244  rpm -qa --last | head
+  245  nmap -sT -O localhost
+  246  htop
+  247  dnf repolist --disabled
+  248  htop
+  249  sudo iptables -S 
+  250  sudo iptables -L
+  251  service iptables status
+  252  ls
+  253  iptables --help
+  254  iptables  --list-rules
+  255  htop
+  256  firewall-cmd --list-ports
+  257  lastlog
+  258  nmap localhost
+  259  htop
+  260  nano /opt/alfresco-community/tomcat/shared/classes/alfresco-global.properties
+  261  exit
+  262  iptables -L -nv
+  263  systemctl status firewalld
+  264  systemctl stop firewalld
+  265  systemctl disable firewalld
+  266  poweroff
+  267  /opt/alfresco-community/alfresco.sh status
+  268  htop
+  269  hostname
+  270  mcedit /etc/hostname 
+  271  reboot
+  272  /opt/alfresco-community/alfresco.sh status
+  273  htop
+  274  /opt/alfresco-community/alfresco.sh stop
+  275  /opt/alfresco-community/alfresco.sh status
+  276  /opt/alfresco-community/alfresco.sh start
+  277  htop
+  278  mcedit /etc/hostname 
+  279  curl localhost:8080
+  280  history
+
+
+aziret
+tcp        0      0 10.77.52.14:22          10.220.101.3:54508      ESTABLISHED 1930/sshd: root [pr 
+tcp        0    180 10.77.52.14:22          10.2.10.96:59956        ESTABLISHED 2166/sshd: a.abduva 
+

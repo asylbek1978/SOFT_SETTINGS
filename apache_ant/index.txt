@@ -1,0 +1,75 @@
+site
+	http://ant.apache.org
+google
+	apache mirrors
+		http://apache.mirrors.pair.com/ant/binaries/
+
+
+Download
+	http://ant.apache.org -> Download -> Binary Distributions
+	https://ant.apache.org/bindownload.cgi
+		wget https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip   apache-ant-1.10.12-bin.tar.gz
+		unzip apache-ant-1.10.12-bin.zip -d /opt/apacheAnt1_10_12/
+
+	http://apache.mirrors.pair.com/ant/binaries/
+		wget http://apache.mirrors.pair.com/ant/binaries/apache-ant-1.10.12-bin.tar.gz
+	archive
+		https://archive.apache.org/dist/ant/
+	source
+		https://ant.apache.org/srcdownload.cgi
+Install
+	unpack apache-ant-1.10.12-bin.zip to /home/asylbek/Downloads/SOFT_LINUX/apache/apacheAnt1_10_12/
+	move 
+		mkdir /opt/apacheAnt1_10_12/
+		mkdir /usr/local/apacheAnt1_10_12/
+	mv  -v /home/asylbek/Downloads/SOFT_LINUX/apache/apacheAnt1_10_12/*  /opt/apacheAnt1_10_12/
+	ls /opt/apacheAnt1_10_12/
+
+	mv  -v /opt/apacheAnt1_10_12/*  /usr/local/apacheAnt1_10_12/
+
+Environment
+	sudo nano /etc/environment
+		JAVA_HOME="/lib/jvm/java-11-openjdk-amd64/"
+		ANT_HOME="/usr/local/apacheAnt1_10_12/"
+	?source /etc/environment
+	source /etc/profile
+
+
+	$ echo $ANT_HOME
+		/opt/apacheAnt1_10_12/
+		/usr/local/ant
+
+	.bashrc
+
+//--------------------------------
+
+export ANT_HOME=/usr/local/ant
+export JAVA_HOME=/usr/local/jdk-11.0.8+10
+export PATH=${PATH}:${ANT_HOME}/bin
+
+//--------------------------------
+
+Install almost all the dependencies that the optional Ant tasks need.
+	ant -f fetch.xml -Ddest=[system] 	//store in Ant's lib directory (Recommended)
+	ant -f fetch.xml -Ddest=[user]		//store in the user's home directory
+	ant -f fetch.xml -Ddest=[optional]  //store in Ant's source code lib/optional directory, used when building Ant source code
+
+tutorial
+	official
+		https://ant.apache.org/manual/install.html
+	How to install Apache Ant 1.10.3 on Ubuntu 18.04
+		https://www.youtube.com/watch?v=1aiB64QoEn4
+
+
+Usage
+	/opt/apacheAnt1_10_12/bin/ant
+	/usr/local/apacheAnt1_10_12/bin/ant
+		Buildfile: build.xml does not exist!
+		Build failed
+
+	/opt/apacheAnt1_10_12/bin/ant -version
+	/usr/local/apacheAnt1_10_12/bin/ant -version
+		Apache Ant(TM) version 1.10.12 compiled on October 13 2021
+
+//--------------------------------
+

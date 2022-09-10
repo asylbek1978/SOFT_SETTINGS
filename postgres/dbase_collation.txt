@@ -1,0 +1,5 @@
+
+
+update pg_database set datcollate='ru_RU.UTF-8', datctype='ru_RU.UTF-8' where datname='ais_sverdlovsk';
+update pg_database set datcollate='ru_RU.UTF-8', datctype='ru_RU.UTF-8' where datname='ais_central';
+update pg_database set datcollate='ru_RU.UTF-8', datctype='ru_RU.UTF-8' where datname='ais_test';

@@ -1,6 +1,30 @@
 PPA repository
 
+This PPA is maintained by volunteers. Not all 
 
 link
 	ppa linux mint
 		https://info-comp.ru/ppa-repository-connections-in-linux-mint
+
+Adding a new PPA repository
+	add-apt-repository ppa:nginx/development
+	|
+	add-apt-repository ppa:nginx/stable
+		You are about to add the following PPA:
+		 This PPA contains the latest Stable Release version of the nginx web server software.
+
+		**Only Non-End-of-Life Ubuntu Releases are supported in this PPA**
+
+		**Development releases of Ubuntu are not officially supported by this PPA, and uploads for those will not be available until actual final releases for those versions**
+		 More info: https://launchpad.net/~nginx/+archive/ubuntu/stable
+		Press Enter to continue or Ctrl+C to cancel
+
+		Executing: /tmp/apt-key-gpghome.9AoJxR3EU4/gpg.1.sh --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+		gpg: key 00A6F0A3C300EE8C: public key "Launchpad Stable" imported
+		gpg: Total number processed: 1
+		gpg:               imported: 1
+
+
+	
+	apt update
+	apt install nginx

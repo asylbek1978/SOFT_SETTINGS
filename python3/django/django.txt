@@ -1,0 +1,54 @@
+site
+	https://www.djangoproject.com/
+	https://docs.djangoproject.com/en/4.1/
+	https://www.djangoproject.com/community/
+	https://docs.djangoproject.com/en/4.1/intro/tutorial01/
+	
+create project
+	cd /home/asylbek/scripts/django
+	//setting Virtual Environment
+		python3.10 -m venv myproject
+	ls myproject
+		bin  include  lib  lib64  pyvenv.cfg
+	
+	// activate the environment
+		source myproject/bin/activate
+			(myproject) asylbek@asylbek-H370M-DS3H:~/scripts/django$
+	
+install django
+	(myproject) asylbek@asylbek-H370M-DS3H:~/scripts/django$
+		python3.10 -m pip install Django
+
+			Collecting Django
+			  Downloading Django-4.1-py3-none-any.whl (8.1 MB)
+			     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.1/8.1 MB 1.3 MB/s eta 0:00:00
+			Collecting sqlparse>=0.2.2
+			  Downloading sqlparse-0.4.2-py3-none-any.whl (42 kB)
+			     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 1.4 MB/s eta 0:00:00
+			Collecting asgiref<4,>=3.5.2
+			  Downloading asgiref-3.5.2-py3-none-any.whl (22 kB)
+			Installing collected packages: sqlparse, asgiref, Django
+			Successfully installed Django-4.1 asgiref-3.5.2 sqlparse-0.4.2
+
+	// django version
+	(myproject) ..$
+		django-admin --version
+			4.1
+
+	//start project
+		django-admin startproject myworld
+			// creates new folder in /home/asylbek/scripts/django/myworld
+
+	//install sqlite3
+		sudo apt install sqlite3
+		sudo apt install libsqlite3-dev sqlite-devel
+
+		pip3.10 install sqlite3
+			error
+			ERROR: Could not find a version that satisfies the requirement sqlite3 (from versions: none)
+			ERROR: No matching distribution found for sqlite3
+
+	//run project
+		cd myworld 
+		python3.10 manage.py runserver
+			

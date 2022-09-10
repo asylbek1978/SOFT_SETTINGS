@@ -1,0 +1,5 @@
+
+
+linux user commands history
+	https://superuser.com/questions/309434/how-to-view-command-history-of-another-user-in-linux
+	

@@ -1,0 +1,120 @@
+1  dnf update
+    2  dnf install mc
+    3  mcedit /etc/hostname 
+    4  mcedit /etc/ssh/sshd_config 
+    5  mcedit /etc/rsyslog.conf 
+    6  reboot
+    7  ip a
+    8  exit
+    9  cat /etc/redhat-release
+   10  dnf -y install epel-release
+   11  dnf update
+   12  dnf -y install net-tools bind-utils htop atop iftop lsof wget bzip2 traceroute gdisk yum-utils vim mc tmux
+   13  date
+   14  cp /usr/share/mc/syntax/sh.syntax /usr/share/mc/syntax/unknown.syntax
+   15  systemctl stop firewalld
+   16  systemctl disable firewalld
+   17  dnf install iptables-services
+   18  systemctl enable iptables
+   19  systemctl start iptables
+   20  mcedit /etc/ipt.sh
+   21  chmod 0740 /etc/ipt.sh
+   22  /etc/ipt.sh
+   23  adduser b.saktanov
+   24  passwd b.saktanov
+   25  usermod -aG wheel b.saktanov
+   26  adduser a.bolushbekuulu
+   27  passwd a.bolushbekuulu
+   28  usermod -aG wheel a.bolushbekuulu
+   29  adduser a.abduvapov
+   30  passwd a.abduvapov
+   31  usermod -aG wheel a.abduvapov
+   32  mcedit /etc/ipt.sh 
+   33  /etc/ipt.sh 
+   34  ip a 
+   35  exit
+   36  mcedit /etc/ipt.sh 
+   37  /etc/ipt.sh 
+   38  exit
+   39  clear
+   40  postgres
+   41  postgress
+   42  dnf module list postgresql
+   43  dnf module enable postgresql:9
+   44  dnf module enable postgresql
+   45  dnf install postgresql-server
+   46  pgsql
+   47  pgsql
+   48  postgres
+   49  postgres -v
+   50  postgres --version
+   51  systemctl start postgresql
+   52  postgresql-setup --initdb
+   53  systemctl start postgresql
+   54  systemctl enable postgresql
+   55  systemctl enable postgresql
+   56  systemctl status postgresql
+   57  sudo -i -u postgres
+   58  exit
+   59  ls
+   60  pwd
+   61  cd /var/lib/pgsql/data/
+   62  ls
+   63  vim pg_hba.conf 
+   64  systemctl restart postgresql.service 
+   65  vim pg_hba.conf 
+   66  systemctl restart postgresql.service 
+   67  service postgresql
+   68  service postgresql status
+   69  clear
+   70  ls
+   71  psql
+   72  sudo su postgres
+   73  vim pg_hba.conf 
+   74  vim
+   75  vim postgresql.conf 
+   76  service postgresql restart
+   77  service postgresql status
+   78  vim postgresql.conf 
+   79  vim postgresql.conf 
+   80  vim postgresql.conf 
+   81  vim pg_hba.conf 
+   82  service postgresql restart
+   83  firewall-cmd --add-service=postgresql
+   84   systemctl start firewalld
+   85  firewall-cmd --add-service=postgresql
+   86  firewall-cmd --runtime-to-permanent
+   87  service postgresql restart
+   88  systemctl restart postgresql.service 
+   89  vim pg_commit_ts/
+   90  pwd
+   91  vim pg_hba.conf 
+   92  systemctl restart postgresql.service 
+   93  vim pg_hba.conf 
+   94  systemctl restart postgresql.service 
+   95  vim postgresql.conf 
+   96  vim pg_hba.conf 
+   97  service postgresql status
+   98  vim pg_hba.conf 
+   99  service postgresql status
+  100  service postgresql restart
+  101  systemctl postgresql restart
+  102  systemctl  restart postgresql.service 
+  103  vim pg_hba.conf 
+  104  systemctl  restart postgresql.service 
+  105  vim pg_hba.conf 
+  106  clear
+  107  vim postgresql.conf 
+  108  clear
+  109  vim pg_hba.conf 
+  110  psql
+  111  sudo su postgres
+  112  vim pg_hba.conf 
+  113  systemctl  restart postgresql.service 
+  114  vim pg_hba.conf 
+  115  systemctl  restart postgresql.service 
+  116  vim pg_hba.conf 
+  117  systemctl  restart postgresql.service 
+  118  vim pg_hba.conf 
+  119  systemctl  restart postgresql.service 
+  120  vim pg_hba.conf 

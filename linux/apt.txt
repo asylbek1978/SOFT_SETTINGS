@@ -1,0 +1,15 @@
+
+sudo apt install software-properties-common
+
+//show all nginx packages
+	apt-cache showpkg nginx
+		nginx-light 1.18.0-3ubuntu1+focal2 (= )
+		nginx-full 1.18.0-3ubuntu1+focal2 (= )
+		nginx-extras 1.18.0-3ubuntu1+focal2 (= )
+		nginx-core 1.18.0-3ubuntu1+focal2 (= )
+
+	apt install nginx-light 1.18.0-3ubuntu1+focal2
+
+	//-------------
+
+	apt-cache showpkg python3.9

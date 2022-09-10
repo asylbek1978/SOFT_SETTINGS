@@ -1,0 +1,58 @@
+Messaging with Redis
+Learn how to use Redis as a message broker.
+	https://spring.io/guides/gs/messaging-redis/
+	https://start.spring.io/
+		Project: Maven Project
+		Spring boot: 2.7.3
+		Project Metadata
+			Group: com.example
+			Artifact: messaging-redis
+			Name: messaging-redis
+			Description: Demo project for Spring Boot
+			Package name: com.example.messaging-redis
+			Packaging: Jar
+			Java: 17
+		Add dependency "Spring Data Redis (Access+Driver)"
+		Generate
+			messaging-redis.zip 
+		Share: https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=messaging-redis&name=messaging-redis&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.messaging-redis&dependencies=data-redis
+
+cd /home/asylbek/spring_java/messaging-redis/
+
+Unpack messaging-redis.zip to /home/asylbek/spring_java/messaging-redis/
+
+
+
+Create files in /home/asylbek/spring_java/messaging-redis/src/main/java/com/example/consumingrest folder
+	? .java
+
+
+Run the application
+	./mvnw spring-boot:run
+	?http://localhost:8080/
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+	
+
+Run the JAR file
+	?java -jar target/rest-service-0.0.1-SNAPSHOT.jar
+	?http://localhost:8080/
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	?http://localhost:8080/
+
+Repo
+	https://github.com/spring-guides/gs-messaging-redis
+
+Git
+	https://github.com/spring-guides/gs-messaging-redis/archive/main.zip
+	git clone https://github.com/spring-guides/gs-messaging-redis.git
+	cd gs-messaging-redis/initial
+	cd gs-messaging-redis/complete

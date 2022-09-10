@@ -1,0 +1,116 @@
+
+    1  dnf update
+    2  dnf install mc
+    3  mcedit /etc/ssh/sshd_config 
+    4  systemctl restart sshd
+    5  systemctl status sshd
+    6  exit
+    7  sestatus
+    8  dnf update
+    9  dnf -y install epel-release
+   10  dnf update
+   11  dnf -y install net-tools bind-utils htop atop iftop lsof wget bzip2 traceroute gdisk yum-utils vim mc tmux
+   12  date
+   13  cp /usr/share/mc/syntax/sh.syntax /usr/share/mc/syntax/unknown.syntax
+   14  mcedit /etc/ipt.sh
+   15  systemctl stop firewalld
+   16  systemctl disable firewalld
+   17  dnf install iptables-services
+   18  systemctl enable iptables
+   19  systemctl start iptables
+   20  chmod 0740 /etc/ipt.sh
+   21  /etc/ipt.sh
+   22  mcedit /etc/ipt.sh
+   23  ip a
+   24  mcedit /etc/ipt.sh
+   25  /etc/ipt.sh 
+   26  iptables -L -nv
+   27  ip a
+   28  hostname
+   29  exit
+   30  ping 10.220.120.10
+   31  ip a
+   32  mcedit /etc/rsyslog.conf 
+   33  systemctl restart rsyslog.service 
+   34  cat /etc/ipt.sh 
+   35  adduser b.saktanov
+   36  passwd b.saktanov
+   37  usermod -aG wheel b.saktanov
+   38  adduser a.bolushbekuulu
+   39  passwd a.bolushbekuulu
+   40  usermod -aG wheel a.bolushbekuulu
+   41  adduser a.abduvapov
+   42  passwd a.abduvapov
+   43  usermod -aG wheel a.abduvapov
+   44  mcedit /etc/ipt.sh 
+   45  /etc/ipt.sh 
+   46  iptables -L -nv
+   47  ip a
+   48  exit
+   49  ls
+   50  exit
+   51  mcedit /etc/ipt.sh 
+   52  /etc/ipt.sh 
+   53  exit
+   54  yum module list php
+   55  yum module reset php
+   56  yum module enable php:remi-7.3 -y
+   57  yum install -y php php-cli php-common
+   58  yum install -y php-fpm
+   59  php-fpm -v
+   60  ls
+   61  clear
+   62  ls
+   63  pwd
+   64  php -v
+   65  clear
+   66  ls
+   67  sudo phpenmod pdo_pgsql
+   68  ls
+   69  touch index.php
+   70  vim index.php 
+   71  php -S 0.0.0.0:80 index.php 
+   72  sudo dnf install firewalld
+   73  sudo systemctl start firewalld
+   74  sudo systemctl enable firewalld
+   75  sudo systemctl status firewalld
+   76  clear
+   77  sudo firewall-cmd --zone=public --permanent --add-service=http
+   78  php -S 0.0.0.0:80 index.php 
+   79  sudo firewall-cmd --reload
+   80  php -S 0.0.0.0:80 index.php 
+   81  clear
+   82  ls
+   83  clear
+   84  ls
+   85  rm index.php udo\ firewall-cmd\ --zone\=public\ --permanent\ --add-service\=http 
+   86  clear
+   87  ls
+   88  clear
+   89  ls
+   90  pwd
+   91  ls
+   92  unzip ais.zip ais
+   93  unzip ais.zip
+   94  ls
+   95  rm -r ais.zip 
+   96  ls
+   97  cd ais/
+   98  ls
+   99  php -S 0.0.0.0:80 -t web/
+  100  sudo dnf -y install php-pgsql
+  101  sudo dnf -y install php-pgsql
+  102  php -S 0.0.0.0:80 -t web/
+  103  sudo dnf install php php-cli php-gd php-curl php-zip php-mbstring
+  104  php -S 0.0.0.0:80 -t web/
+  105  screen 
+  106  dnf install screen
+  107  screen 
+  108  clear
+  109  clear
+  110  exit
+  111  cd /var/www/
+  112  ls
+  113  clear
+  114  ls
+  115  fish

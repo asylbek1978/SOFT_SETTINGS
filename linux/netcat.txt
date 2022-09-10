@@ -1,0 +1,16 @@
+install
+	apt-get install netcat -y
+	dnf install nc -y
+
+syntax
+	nc [-options] [host_name or ip] [port_number]
+	options
+		-z : Sets nc to simply scan for listening daemons.
+		-v : Show output in verbose mode.
+examples
+	//check if port 22 is open on the remote host 10.77.52.14, run the following command:
+	nc -zv 10.77.52.14 22
+		Connection to 10.77.52.14 22 port [tcp/ssh] succeeded!
+	
+	//specify a range of ports to be scanned
+	nc -zv 10.77.52.14 40-80

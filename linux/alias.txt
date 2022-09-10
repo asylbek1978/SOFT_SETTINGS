@@ -1,0 +1,9 @@
+short alias
+
+nano /home/aabduvapov/.bashrc
+	alias alfrestart='sudo  /opt/alfresco-community/alfresco.sh restart'
+	alias alfstop='sudo  /opt/alfresco-community/alfresco.sh stop'
+	alias alfstatus='sudo  /opt/alfresco-community/alfresco.sh status'
+
+$ alfstatus
+	

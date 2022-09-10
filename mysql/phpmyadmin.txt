@@ -1,0 +1,33 @@
+https://www.youtube.com/watch?v=wv4EjxdhdEg
+
+install
+	apt install phpmyadmin
+
+
+/etc/phpmyadmin/config.inc.php
+	// 
+    $cfg['Servers'][$i]['AllowNoPassword'] = TRUE;
+
+download zip
+	https://www.phpmyadmin.net/downloads/
+	https://www.phpmyadmin.net/files/
+	https://files.phpmyadmin.net/phpMyAdmin/5.2.0/phpMyAdmin-5.2.0-all-languages.zip
+
+
+
+
+locate apache2.conf
+	/etc/apache2/apache2.conf
+	/var/lib/dpkg/info/apache2.conffiles
+
+edit apache2.conf with gedit or sublime text editor
+	sudo gedit /etc/apache2/apache2.conf
+	||
+	subl /etc/apache2/apache2.conf
+	add
+		Include /etc/phpmyadmin/apache.conf
+
+restart apache2
+	service apache2 restart
+
+http://localhost/phpmyadmin/

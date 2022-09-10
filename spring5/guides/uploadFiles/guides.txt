@@ -1,0 +1,75 @@
+Uploading Files
+Learn how to build a Spring application that accepts multi-part file uploads.
+	https://spring.io/guides/gs/uploading-files/
+	https://start.spring.io/
+		Project: Maven Project
+		Spring boot: 2.7.3
+		Project Metadata
+			Group: com.example
+			Artifact: uploading-files
+			Name: uploading-files
+			Description: Demo project for Spring Boot
+			Package name: com.example.uploading-files
+			Packaging: Jar
+			Java: 17
+		Add dependency "Spring Web", "Thymeleaf"
+		Generate
+			uploading-files.zip 
+		Share: https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=uploading-files&name=uploading-files&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.uploading-files&dependencies=web,thymeleaf
+
+cd /home/asylbek/spring_java/uploading-files/
+
+Unpack uploading-files.zip to /home/asylbek/spring_java/uploading-files/
+
+
+Create or edit files in /home/asylbek/spring_java/uploading-files/src/main/java/com/example/uploading-files folder
+	FileUploadController.java
+	storage/StorageService.java
+	/home/asylbek/spring_java/uploading-files/src/main/resources/application.properties
+	/home/asylbek/spring_java/uploading-files/src/main/resources/templates/uploadForm.html
+
+Run the application
+	./mvnw spring-boot:run
+		[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project uploading-files: Compilation failure: Compilation failure:
+		[ERROR] /home/asylbek/spring_java/uploading-files/src/main/java/com/example/uploadingfiles/FileUploadController.java:[22,42] cannot find symbol
+		[ERROR]   symbol:   class StorageFileNotFoundException
+		[ERROR]   location: package com.example.uploadingfiles.storage
+	http://localhost:8080/
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+	error occured
+		Solution some 4 files were not existed in tutorial. Added 4 files from github.
+			FileSystemStorageService.java 		Fix save file security issue
+			StorageException.java				Use the Spring Initializr
+			StorageFileNotFoundException.java	Use the Spring Initializr
+			StorageProperties.java				Use the Spring Initializr
+	Building jar: /home/asylbek/spring_java/uploading-files/target/uploading-files-0.0.1-SNAPSHOT.jar
+	BUILD SUCCESS
+
+
+Run the JAR file
+	java -jar target/uploading-files-0.0.1-SNAPSHOT.jar
+	http://localhost:8080/
+
+	//uploaded files folder is
+		/home/asylbek/spring_java/uploading-files/upload-dir/demo.docx
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	/home/asylbek/spring_java/uploading-files/src/test/java/com/example/uploadingfiles/FileUploadTests.java
+	
+
+Repo
+	https://github.com/spring-guides/gs-uploading-files
+
+Git
+	https://github.com/spring-guides/gs-uploading-files/archive/main.zip
+	git clone https://github.com/spring-guides/gs-uploading-files.git
+	cd gs-uploading-files/initial
+	cd gs-uploading-files/complete

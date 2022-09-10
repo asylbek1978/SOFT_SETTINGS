@@ -46,8 +46,18 @@ Usage
 psql --help
 
 login
-    sudo -u postgres psql
+    // for the first time
+        sudo -u postgres psql
+        ALTER USER postgres PASSWORD 'postgres12345';
+
     psql -h localhost -d ais_test -U  ais_test -p 5432 -W
+    psql -h 10.8.111.4  -d alfresco -U alfresco -p 5432
+    psql -h 10.77.52.12  -U postgres -p 5432  //postgres12345
+    psql -h 10.77.52.14  -d alfresco -U alfresco -p 5432
+        password: admin
+
+    /opt/alfresco-community/postgresql/bin/psql -h 10.77.52.14 -d alfresco -U alfresco -p 5432
+        password: 19256qwezxc!@
 Quit psql
     postgres=# \q
 change password of a user

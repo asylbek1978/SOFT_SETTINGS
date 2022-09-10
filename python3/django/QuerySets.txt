@@ -1,0 +1,12 @@
+
+https://www.w3schools.com/django/django_queryset.php
+
+QuerySets
+	A QuerySet is a collection of data from a database.
+	A QuerySet is built up as a list of objects.
+	QuerySets makes it easier to get the data you actually need, by allowing you to filter and order the data.
+	In this tutorial we will be querying data from the Members table.
+
+	
+Field Lookups Reference
+	https://www.w3schools.com/django/django_ref_field_lookups.php

@@ -1,0 +1,10 @@
+uninstall
+
+apt remove postgresql
+dnf remove postgresql
+
+//Remove all of the PostgreSQL data and directories
+
+???
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo yum-key add -

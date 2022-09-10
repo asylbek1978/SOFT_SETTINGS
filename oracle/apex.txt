@@ -1,0 +1,16 @@
+
+site
+	https://apex.oracle.com/en/
+download
+	https://download.oracle.com/otn_software/apex/apex_22.1.zip
+
+Oracle APEX 22.1 Installation Guide
+	https://docs.oracle.com/en/database/oracle/application-express/22.1/htmig/index.html
+Oracle APEX 22.1 Release Notes
+	https://docs.oracle.com/en/database/oracle/application-express/22.1/htmrn/index.html
+Oracle APEX 22.1 All Documentation and Tutorials
+	https://docs.oracle.com/en/database/oracle/application-express/22.1/index.html
+
+Getting started
+	https://apex.oracle.com/en/learn/getting-started/
+	

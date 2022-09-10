@@ -1,8 +1,23 @@
-filezilla
+download
+    https://filezilla-project.org/download.php
+    https://dl3.cdn.filezilla-project.org/client/FileZilla_3.57.0_x86_64-linux-gnu.tar.bz2
+        FileZilla_3.57.0_x86_64-linux-gnu.tar.bz2
+            //extract package here
+            tar xf FileZilla_3.57.0_x86_64-linux-gnu.tar.bz2
+            //usage 
+                /home/asylbek/Downloads/SOFT LINUX/FileZilla/FileZilla3/bin/filezilla
+            edit file
+                share/applications/filezilla.desktop
+                    Exec=/opt/FileZilla3/bin/filezilla
+                    Icon=/opt/FileZilla3/share/icons/hicolor/scalable/apps/filezilla.svg
 
 install
+    apt search filezilla
+        filezilla
 	apt install filezilla
 
+uninstall
+    sudo apt remove filezilla && sudo apt autoremove
 
 which filezilla
 	/usr/bin/filezilla
@@ -16,6 +31,17 @@ Configuration
 
 locate filezilla.xml
 	/home/asylbek/.config/filezilla/filezilla.xml
+    /home/asylbek/.cache/filezilla
+    /usr/share/filezilla
+    /var/lib/dpkg/info/filezilla-common.list
+    /var/lib/dpkg/info/filezilla-common.md5sums
+    /var/lib/dpkg/info/filezilla.list
+    /var/lib/dpkg/info/filezilla.md5sums
+    /var/lib/dpkg/info/libfilezilla0.list
+    /var/lib/dpkg/info/libfilezilla0.md5sums
+    /var/lib/dpkg/info/libfilezilla0.shlibs
+    /var/lib/dpkg/info/libfilezilla0.triggers
+
 sudo nano /home/asylbek/.config/filezilla/sitemanager.xml
 
 ______________________________________________________________________________
@@ -40,3 +66,19 @@ Usage: filezilla [-h] [-s] [-c <str>] [-a <str>] [-l <str>] [--verbose] [-v] [--
   --verbose            	Verbose log messages from wxWidgets
   -v, --version        	Print version information to stdout and exit
   --debug-startup      	Print diagnostic information related to startup of FileZilla
+
+______________________________________________________________________________
+
+errors on start
+    An error occurred loading the transfer queue from /home/asylbek/.config/filezilla/queue.sqlite3 some items might not have been restored 
+    Произошла ошибка при загрузке очереди передачи из /home/asylbek/.config/filezilla/queue.sqlite3 некоторые элементы могли не восстановиться
+
+errors on exit
+    An error occurred saving the transfer queue to /home/asylbek/.config/filezilla/queue.sqlite3 some items might not have been saved
+    Произошла ошибка при сохранении очереди передачи в /home/asylbek/.config/filezilla/queue.sqlite3 некоторые элементы могли не сохраниться
+
+solution
+    The queue file usually holds transfers added to the queue but not processed, yet. For a faster processing, the file is a database (SQLite). The file it shows in that error has become corrupted (this can happen with every version). Just delete this file and the error will vanish. FileZilla just generates a new, good file at the next start.
+    command
+        rm -f /home/asylbek/.config/filezilla/queue.sqlite3
+______________________________________________________________________________

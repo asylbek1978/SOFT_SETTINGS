@@ -1,0 +1,45 @@
+man
+	https://installati.one/rockylinux/8/dpkg/
+
+Ubuntu
+	install
+		apt install dpkg
+		
+Rocky Linux
+	install
+		//Update yum database with "dnf" using the following command.
+			sudo dnf makecache --refresh
+		dnf -y install dpkg
+
+		//Update yum database with "yum" using the following command.
+			sudo yum makecache --refresh
+		sudo yum -y install dpkg
+	uninstall
+		sudo dnf remove dpkg
+
+
+install from binaries  "file.bin"
+	cd to "file.bin"
+
+	// give permissions to all group users
+	chmod a+x "file.bin"
+	./"file.bin"
+
+Example
+	cd /home/a.abduvapov
+	chmod a+x alfresco-community-installer-201707-linux-x64.bin
+	./alfresco-community-installer-201707-linux-x64.bin
+
+//---------------------------------------------------------------
+//list last installed softs
+rpm -qa --last | head
+	nmap-7.70-6.el8.x86_64                        Sun 24 Jul 2022 11:13:24 AM +06
+	dpkg-1.20.9-4.el8.x86_64                      Sat 23 Jul 2022 04:14:56 PM +06
+	perl-TermReadKey-2.37-7.el8.x86_64            Sat 23 Jul 2022 11:18:29 AM +06
+	perl-Git-2.31.1-2.el8.noarch                  Sat 23 Jul 2022 11:18:29 AM +06
+	perl-Error-0.17025-2.el8.noarch               Sat 23 Jul 2022 11:18:29 AM +06
+	git-2.31.1-2.el8.x86_64                       Sat 23 Jul 2022 11:18:29 AM +06
+	git-core-doc-2.31.1-2.el8.noarch              Sat 23 Jul 2022 11:18:28 AM +06
+	git-core-2.31.1-2.el8.x86_64                  Sat 23 Jul 2022 11:18:27 AM +06
+	libSM-1.2.3-1.el8.x86_64                      Fri 22 Jul 2022 09:22:58 AM +06
+	libICE-1.0.9-15.el8.x86_64                    Fri 22 Jul 2022 09:22:57 AM +06

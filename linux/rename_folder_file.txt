@@ -1,0 +1,5 @@
+rename folder
+	mv <source_directory> <target_directory>
+
+	examples
+		mv /opt/idea-IC-222.3739.54 /opt/idea_community

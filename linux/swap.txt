@@ -1,0 +1,154 @@
+https://fornex.com/ru/help/swap/
+https://help.ubuntu.ru/wiki/swap
+https://habr.com/ru/post/540104/
+https://wiki.archlinux.org/title/Swap_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+
+Check if swap exists in system
+	swapon -s
+		//localhost server
+		Filename                Type        Size    Used    Priority  
+		/swapfile               file        40956   40956   -1		
+
+		//alfresco test server
+		Filename				Type		Size	    Used		Priority
+		/swapfile               file    	10485756	132			-1
+		/dev/dm-1               partition	999420		0			-2
+Check memory in system
+	free -m
+		//localhost server
+		              total        used        free      shared  buff/cache   available
+		Mem:          15946        5740         613         482        9591        9389
+		Swap:          2047           1        2046
+
+
+		//alfresco test server
+		              total        used        free      shared  buff/cache   available
+		Mem:           5966        5400         105          40         459         273
+		Swap:         11215          15       11200
+
+Create new swap with size 10GB
+	dd if=/dev/zero of=/swapfile bs=1M count=10240
+		10240+0 records in
+		10240+0 records out
+		10737418240 bytes (11 GB, 10 GiB) copied, 52,152 s, 206 MB/s
+Give only root permissions
+	chmod 600 /swapfile 
+Format file for swap
+	mkswap /swapfile 
+		Setting up swapspace version 1, size = 10 GiB (10737414144 bytes)
+		no label, UUID=621fde01-79eb-49cf-9136-2c76144c8c5e
+
+Enable swap on system start
+	nano /etc/fstab
+	//add
+		/swapfile      swap            swap    defaults        0       0
+	//save edited nano file
+	CTRL + O
+
+
+//----------------------------------------------------------------------------
+
+Additional
+cat /proc/swaps
+	//Alfresco test server
+	Filename	Type 		Size		Used		Priority
+	/swapfile   file		10485756	2764788		-1
+	/dev/dm-1   partition	999420		0			-2
+
+	//localhost
+	Filename	Type 		Size		Used		Priority
+	/swapfile   file		2097148	    2048	    -2
+grep swap /etc/fstab
+	//alfresco test server
+	/dev/mapper/alfresco--vg-swap_1 	none	swap 	sw 			0 	0
+	/swapfile      						swap    swap    defaults    0   0
+
+	//localhost
+	/swapfile                           none    swap    sw          0   0
+
+//swap file location
+	/dev/mapper/alfresco--vg-swap_1
+	/swapfile
+
+//swap properties
+	//alfresco test server
+		cd / && ls -l swapfile
+			-rw-r--r-- 1 root root 10737418240 июл 22 12:03 swapfile
+		cd / && ls -l /dev/mapper/alfresco--vg-swap_1
+			lrwxrwxrwx 1 root root 7 июл 22 12:06 /dev/mapper/alfresco--vg-swap_1 -> ../dm-1
+
+	//localhost
+		cd / && ls -l swapfile
+			-rw------- 1 root root 2147483648 Dec 14  2021 swapfile
+? //Отформатируйте файл под swap
+	mkswap /dev/mapper/alfresco--vg-swap_1
+		Setting up swapspace version 1, size = 976 MiB (1023406080 bytes)
+		no label, UUID=4fc141f6-92e2-457f-90e2-38f5f8e4d411
+
+? // ! Disable and remove:
+	sudo swapoff /swapfile
+	sudo rm /swapfile
+
+? //Create a 2Gb swapfile, set permissions, format it as swap and enable it:
+
+	sudo fallocate -l 2g /swapfile
+	sudo chmod 600 /swapfile
+	sudo mkswap /swapfile
+	sudo swapon /swapfile
+
+//----------------------------------------------------------------------------
+
+file /etc/fstab
+alfresco test server
+
+	# /etc/fstab: static file system information.
+	#
+	# Use 'blkid' to print the universally unique identifier for a
+	# device; this may be used with UUID= as a more robust way to name devices
+	# that works even if disks are added and removed. See fstab(5).
+	#
+	# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+	/dev/mapper/alfresco--vg-root /               ext4    errors=remount-ro 0       1
+	# /boot was on /dev/sda1 during installation
+	UUID=455308cd-7646-4876-a735-cc9c93884a10 /boot           ext2    defaults        0       2
+	/dev/mapper/alfresco--vg-swap_1 none            swap    sw              0       0
+	/dev/fd0        /media/floppy0  auto    rw,user,noauto,exec,utf8 0       0
+
+	# //10.120.108.11:/ais_alfresco  /media/ais_alfresco_backup  cifs username=admin,password=gkXlEOE9  0  0
+	/swapfile      swap            swap    defaults        0       0
+
+localhost
+
+	# /etc/fstab: static file system information.
+	#
+	# Use 'blkid' to print the universally unique identifier for a
+	# device; this may be used with UUID= as a more robust way to name devices
+	# that works even if disks are added and removed. See fstab(5).
+	#
+	# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+	# / was on /dev/sda2 during installation
+	UUID=129e9333-3234-414e-b491-716800d03a4f /               ext4    errors=remount-ro 0       1
+	# /boot/efi was on /dev/sda1 during installation
+	UUID=6551-086D  /boot/efi       vfat    umask=0077      0       1
+	/swapfile                                 none            swap    sw              0       0
+
+
+file /etc/fstab
+alfresco Rocky server
+
+	#
+	# /etc/fstab
+	# Created by anaconda on Mon Jul 18 09:14:37 2022
+	#
+	# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+	# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+	#
+	# After editing this file, run 'systemctl daemon-reload' to update systemd
+	# units generated from this file.
+	#
+	/dev/mapper/rl_test--ais--n--alf-root /                       ext4    defaults        1 1
+	UUID=6075bdc7-5467-4fc3-95ed-e0ab382844ce /boot                   ext4    defaults        1 2
+	UUID=4719-CC08          /boot/efi               vfat    umask=0077,shortname=winnt 0 2
+	/dev/mapper/rl_test--ais--n--alf-swap none                    swap    defaults        0 0
+
+//----------------------------------------------------------------------------

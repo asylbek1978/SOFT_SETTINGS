@@ -1,0 +1,110 @@
+Installation
+
+Download
+	https://www.postgresql.org/download/
+Ubuntu
+	https://www.postgresql.org/download/linux/ubuntu/
+Debian
+	https://www.postgresql.org/download/linux/debian/
+Rocky linux
+	https://www.postgresql.org/download/linux/redhat/
+
+//-------------------------------------------
+Ubuntu
+PostgreSQL Apt Repository
+
+	# Create the file repository configuration:
+	sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+	# Import the repository signing key:
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+	# Update the package lists:
+	sudo apt-get update
+
+	# Install the latest version of PostgreSQL.
+	# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+	sudo apt-get -y install postgresql
+	sudo apt-get -y install postgresql-12
+		postgresql-client-12	client libraries and client binaries
+		postgresql-12	core database server
+		libpq-dev	libraries and headers for C language frontend development
+		postgresql-server-dev-12	libraries and headers for C language backend development
+
+//-------------------------------------------
+
+Debian
+PostgreSQL Apt Repository
+
+	# Create the file repository configuration:
+	sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+	# Import the repository signing key:
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+	# Update the package lists:
+	sudo apt-get update
+
+	# Install the latest version of PostgreSQL.
+	# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+	sudo apt-get -y install postgresql
+	sudo apt-get -y install postgresql-12
+		postgresql-client-12	client libraries and client binaries
+		postgresql-12	core database server
+		libpq-dev	libraries and headers for C language frontend development
+		postgresql-server-dev-12	libraries and headers for C language backend development
+
+//-------------------------------------------
+https://www.postgresql.org/download/linux/redhat/
+
+PostgreSQL Yum Repository
+For Rocky 8
+	# Install the repository RPM:
+	sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+	# Disable the built-in PostgreSQL module:
+	sudo dnf -qy module disable postgresql
+
+	# Install PostgreSQL:
+	sudo dnf install -y postgresql14-server
+	|
+	sudo yum install -y postgresql14-server
+		postgresql-client	libraries and client binaries
+		postgresql-server	core database server
+		postgresql-contrib	additional supplied modules
+		postgresql-devel	libraries and headers for C language development
+
+Post-installation
+	Due to policies for Red Hat family distributions, the PostgreSQL installation will not be enabled for automatic start or have the database initialized automatically. To make your database installation complete, you need to perform the following steps, based on your distribution:
+
+	# Optionally initialize the database and enable automatic start:
+	sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
+		Initializing database ... OK
+	sudo systemctl enable postgresql-14
+		Created symlink /etc/systemd/system/multi-user.target.wants/postgresql-14.service → /usr/lib/systemd/system/postgresql-14.service.
+	sudo systemctl start postgresql-14
+
+//------------------------------------------
+
+Direct RPM download
+	https://yum.postgresql.org/rpmchart/
+		POSTGRESQL 14
+		https://yum.postgresql.org/14/redhat/rhel-8-x86_64/
+
+//------------------------------------------
+
+PostgreSQL Apt Repository.
+	https://apt.postgresql.org/
+
+
+
+File Browser
+	https://www.postgresql.org/ftp/
+
+Source
+	https://www.postgresql.org/ftp/source/	
+	https://www.postgresql.org/ftp/source/v14.5/
+		https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.bz2
+		https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.gz
+
+

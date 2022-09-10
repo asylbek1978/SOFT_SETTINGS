@@ -1,0 +1,26 @@
+
+You can copy the content of a folder "/source" to another existing folder "/dest" with the command
+
+cp -a /source/. /dest/
+	The "-a" option is an improved recursive option, that preserve all file attributes, and also preserve symlinks.
+	The "." at end of the source path is a specific cp syntax that allow to copy all files and folders, included hidden ones.
+	-a already implies --preserve=all, that is wider than -p = --preserve=mode,ownership,timestamps.
+	examples
+		cp -a /opt/alfresco-community/tomcat/webapps/alfresco/. /usr/local/tomcat/webapps/alfresco/
+		cp -a /opt/alfresco-community/tomcat/webapps/alfresco.war /usr/local/tomcat/webapps/alfresco.war
+		cp -a /opt/alfresco-community/tomcat/webapps/hello/. /usr/local/tomcat/webapps/hello/
+|
+cp -r ~/folder1/. ~/new_folder1
+
+Copy the directory dir_1 and its contents (files) into directory dir_2:
+	cp -r ./dir_1 ./dir_2
+	# or
+	cp -r ./dir_1/ ./dir_2/
+	# Results in: ./dir_2/dir_1/_files_
+
+Copy only the contents (files) of dir_1 into directory dir_2:
+
+	cp -r ./dir_1/. ./dir_2
+	# or
+	cp -r ./dir_1/. ./dir_2/
+	# Results in: ./dir_2/_files_

@@ -1,0 +1,30 @@
+download
+	https://github.com/doublecmd/doublecmd
+		doublecmd-1.0.2.zip
+	https://sourceforge.net/p/doublecmd/wiki/Download/
+		doublecmd-1.0.2.gtk2.x86_64.tar.xz
+
+install
+	sudo apt install doublecmd
+	||
+	/home/asylbek/SOFT/file_managers/doublecmd/doublecmd
+
+which doublecmd
+	/usr/bin/doublecmd
+
+locate doublecmd
+	/home/asylbek/.cache/doublecmd
+	/home/asylbek/.cache/doublecmd/thumbnails
+	/home/asylbek/Desktop/Link to doublecmd
+	/usr/bin/doublecmd
+	/usr/lib/doublecmd
+	/usr/share/doublecmd
+
+	/var/lib/dpkg/info/doublecmd-common.list
+	/var/lib/dpkg/info/doublecmd-common.md5sums
+	/var/lib/dpkg/info/doublecmd-plugins.list
+	/var/lib/dpkg/info/doublecmd-plugins.md5sums
+	/var/lib/dpkg/info/doublecmd-qt.list
+	/var/lib/dpkg/info/doublecmd-qt.md5sums
+
+	

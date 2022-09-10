@@ -1,0 +1,37 @@
+Red Hat
+	//Issue the following command to list currently open ports.
+	firewall-cmd --list-ports
+
+	//Issue the following command to list zones.
+	firewall-cmd --get-zones
+
+	//Issue the following command to list the zone containing eth0.
+	firewall-cmd --get-zone-of-interface=eth0
+
+	//Issue the following command to open port 1191 for TCP traffic.
+	firewall-cmd --add-port 1191/tcp
+
+	//Issue the following command to open port 1191 for TCP traffic after reboot. Use this command to make changes persistent.
+	firewall-cmd --permanent --add-port 1191/tcp
+
+	//Issue the following command to open a range a range of ports.
+	firewall-cmd --permanent --add-port 60000-61000/tcp
+
+	//Issue the following command to stop and start the firewall.
+	systemctl stop firewalld 
+
+	systemctl start firewalld
+
+//------------------------------------------------------------------
+
+Ubuntu/Debian
+
+	//Issue the following command to open port 1191 for TCP traffic.
+	sudo ufw allow 1191/tcp
+
+	//Issue the following command to open a range of ports.
+	sudo ufw allow 60000:61000/tcp
+
+	//Issue the following command to stop and start Uncomplicated Firewall (UFW).
+	sudo ufw disable 
+	sudo ufw enable

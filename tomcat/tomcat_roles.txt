@@ -1,0 +1,8 @@
+tomcat roles
+	https://tomcat.apache.org/tomcat-6.0-doc/manager-howto.html
+
+nano /usr/local/tomcat/conf/tomcat-users.xml
+add
+	<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<user username="admin" password="password" roles="manager-gui, manager-script"/>

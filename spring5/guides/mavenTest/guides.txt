@@ -1,0 +1,63 @@
+Building Java Projects with Maven
+	https://spring.io/guides/gs/maven/
+	
+cd /home/asylbek/spring_java/mavenDemo/
+
+Create files in /home/asylbek/spring_java/mavenDemo/src/main/java/hello folder
+	Greeter.java
+	HelloWorld.java
+
+Build project
+	mvn compile
+		[ERROR] Error executing Maven.
+		[ERROR] java.lang.IllegalStateException: Unable to load cache item
+		[ERROR] Caused by: Unable to load cache item
+		[ERROR] Caused by: Could not initialize class com.google.inject.internal.cglib.core.$MethodWrapper
+	/opt/apache-maven-3.8.6/bin/mvn compile
+		BUILD SUCCESS
+
+Run the application
+	running jar file
+	
+//-----------------------------
+Jar files
+
+Build the JAR file
+	./mvnw clean package
+	/opt/apache-maven-3.8.6/bin/mvn package
+		Building jar: /home/asylbek/spring_java/mavenDemo/target/gs-maven-0.1.0.jar
+		BUILD SUCCESS
+
+Run the JAR file
+	java -jar target/gs-maven-0.1.0.jar
+		The current local time is: 13:49:36.526
+		Hello world!
+//-----------------------------
+Jar -> War file
+https://spring.io/guides/gs/convert-jar-to-war/
+
+//-----------------------------
+Test
+	/opt/apache-maven-3.8.6/bin/mvn test
+		-------------------------------------------------------
+		 T E S T S
+		-------------------------------------------------------
+		Running hello.GreeterTest
+		Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+
+		Results :
+
+		Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+		
+Repo
+	https://github.com/spring-guides/gs-maven
+
+Git
+	https://github.com/spring-guides/gs-maven/archive/main.zip
+	git clone https://github.com/spring-guides/gs-maven.git
+	cd gs-maven/initial
+	gs-maven/complete
+
+
+When it comes to choosing a versioning scheme, Spring recommends the semantic versioning approach.
+	https://semver.org/
